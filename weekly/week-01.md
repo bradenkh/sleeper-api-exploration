@@ -140,12 +140,17 @@ Travis Etienne moved into the vacated FLEX slot. Roster back to **15/15**.
 **Still outstanding:** Mevis → Cam Little (kicker swap; uses no roster spot).
 Verified 2026-09-08: Mevis still rostered, Little still a free agent.
 
-### Confirmed: free agents add instantly
+### "Unowned" means two different things
 
-The Gadsden pickup posted as `free_agent` / `complete` with no waiver period.
-That resolves an open question — unrostered players can be added on demand,
-so Sunday-morning fixes are possible. Waivers only gate players another
-manager recently dropped. Recorded in `docs/api-notes.md`.
+The Gadsden pickup posted as `free_agent` / `complete` with no waiver period —
+he was never rostered, so he was a true free agent.
+
+**But Cam Little and Drake Maye are not.** TuR7L3z dropped both on 09-07, which
+puts them in the 2-day waiver period: they require a FAAB claim that processes on
+the waiver run, not an instant add. The API shows all three simply as "unowned".
+
+Practical rule: before assuming an unowned player can be grabbed on the spot,
+check whether they appear in a recent `drops`. Detail in `docs/api-notes.md`.
 
 ### Note on the drop
 
@@ -163,7 +168,9 @@ Most starters play Sunday 09-13, but two lock earlier:
 | Jaxon Smith-Njigba | SEA | **2026-09-09** (season opener, NE @ SEA) |
 | Harrison Mevis | LAR | **2026-09-10** (SF @ LAR) |
 
-The Mevis→Little swap has to happen before 09-10 or Mevis locks in.
+Original note said the Mevis→Little swap had to land before 09-10. That assumed
+an instant add — it is actually a **waiver claim** (Little was dropped 09-07), so
+the processing time is not mine to control. Submit the claim and let it run.
 
 ---
 
@@ -214,8 +221,13 @@ starts three), not need.
 
 - [x] **Remove Josh Jacobs from the lineup** — dropped outright; Etienne in FLEX
 - [x] **Add a backup TE** — Oronde Gadsden (bye 7) added; roster 15/15
-- [ ] **STILL OPEN — before 09-10:** drop Harrison Mevis → add Cam Little (K-JAX).
-      Swap, no roster spot needed. LAR plays 09-10; after kickoff Mevis locks in.
+- [ ] **STILL OPEN — submit now:** waiver claim for Cam Little (K-JAX), dropping
+      Harrison Mevis. **This is a claim, not an instant add** — Little was dropped
+      by TuR7L3z on 09-07 and is in the 2-day waiver period. Bid **$1**; kickers
+      are fungible and nobody else needs one. Processing time is shown on the
+      claim screen in the app. If it lands before the Rams' 09-10 game Little
+      kicks in Week 1; otherwise Mevis does and Little takes over Week 2. Either
+      way the real prize is the Week 11 bye fix.
 - [ ] **Sunday 09-13 AM:** if Tyler Warren is downgraded to Out, start Gadsden at TE
 - [ ] Do **not** send trade offers yet — nothing has happened to argue from.
       Playbook and timing in `docs/trade-targets.md`.

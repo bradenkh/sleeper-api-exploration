@@ -97,18 +97,36 @@ The highest-value weekly check is: for every starter, look at `injury_status`
 `player_id` is the team abbreviation (`"HOU"`), `position` is `DEF`, and
 `search_rank` is usually absent. Filter them separately when ranking.
 
-### Free agents add instantly; waivers are only for recently-dropped players
+### "Unowned" splits into two very different states
 
-Confirmed empirically on 2026-09-08: adding Oronde Gadsden (never rostered by
-anyone) posted as `type: free_agent`, `status: complete` immediately — no
-waiver period, no FAAB bid. So in this league an unrostered player can be
-picked up on the spot, including Sunday morning when a starter gets ruled out.
+An unrostered player is either an **instant-add free agent** or a **waiver
+claim**, and the API does not label which. The difference is whether anyone has
+recently dropped them.
 
-The `waiver_clear_days: 2` / Tuesday processing settings apply to players who
-were **dropped** by a manager and are sitting in the waiver period, not to
-players nobody has ever rostered. Practical consequence: don't burn a bench
-spot hoarding insurance that could be added on demand — but do hold it when a
-starter is Questionable and the decision lands at kickoff.
+| State | How it arises | How to get them |
+|---|---|---|
+| Free agent | never rostered this season | instant add, no bid |
+| On waivers | **dropped** by a manager within `waiver_clear_days` (2) | FAAB claim, processes on the waiver run |
+
+Confirmed empirically on 2026-09-08:
+
+- **Oronde Gadsden** — never rostered — posted as `free_agent` / `complete`
+  immediately, no waiver period, no bid.
+- **Cam Little** and **Drake Maye** — both dropped by TuR7L3z on 2026-09-07 —
+  are waiver claims, not instant adds, despite showing up as "unowned".
+
+**How to tell them apart:** scan `/transactions/{week}` for the player in
+`drops`. A recent drop means they're in the waiver period. There is no field on
+the player object for this.
+
+`fantasy_report.py` §7 now labels each unowned player `free agent` or
+**`WAIVER`**, reconstructing the waiver state from recent `drops` in the
+transaction log. Kickers are included there too, since a bye-week swap at K is a
+common cheap upgrade.
+
+Practical consequence: a Sunday-morning fix works only for never-rostered
+players. Insurance behind a Questionable starter is still worth a bench spot,
+because the obvious replacement may well be someone another manager just cut.
 
 ### Transactions are per-week and sparse
 

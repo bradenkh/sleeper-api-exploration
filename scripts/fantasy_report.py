@@ -160,6 +160,8 @@ def main():
     players, players_src = load_players(refresh=args.refresh_players)
     byes = load_byes()
 
+    league = get(f"/v1/league/{LEAGUE_ID}")
+    lsettings = league.get("settings", {})
     users = get(f"/v1/league/{LEAGUE_ID}/users")
     rosters = get(f"/v1/league/{LEAGUE_ID}/rosters")
     uname = {u["user_id"]: u.get("display_name") or u["user_id"] for u in users}
@@ -394,17 +396,44 @@ def main():
       "Rank lags real-world news and is listed as raw data, not a ranking "
       "endorsement — see docs/api-notes.md.")
     w("")
+    w("**How to get them** differs and the API does not say which is which: a "
+      "player nobody has rostered is an instant add, but one another manager "
+      "recently *dropped* sits in the waiver period and needs a FAAB claim. The "
+      "`WAIVER` tag below marks players dropped within the last "
+      f"`waiver_clear_days` ({lsettings.get('waiver_clear_days', '?')}) — "
+      "those cannot be grabbed on the spot.")
+    w("")
 
     rostered = set()
     for r in rosters:
         rostered.update(r.get("players") or [])
+
+    # Recently-dropped players are on waivers, not instantly addable. There is no
+    # field for this, so reconstruct it from the transaction log.
+    clear_days = lsettings.get("waiver_clear_days", 2)
+    cutoff_ms = dt.datetime.now().timestamp() * 1000 - clear_days * 86400 * 1000
+    on_waivers = {}
+    for wk in range(0, week + 1):
+        try:
+            txs = get(f"/v1/league/{LEAGUE_ID}/transactions/{wk}")
+        except Exception:
+            continue
+        for t in txs:
+            if t.get("status") != "complete":
+                continue
+            when = t.get("status_updated", 0)
+            if when < cutoff_ms:
+                continue
+            for pid in (t.get("drops") or {}):
+                if pid not in rostered:
+                    on_waivers[pid] = when
 
     avail = defaultdict(list)
     for pid, p in players.items():
         if pid in rostered or not p.get("team"):
             continue
         pos = p.get("position")
-        if pos not in ("QB", "RB", "WR", "TE"):
+        if pos not in ("QB", "RB", "WR", "TE", "K"):
             continue
         if p.get("status") != "Active":
             continue
@@ -413,18 +442,21 @@ def main():
             continue
         avail[pos].append((rank, pid, p))
 
-    for pos in ("QB", "RB", "WR", "TE"):
-        top = sorted(avail[pos])[:8]
+    for pos in ("QB", "RB", "WR", "TE", "K"):
+        # Kickers are near-interchangeable; a short list is enough to spot a
+        # better bye week without burying the positions that matter.
+        top = sorted(avail[pos])[: 5 if pos == "K" else 8]
         if not top:
             continue
         w(f"**{pos}**")
         w("")
-        w("| Rank | Player | Team | Bye | Injury |")
-        w("|---|---|---|---|---|")
+        w("| Rank | Player | Team | Bye | Injury | How to get |")
+        w("|---|---|---|---|---|---|")
         for rank, pid, p in top:
             t = p.get("team")
+            how = "**WAIVER** (claim + bid)" if pid in on_waivers else "free agent"
             w(f"| {rank} | {pname(players, pid)} | {t} | {byes.get(t) or '—'} "
-              f"| {p.get('injury_status') or '—'} |")
+              f"| {p.get('injury_status') or '—'} | {how} |")
         w("")
 
     ndef = sum(

@@ -176,7 +176,7 @@ the advice can be graded honestly.
 |---|---|---|---|
 | 2026-09-08 | Bench Josh Jacobs (NA, groin, GB depth 4) for Week 1 | **DONE** — dropped him outright, Etienne into FLEX | Roster 14/15, one bench spot open |
 | 2026-09-08 | Use open bench spot on **Oronde Gadsden (TE-LAC, bye 7)** — Warren is my only TE, Questionable now, and out Week 13 | **DONE** | Roster back to 15/15 |
-| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | **STILL OPEN** | Deadline 09-10 (LAR kickoff). Verified 09-08: not done. |
+| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | **STILL OPEN — waiver claim, bid $1** | Not an instant add: Little was dropped 09-07 and is in the 2-day waiver period. Submit and let it process. |
 | 2026-09-08 | Claim Drake Maye (8) — deferred behind the TE fix | Deferred | Still unowned 09-08. Trading him *for a TE* was checked and rejected — see below. |
 | Weeks 5–8 | Trade an RB (Hall 27 / Etienne 34) for a WR. Playbook in `docs/trade-targets.md` | Not yet sent | — |
 
@@ -191,6 +191,9 @@ one TE and cannot trade it without emptying a required slot. Maye's real trade
 path is a **WR from sworthy92**. Separately, TE scarcity is not a live risk:
 156 TEs are unowned and ~14 are startable.
 
-**Confirmed: free agents add instantly** (no waiver wait; waivers only gate
-recently-dropped players). So insurance can often be added on demand rather than
-hoarded — but still hold it when a starter's status resolves at kickoff.
+**"Unowned" is two states, and the API doesn't distinguish them.** Never-rostered
+players (Gadsden) add instantly. Recently-dropped players (Cam Little, Drake Maye
+— both cut by TuR7L3z on 09-07) sit in a 2-day waiver period and need a FAAB
+claim. Check `/transactions` for a recent drop before assuming a player can be
+grabbed on the spot. This also means a Sunday-morning injury fix only works for
+never-rostered players, so bench insurance still earns its spot.
