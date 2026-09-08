@@ -1,6 +1,6 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-08 (pre-Week 1)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-08 (pre-Week 1, post-moves)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
@@ -22,17 +22,19 @@ week and work the waiver wire while most of the league sleeps.
 
 ## 2. What I actually have
 
-**Strength: running back.** Six startable backs — Jonathan Taylor, Derrick
-Henry, Jeremiyah Love, Breece Hall, Travis Etienne, and (injured) Josh Jacobs.
-That is more than I can start. Surplus at a scarce position is trade capital.
+**Strength: running back.** Five startable backs — Jonathan Taylor (4), Derrick
+Henry (7), Jeremiyah Love (15), Breece Hall (27), Travis Etienne (34). That is
+more than I can start. Surplus at a scarce position is trade capital; Hall and
+Etienne are the tradeable ones. (Josh Jacobs was dropped in Week 1 — see §8.)
 
 **Weakness: wide receiver depth.** Jaxon Smith-Njigba and Drake London are
 genuinely good. Behind them, Mike Evans / Rome Odunze / Marvin Harrison Jr are
 all roughly interchangeable mid-tier guys. If either starter misses time, the
 drop-off is steep.
 
-**Fragility: tight end.** Tyler Warren is my *only* tight end, TE is a required
-starting slot, and he is out in Week 13 — one of my two worst weeks.
+**Was fragile, now covered: tight end.** Tyler Warren (48) is the starter and is
+Questionable; Oronde Gadsden (83, bye 7) was added in Week 1 as insurance behind
+him. TE is a required slot and Warren is out Week 13, so the backup matters.
 
 **Adequate: QB, K, DEF.** Jayden Daniels is a fine starter. Kicker and defense
 are streamable and shouldn't consume attention.
@@ -77,7 +79,14 @@ receiver. It uses an asset that cost nothing to fix the one hole I have.
 
 Caveat honestly stated: this depends on sworthy92 logging in and accepting. If
 they stay dormant, Maye is a bench-spot cost with no payoff. Roster is at 15/15
-with **no IR slot**, so bench space is genuinely scarce.
+with **no IR slot**, so bench space is genuinely scarce — which is why the spot
+went to TE insurance instead in Week 1.
+
+**Better first target: TuR7L3z.** He is the only manager actually active, and he
+rosters just **two** RBs (Gibbs, Barkley) against my five — a real hole he will
+feel the moment either one misses time. Ask: Hall (27) or Etienne (34) for
+**Ladd McConkey (35)**, upgrading my WR3 over Mike Evans (60). No dormant
+counterparty required. Full per-manager playbook in `docs/trade-targets.md`.
 
 ### 4.3 Spend FAAB deliberately, not early
 
@@ -106,21 +115,24 @@ advantage decays if they wake up — so front-load the value capture.
 Byes derived from the NFL schedule (`data/byes_2026.json`). Full table in
 `docs/league-reference.md`.
 
-### Week 11 — 4 players out
+### Week 11 — 3 players out
 
-Jaxon Smith-Njigba, Drake London (**both** starting WRs), Josh Jacobs, Harrison
-Mevis. Losing both starting receivers in one week, at my thinnest position.
+Jaxon Smith-Njigba, Drake London (**both** starting WRs), Harrison Mevis.
+Losing both starting receivers in one week, at my thinnest position. The pending
+Mevis → Cam Little swap drops this to 2, since Little's bye is Week 7.
 
 Note this is also the **trade deadline week**. A bad Week 11 score is a schedule
 artifact — do not let it panic a lopsided deadline trade.
 
 ### Week 13 — 4 players out, and the hardest matchup
 
-Jonathan Taylor, Derrick Henry, Breece Hall (three top RBs) **and** Tyler Warren
-(my only TE). Both required RB slots and the required TE slot, in the same week —
-against stalbot8, one of the league's two best rosters, who lose only two.
+Jonathan Taylor, Derrick Henry, Breece Hall (three top RBs) **and** Tyler Warren.
+Both required RB slots and the required TE slot, in the same week — against
+stalbot8, one of the league's two best rosters, who lose only two.
 
-This is the likeliest loss on the schedule. Plan for it in Week 10.
+**Partly solved already:** Gadsden (bye 7) now covers the TE slot. The RB hole
+remains — Etienne and Love are the survivors, so a third startable RB is worth
+having by Week 12. This is still the likeliest loss on the schedule.
 
 ### Where the schedule helps
 
@@ -141,14 +153,17 @@ the weekly logs as they emerge rather than trying to decide in December.
 
 ## 7. Open questions to revisit
 
-- Does Josh Jacobs recover and reclaim the Green Bay job? If not, he's droppable
-  given RB depth.
-- Does sworthy92 ever log in? The entire trade plan depends on it. If they're
-  dormant by ~Week 6, pivot to ajolson77 (WR-rich, RB-poor — a natural fit for
-  a straight RB-for-WR swap).
-- Is Tyler Warren real at TE, or does he need replacing outright?
-- Do dormant managers wake up once they start losing? Track login proxies
-  (transactions) weekly.
+- **Do the dormant four ever wake up?** Everything rests on this. Track it via
+  §4 of the weekly report (transactions are the only login proxy available).
+- **Does sworthy92 log in?** The Maye/QB trade needs them. Re-evaluate ~Week 6.
+  Note the fallback is **TuR7L3z**, not ajolson77 — see §4.2.
+- **Is Tyler Warren real at TE?** Gadsden is behind him now, so this is a
+  competition rather than a crisis.
+- **Third startable RB for Week 13?** Taylor, Henry, and Hall are all out that
+  week. Worth solving by Week 12.
+- **Correction to carry forward:** ajolson77's RB room is *not* weak — Omarion
+  Hampton is rank 12. Pitch him on WR redundancy (six receivers, starts three),
+  never on RB need.
 
 ---
 
@@ -160,11 +175,22 @@ the advice can be graded honestly.
 | Date | Action | Status | Outcome |
 |---|---|---|---|
 | 2026-09-08 | Bench Josh Jacobs (NA, groin, GB depth 4) for Week 1 | **DONE** — dropped him outright, Etienne into FLEX | Roster 14/15, one bench spot open |
-| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | Pending | LAR plays 09-10, so do it before then |
-| 2026-09-08 | Use open bench spot on **Oronde Gadsden (TE-LAC, bye 7)** — Warren is my only TE, Questionable now, and out Week 13 | Recommended | — |
-| 2026-09-08 | Claim Drake Maye (8) — deferred behind the TE fix; only worth a bench spot if the sworthy92 trade is actually pursued | Deferred | Still unowned as of 09-08 |
+| 2026-09-08 | Use open bench spot on **Oronde Gadsden (TE-LAC, bye 7)** — Warren is my only TE, Questionable now, and out Week 13 | **DONE** | Roster back to 15/15 |
+| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | **STILL OPEN** | Deadline 09-10 (LAR kickoff). Verified 09-08: not done. |
+| 2026-09-08 | Claim Drake Maye (8) — deferred behind the TE fix | Deferred | Still unowned 09-08. Trading him *for a TE* was checked and rejected — see below. |
 | Weeks 5–8 | Trade an RB (Hall 27 / Etienne 34) for a WR. Playbook in `docs/trade-targets.md` | Not yet sent | — |
 
 **Note on the Jacobs drop:** dropping rather than benching was the right call
 given no IR slot and five other RBs, but it means **MarShawn Lloyd (RB-GB, 102)**
 — the back who took his job — is unowned. Not a priority while TE is fragile.
+
+**Rejected: trading Drake Maye for a TE.** Checked against the rosters and it is
+structurally blocked. Only TuR7L3z holds a spare TE, and he already rosters three
+elite QBs, so Maye is worth nothing to him. Every other manager carries exactly
+one TE and cannot trade it without emptying a required slot. Maye's real trade
+path is a **WR from sworthy92**. Separately, TE scarcity is not a live risk:
+156 TEs are unowned and ~14 are startable.
+
+**Confirmed: free agents add instantly** (no waiver wait; waivers only gate
+recently-dropped players). So insurance can often be added on demand rather than
+hoarded — but still hold it when a starter's status resolves at kickoff.

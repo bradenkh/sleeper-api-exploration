@@ -97,6 +97,19 @@ The highest-value weekly check is: for every starter, look at `injury_status`
 `player_id` is the team abbreviation (`"HOU"`), `position` is `DEF`, and
 `search_rank` is usually absent. Filter them separately when ranking.
 
+### Free agents add instantly; waivers are only for recently-dropped players
+
+Confirmed empirically on 2026-09-08: adding Oronde Gadsden (never rostered by
+anyone) posted as `type: free_agent`, `status: complete` immediately — no
+waiver period, no FAAB bid. So in this league an unrostered player can be
+picked up on the spot, including Sunday morning when a starter gets ruled out.
+
+The `waiver_clear_days: 2` / Tuesday processing settings apply to players who
+were **dropped** by a manager and are sitting in the waiver period, not to
+players nobody has ever rostered. Practical consequence: don't burn a bench
+spot hoarding insurance that could be added on demand — but do hold it when a
+starter is Questionable and the decision lands at kickoff.
+
 ### Transactions are per-week and sparse
 
 `/transactions/{week}` returns `[]` for weeks with no activity. Loop weeks 0–18

@@ -38,7 +38,9 @@ whom are unowned free agents. He was drafted as a stud (rank 20 overall), which
 is exactly why the autodraft slotted him into the lineup and why this is easy to
 miss.
 
-**Fix:** start Breece Hall in that FLEX spot instead.
+**Resolved:** dropped him outright and moved Travis Etienne into the FLEX.
+Dropping beat benching because there is no IR slot and five other RBs made an
+injured 4th-stringer a luxury. See §5.
 
 The other "Questionable" tags (Odunze, Warren, Love, Evans, Hall) are all
 players sitting **1st on their depth chart** — normal Week 1 noise, not
@@ -108,17 +110,21 @@ Also: **25 of 32 defenses are unowned**, so DEF is fully streamable.
 > *and* a Week 7 bye instead of Week 11, which is one of my two crunch weeks.
 > Strictly better on both axes. (Ironically, TuR7L3z just dropped him.)
 
-**Blocked — roster is 15/15 with no IR slot:**
-> **Drake Maye, rank 8, sitting unowned.** The highest-value asset available all
-> season, probably. Requires dropping someone. Candidates: Josh Jacobs (injured,
-> 4th string, and I have five other RBs) or Marvin Harrison Jr (rank 74, but WR
-> is my thin spot).
+**Deferred — Drake Maye (8), still unowned:**
+> The best player on the wire, but a backup QB cannot be started. His only value
+> is as a trade chip, and the bench spot went to TE insurance instead. Revisit
+> once Warren's status settles.
 >
-> Worth it **only if** the sworthy92 trade gets pursued — a backup QB I can't
-> start has no standalone value. See §6.
+> Checked and rejected: trading Maye for a TE later. Only TuR7L3z holds a spare
+> TE, and he already has three elite QBs, so Maye is worth nothing to him. Every
+> other manager rosters exactly one TE and cannot give it up. Maye's real trade
+> path is **WR from sworthy92**, not TE.
 
-**Later — by Week 10:**
-> Add a second TE whose bye isn't Week 13. Gadsden (bye 7) or Kelce (bye 5).
+**Done — TE insurance:**
+> Added Oronde Gadsden (bye 7). Originally scheduled for Week 10, pulled forward
+> because Warren is Questionable now. Note the justification is *this week's
+> risk*, not scarcity: 156 TEs are unowned and ~14 are startable, so the position
+> will not dry up in a 6-team league.
 
 ---
 
@@ -127,11 +133,19 @@ Also: **25 of 32 defenses are unowned**, so DEF is fully streamable.
 | In | Out | Reason |
 |---|---|---|
 | — | Josh Jacobs (RB-GB) | `NA` with groin injury, 4th on GB depth chart. Dropped rather than benched: no IR slot, and five other RBs made him a luxury. |
+| Oronde Gadsden (TE-LAC) | — | Insurance behind Tyler Warren, who is my only TE, Questionable this week, and on bye Week 13. Bye week 7 avoids both crunch weeks. |
 
-Travis Etienne moved into the vacated FLEX slot. Roster now **14/15** with one
-open bench spot.
+Travis Etienne moved into the vacated FLEX slot. Roster back to **15/15**.
 
-**Still pending:** Mevis → Cam Little (kicker swap, uses no roster spot).
+**Still outstanding:** Mevis → Cam Little (kicker swap; uses no roster spot).
+Verified 2026-09-08: Mevis still rostered, Little still a free agent.
+
+### Confirmed: free agents add instantly
+
+The Gadsden pickup posted as `free_agent` / `complete` with no waiver period.
+That resolves an open question — unrostered players can be added on demand,
+so Sunday-morning fixes are possible. Waivers only gate players another
+manager recently dropped. Recorded in `docs/api-notes.md`.
 
 ### Note on the drop
 
@@ -167,15 +181,26 @@ rank 60–74. Lateral. Only a trade fixes it, and trades die at Week 11.
 offer a QB to sworthy92 for a receiver.
 
 **Risk, stated plainly:** sworthy92 is dormant. If they never log in, this plan
-has no counterparty. Fallback is ajolson77 — WR-rich, RB-poor (unproven rookies
-behind McCaffrey) — a natural straight RB-for-WR swap, and I have RB surplus.
+has no counterparty.
+
+**Better first target: TuR7L3z.** He is the only active manager and rosters just
+**two** RBs (Gibbs, Barkley) against my five. Ask: Hall (27) or Etienne (34) for
+Ladd McConkey (35), upgrading my WR3 over Mike Evans (60). Full playbook in
+`docs/trade-targets.md`.
+
+Correction to an earlier read: ajolson77's RB room is **not** weak — Omarion
+Hampton is rank 12, a real RB2. Pitch him on WR *redundancy* (six receivers,
+starts three), not need.
 
 ### Open questions
 
-- **Josh Jacobs:** does he recover and reclaim the GB job? If not, he's the
-  cleanest drop on the roster given six RBs.
-- **sworthy92 responsive?** Entire trade plan depends on it. Re-evaluate ~Week 6.
-- **Tyler Warren at TE:** only TE on roster, and Questionable. Real or replace?
+- **Does anyone wake up?** Four of five opponents have made zero moves. The whole
+  edge rests on this. Watch §4 of the report each week.
+- **sworthy92 responsive?** The Maye/QB trade depends on it. Re-evaluate ~Week 6.
+- **Tyler Warren at TE:** Questionable, and now backed up by Gadsden. If Warren
+  underperforms outright, Gadsden or a better free-agent TE takes the job.
+- **MarShawn Lloyd (RB-GB, 102):** unowned, inherited Jacobs's carries. Only
+  relevant if my RB room thins.
 
 **Keeper candidates:** none yet — nothing has been played.
 
@@ -187,9 +212,10 @@ behind McCaffrey) — a natural straight RB-for-WR swap, and I have RB surplus.
 
 ### Actions before Week 1 kickoff
 
-- [x] **Remove Josh Jacobs from the lineup** — done, dropped outright; Etienne in FLEX
-- [ ] **Before 09-10:** drop Harrison Mevis → add Cam Little (K-JAX). Swap, no spot needed.
-- [ ] **Before 09-13:** use the open bench spot on Oronde Gadsden (TE-LAC, bye 7)
-- [ ] Confirm the lineup shows 10 starters with no empty slots
+- [x] **Remove Josh Jacobs from the lineup** — dropped outright; Etienne in FLEX
+- [x] **Add a backup TE** — Oronde Gadsden (bye 7) added; roster 15/15
+- [ ] **STILL OPEN — before 09-10:** drop Harrison Mevis → add Cam Little (K-JAX).
+      Swap, no roster spot needed. LAR plays 09-10; after kickoff Mevis locks in.
+- [ ] **Sunday 09-13 AM:** if Tyler Warren is downgraded to Out, start Gadsden at TE
 - [ ] Do **not** send trade offers yet — nothing has happened to argue from.
       Playbook and timing in `docs/trade-targets.md`.
