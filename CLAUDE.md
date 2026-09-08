@@ -66,18 +66,31 @@ Gotchas learned the hard way — see `docs/api-notes.md` for the full list:
 
 ## Weekly workflow
 
-This is the routine to run each week. Full checklist in `weekly/TEMPLATE.md`.
+Start by running the report script — it does the mechanical data gathering:
 
-1. `GET /v1/state/nfl` to confirm the current week.
-2. Pull rosters, matchups, and transactions for the completed week.
-3. Diff against last week's entry in `weekly/`:
-   - What did each manager add/drop? Who is active vs. dormant?
-   - Any trades? (There have been none so far.)
-   - Injury/depth-chart changes on Braden's roster.
-4. Check Braden's lineup for **injured or bye-week starters** — this is the
-   single highest-value check and has already caught one real problem.
-5. Write `weekly/week-NN.md` from the template.
-6. Update `STRATEGY.md` if the plan actually changed. Don't churn it otherwise.
+```bash
+python3 scripts/fantasy_report.py                    # current week, to stdout
+python3 scripts/fantasy_report.py --out weekly/week-03-report.md
+python3 scripts/fantasy_report.py --week 13          # look ahead
+```
+
+**The script is report-only by design.** It states facts and flags anomalies;
+it does not recommend lineups or rank players. That is deliberate — ranking
+heuristics go stale (`search_rank` had Josh Jacobs at rank 20 while he was
+listed `NA` and 4th on the depth chart), and baking judgment into a file means
+nobody argues with it. Interpretation happens in conversation. **Keep it that
+way** — if asked to extend the script, add signals, not opinions.
+
+Then:
+
+1. Read the report's §2 (league-wide lineup audit) and §4 (manager activity).
+2. Diff against last week's entry in `weekly/`: what changed, who woke up.
+3. Write `weekly/week-NN.md` from the template, adding the judgment the script
+   deliberately omits.
+4. Update `STRATEGY.md` only if the plan actually changed. Don't churn it.
+
+The single highest-value check is **starters who cannot play** — the script's
+"Cannot play" column. It has already caught one real problem.
 
 ## Repo conventions
 

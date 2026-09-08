@@ -5,3 +5,8 @@ data/players.json
 # scratch
 *.tmp
 .DS_Store
+
+# cached player dictionary (~14MB)
+.cache/
+__pycache__/
+*.pyc
