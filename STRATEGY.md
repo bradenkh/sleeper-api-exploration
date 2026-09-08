@@ -159,8 +159,12 @@ the advice can be graded honestly.
 
 | Date | Action | Status | Outcome |
 |---|---|---|---|
-| 2026-09-08 | Bench Josh Jacobs (NA, groin, GB depth 4) for Week 1 | Recommended | — |
-| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | Recommended | — |
-| 2026-09-08 | Claim Drake Maye (rank 8, free) — conditional on pursuing the sworthy92 trade | Recommended, roster full | Blocked: 15/15, needs a drop |
-| 2026-09-08 | Offer QB to sworthy92 for a WR | Not yet sent | — |
-| By Week 10 | Add a backup TE with a non-Week-13 bye (Gadsden W7 / Kelce W5) | Scheduled | — |
+| 2026-09-08 | Bench Josh Jacobs (NA, groin, GB depth 4) for Week 1 | **DONE** — dropped him outright, Etienne into FLEX | Roster 14/15, one bench spot open |
+| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | Pending | LAR plays 09-10, so do it before then |
+| 2026-09-08 | Use open bench spot on **Oronde Gadsden (TE-LAC, bye 7)** — Warren is my only TE, Questionable now, and out Week 13 | Recommended | — |
+| 2026-09-08 | Claim Drake Maye (8) — deferred behind the TE fix; only worth a bench spot if the sworthy92 trade is actually pursued | Deferred | Still unowned as of 09-08 |
+| Weeks 5–8 | Trade an RB (Hall 27 / Etienne 34) for a WR. Playbook in `docs/trade-targets.md` | Not yet sent | — |
+
+**Note on the Jacobs drop:** dropping rather than benching was the right call
+given no IR slot and five other RBs, but it means **MarShawn Lloyd (RB-GB, 102)**
+— the back who took his job — is unowned. Not a priority while TE is fragile.

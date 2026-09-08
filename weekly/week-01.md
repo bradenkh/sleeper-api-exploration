@@ -124,7 +124,32 @@ Also: **25 of 32 defenses are unowned**, so DEF is fully streamable.
 
 ## 5. My roster changes
 
-None executed yet. Pending: Mevis → Cam Little.
+| In | Out | Reason |
+|---|---|---|
+| — | Josh Jacobs (RB-GB) | `NA` with groin injury, 4th on GB depth chart. Dropped rather than benched: no IR slot, and five other RBs made him a luxury. |
+
+Travis Etienne moved into the vacated FLEX slot. Roster now **14/15** with one
+open bench spot.
+
+**Still pending:** Mevis → Cam Little (kicker swap, uses no roster spot).
+
+### Note on the drop
+
+Dropping Jacobs was right on the roster math, but it does put **MarShawn Lloyd
+(RB-GB, rank 102)** — the back who leapfrogged him — on the open market. Not
+worth chasing while TE is a single point of failure, but worth noting if the RB
+room thins out.
+
+### Week 1 game timing
+
+Most starters play Sunday 09-13, but two lock earlier:
+
+| Player | Team | Game |
+|---|---|---|
+| Jaxon Smith-Njigba | SEA | **2026-09-09** (season opener, NE @ SEA) |
+| Harrison Mevis | LAR | **2026-09-10** (SF @ LAR) |
+
+The Mevis→Little swap has to happen before 09-10 or Mevis locks in.
 
 ---
 
@@ -160,9 +185,11 @@ behind McCaffrey) — a natural straight RB-for-WR swap, and I have RB surplus.
 
 **Week 2 opponent:** HntrRundas · **My byes:** 0 · **Their byes:** 0
 
-### Actions before Week 1 kickoff (2026-09-09)
+### Actions before Week 1 kickoff
 
-- [ ] **Bench Josh Jacobs, start Breece Hall** ← the one that matters
-- [ ] Drop Harrison Mevis, add Cam Little (K-JAX)
-- [ ] Decide on Drake Maye + whether to pursue the sworthy92 trade
-- [ ] If pursuing: send the trade offer while there's a full season of runway
+- [x] **Remove Josh Jacobs from the lineup** — done, dropped outright; Etienne in FLEX
+- [ ] **Before 09-10:** drop Harrison Mevis → add Cam Little (K-JAX). Swap, no spot needed.
+- [ ] **Before 09-13:** use the open bench spot on Oronde Gadsden (TE-LAC, bye 7)
+- [ ] Confirm the lineup shows 10 starters with no empty slots
+- [ ] Do **not** send trade offers yet — nothing has happened to argue from.
+      Playbook and timing in `docs/trade-targets.md`.
