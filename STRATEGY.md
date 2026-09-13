@@ -1,6 +1,7 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-13 (Week 1 in progress)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-13 (Week 1 in progress; revised against published
+fantasy strategy — see §9 for what changed and why)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
@@ -22,10 +23,14 @@ week and work the waiver wire while most of the league sleeps.
 
 ## 2. What I actually have
 
-**Strength: running back.** Five startable backs — Jonathan Taylor (4), Derrick
-Henry (7), Jeremiyah Love (15), Breece Hall (27), Travis Etienne (34). That is
-more than I can start. Surplus at a scarce position is trade capital; Hall and
-Etienne are the tradeable ones. (Josh Jacobs was dropped in Week 1 — see §8.)
+**Strength: running back — but the "surplus" is one player, not two.** Five
+backs: Taylor (4), Henry (7), Love (15), Hall (27), Etienne (34). **Four of them
+start** — Taylor and Henry at RB, Love and Etienne in the two FLEX slots. Only
+**Hall** is genuine surplus.
+
+Corrected 2026-09-13: this section previously claimed Hall *and* Etienne were
+tradeable. Trading Etienne would force a WR ranked 60+ into a FLEX slot — a
+downgrade, not consolidation. One tradeable back, not two.
 
 **Weakness: wide receiver depth.** Jaxon Smith-Njigba and Drake London are
 genuinely good. Behind them, Mike Evans / Rome Odunze / Marvin Harrison Jr are
@@ -37,8 +42,14 @@ was dropped on 09-13 (a mistake, see §8). TE is a required slot, so this is a
 single point of failure once more, and Gadsden's **Week 7 bye is now uncovered**.
 Either reclaim Warren off waivers or add a second TE whose bye is not Week 7.
 
-**Adequate: QB, K, DEF.** Jayden Daniels is a fine starter. Kicker and defense
-are streamable and shouldn't consume attention.
+**Adequate QB; K and DEF are an active scoring opportunity, not an afterthought.**
+Jayden Daniels is a fine starter. Kicker and defense should be **streamed on
+matchup every week** — defenses in the week's five best matchups average ~10.4
+points, more than a point per game above even a top-five season-long defense, and
+streamed kickers grade out around K4. Two minutes a week for real points.
+
+Corrected 2026-09-13: previously said these "shouldn't consume attention." That
+was wrong and left points on the table.
 
 ---
 
@@ -91,17 +102,56 @@ with **no IR slot**, so bench space is genuinely scarce — which is why the spo
 went to TE insurance instead in Week 1.
 
 **Better first target: TuR7L3z.** One of two managers actually active, and he
-rosters just **two** RBs (Gibbs, Barkley) against my five — a real hole he will
-feel the moment either one misses time. Ask: Hall (27) or Etienne (34) for
+rosters just **two** RBs (Gibbs, Barkley) against my five. Ask: **Hall (27)** for
 **Ladd McConkey (35)**, upgrading my WR3 over Mike Evans (60). No dormant
 counterparty required. Full per-manager playbook in `docs/trade-targets.md`.
 
-### 4.3 Spend FAAB deliberately, not early
+**Pitch it as an upgrade, not a rescue.** Corrected 2026-09-13: I had him as
+*desperate* for RBs. He is not — **Rhamondre Stevenson (58) is on the wire** and
+he can patch for $1. Claiming he is stuck is both false and transparently so,
+which costs credibility with an active manager.
 
-$100 for the whole season, no refill. Most league-winning pickups come from
-Weeks 2–6 as injuries reshuffle roles. Guideline: don't exceed ~$25 on any
-single player before Week 8 unless they're a clear every-week starter, and keep
-$25+ in reserve for the Week 10–11 bye-week stocking.
+The leverage that *is* real: the best free RB is rank 58, and **Hall is 27**. The
+wire cannot replace a back that good. Sell the gap between 27 and 58, not a hole
+he does not have.
+
+**One tradeable back, not two** (see §2). And per the consolidation research,
+don't trade depth away when the bench is already thin — right now the bench is
+Hall plus three middling WRs, so Hall is the only piece that can leave.
+
+### 4.3 Spend FAAB aggressively and early — do not hoard
+
+**Reworked 2026-09-13.** The old rule here (cap ~$25 per player before Week 8,
+reserve $25+ for bye weeks) was too conservative on both counts and would have
+cost me a league-winner.
+
+$100 for the season, no refill, and **unused budget expires worthless.** Tiers:
+
+| Player type | Bid |
+|---|---|
+| True league-winner (a backup inheriting a full starting job) | **40–70%+** |
+| Solid new weekly starter | 15–30% |
+| Flex-worthy upside add | 5–12% |
+| Streamer (bye fill, matchup DEF/K) | **$1–4** |
+
+Two things the old rule got backwards:
+
+1. **Be aggressive early.** The biggest pickups come in the first weeks, when a
+   role opens up and the player is available to everyone. A $25 cap loses those.
+2. **Do not reserve budget for bye weeks.** Bye fills are $1–4 streamers. There
+   is nothing to save up for. By mid-November the pool of league-changing adds
+   has dried up, so budget still sitting there past ~Week 10 was wasted.
+
+### 4.3b Churn the bench — this league is shallow
+
+Short-bench leagues reward activity over stockpiling: the wire holds startable
+fill-ins that deeper leagues would have absorbed, so **middling depth on my bench
+is worth less than the next add off the wire.** The test is simple — if I cannot
+picture starting a player, he goes back.
+
+Applied now: Evans (60), Odunze (64), and Harrison Jr (73) are exactly that
+middling tier. Hall (27) is not — he is better than anything on the wire and is
+the trade chip.
 
 ### 4.4 Pre-load for Weeks 11 and 13
 
@@ -109,12 +159,55 @@ These are the two weeks the schedule breaks against me. Detail in §5. The fix i
 boring and works: acquire the fill-ins in Week 9–10, *before* the crunch, when
 they're cheap and available.
 
+### 4.4b Stream the defense off collision weeks
+
+My defense scores by stopping opposing offenses, so starting it against **my own**
+players is the one roster conflict with no offsetting upside. Houston collides
+seven times:
+
+| Week | Game | My player on the other side |
+|---|---|---|
+| 3 | HOU @ IND | Jonathan Taylor |
+| 6 | HOU @ JAX | Cam Little |
+| 9 | HOU @ LAC | Oronde Gadsden |
+| 11 | IND @ HOU | Jonathan Taylor |
+| 12 | BAL @ HOU | Derrick Henry |
+| 14 | HOU @ WAS | Jayden Daniels |
+| 15 | JAX @ HOU | Cam Little |
+
+Fix is nearly free — 25 of 32 defenses are unowned, and §2 now says to stream on
+matchup anyway. Weeks 3, 11 and 12 matter most (Taylor, Henry). Never bench a
+starter to protect a defense; move the defense.
+
+Two players of mine simply *sharing* a game (Taylor vs Henry in Week 1) is a much
+weaker effect and happens **40 times this season** — unavoidable, and not worth
+managing around.
+
+### 4.4c Match variance to the opponent
+
+Rostering players in the same game changes my score's **variance, not its
+expected value**. Whether that is good depends on whether I am favored:
+
+| Situation | Want | Opponents |
+|---|---|---|
+| Favored | **Low** variance — protect the edge | TuR7L3z |
+| Even | neutral | HntrRundas, ajolson77 |
+| Underdog | **High** variance — need an outlier | **sworthy92 (W5, W10), stalbot8 (W3, W8, W13)** |
+
+In those five underdog weeks, prefer the boom/bust option (e.g. Harrison Jr) over
+the safer floor. This is a tiebreaker between close options, never a reason to
+bench a clearly better player.
+
 ### 4.5 Exploit dormancy — and note that it is already decaying
 
 **Updated 2026-09-13: three of five opponents are dormant, down from four.**
 HntrRundas logged in on 09-12 and correctly replaced an injured Brock Bowers
 with Mark Andrews — real management, not autodraft cleanup. TuR7L3z was already
 active.
+
+Published shallow-league advice backs this up directly: *being one of the most
+active managers is paramount* when benches are short and the wire is rich. The
+core thesis is sound; the window is what's closing.
 
 The advantage is still real (ajolson77 started an IR player in Week 1), but it
 is shrinking. Two consequences:
@@ -233,3 +326,34 @@ players (Gadsden) add instantly. Recently-dropped players (Cam Little, Drake May
 claim. Check `/transactions` for a recent drop before assuming a player can be
 grabbed on the spot. This also means a Sunday-morning injury fix only works for
 never-rostered players, so bench insurance still earns its spot.
+
+---
+
+## 9. Revision log — strategy reviewed against published advice (2026-09-13)
+
+Audited this plan against current fantasy strategy writing. Four things changed,
+one was validated, one caveat was added. Sources at the bottom.
+
+| § | Verdict | What changed |
+|---|---|---|
+| 4.3 FAAB | **Reworked** | Old rule (cap $25/player pre-Week 8, reserve $25 for byes) was too conservative *and* backwards on byes. Replaced with tiered bids and spend-early. |
+| 2 K/DEF | **Reworked** | "Shouldn't consume attention" was wrong. Streaming on matchup is worth ~1+ pt/game at DEF. |
+| 2 RB surplus | **Corrected** | Claimed two tradeable backs; it is one. Four of five RBs start. |
+| 4.2 trade pitch | **Corrected** | TuR7L3z is not desperate for RBs — Stevenson (58) is free on the wire. Sell the 27-vs-58 gap instead. |
+| 4.3b bench | **Added** | Shallow leagues punish hoarding middling depth. Churn it. |
+| 4.5 dormancy | **Validated** | "Being one of the most active managers is paramount" in short-bench leagues — the core thesis holds. |
+| 4.2 consolidation | **Caveat added** | Trading depth for a star is right *with true surplus*; don't do it with a thin bench. |
+
+**Sources:**
+[4for4 — Ultimate Guide to Waiver Wire & FAAB Strategy](https://www.4for4.com/2025/preseason/ultimate-guide-waiver-wire-faab-strategy-2025) ·
+[FantasyPros — FAAB Waiver Wire Strategy](https://www.fantasypros.com/2025/09/fantasy-football-faab-waiver-wire-strategy-advice/) ·
+[FantasyPros — Shallow League Tips](https://www.fantasypros.com/2026/08/fantasy-football-strategy-4-tips-for-shallow-leagues-2026/) ·
+[Athlon — Short-Bench Leagues](https://athlonsports.com/fantasy/fantasy-football-strategy-shallow-bench-leagues) ·
+[DraftSharks — Streaming Defense](https://www.draftsharks.com/article/streaming-defense) ·
+[SI — Positional Streaming Strategies](https://www.si.com/onsi/fantasy/nfl/fantasy-football-positional-streaming-strategies-redraft-leagues) ·
+[FantraxHQ — In-Season Trade Strategy](https://fantraxhq.com/in-season-fantasy-football-trade-strategy-for-2026/)
+
+**Standing caution:** this advice is written for 10–12 team leagues. In a 6-team
+league the wire is far richer than any of these authors assume, which makes the
+shallow-league and churn advice *more* applicable, and any "scarcity" claim
+*less* so. Check scarcity against the actual wire before believing it.

@@ -11,19 +11,26 @@ best TE ~22, kickers ~134+. It lags real-world news — directional, not fact.
 
 ## My trading position
 
-**Surplus: running back.** Taylor (4), Henry (7), Love (15), Hall (27),
-Etienne (34). Five backs, two RB slots plus two FLEX. Hall and Etienne are the
-tradeable ones.
+**Surplus: exactly one running back.** Taylor (4), Henry (7), Love (15),
+Hall (27), Etienne (34) — but **four of them start** (Taylor/Henry at RB,
+Love/Etienne at FLEX). **Hall is the only genuine surplus piece.**
+
+Corrected 2026-09-13: this doc previously listed Hall *and* Etienne as tradeable.
+Moving Etienne would push a WR ranked 60+ into a FLEX slot — a downgrade.
 
 **Need: wide receiver.** Smith-Njigba (6) and London (19) are real. Then a cliff
 to Evans (60), Odunze (64), Harrison Jr (74).
 
-**Need: tight end.** Warren (48) is my only TE, TE is a required slot, and he's
-on bye Week 13.
+**Need: tight end.** **Gadsden (83) is my only TE** after Warren was dropped on
+09-13. TE is a required slot and Gadsden is **out Week 7**, so this is a live
+hole, not a depth preference.
 
-**The trade that fixes me:** an RB in the 27–34 band for a WR in the 23–38 band.
-Fair value both ways, and it converts surplus at a deep position into a starter
-at a thin one.
+**The trade that fixes me:** **Hall (27)** for a WR in the 23–38 band. Fair value
+both ways, and it converts my one surplus piece into a starter at a thin spot.
+
+**Consolidation caveat:** trading depth for a star is right when there is true
+surplus, wrong when the bench is already thin. My bench is Hall plus three
+middling WRs — so Hall can leave, and nothing else can.
 
 ---
 
@@ -36,7 +43,7 @@ counterparties.
 | Manager | WRs rostered | RBs rostered | Their real need |
 |---|---|---|---|
 | HntrRundas | 6 | 5 | balanced, no urgent hole |
-| **TuR7L3z** | 4 (1 good) | **2** | **running back, badly** |
+| **TuR7L3z** | 4 (1 good) | **2** | running back — but patchable off the wire |
 | ajolson77 | 6 | 5 | WR redundancy to convert |
 | sworthy92 | 5 | 6 | **quarterback** (Stafford, 66) |
 | stalbot8 | 6 | 5 | WR redundancy to convert |
@@ -45,8 +52,8 @@ counterparties.
 
 ## 1. TuR7L3z — best target
 
-**Why first:** the **only active manager** (3 free-agent moves already), so he
-actually opens the app. And he has a genuine hole.
+**Why first:** one of only two active managers, so he actually opens the app.
+And he has a genuine hole.
 
 | Pos | Roster |
 |---|---|
@@ -58,12 +65,22 @@ actually opens the app. And he has a genuine hole.
 Two running backs. One injury and he's starting an empty slot. He also has two
 elite QBs he can never use.
 
-**Ask:** Breece Hall (27) or Travis Etienne (34) → **Ladd McConkey (35)**
+**Ask:** **Breece Hall (27)** → **Ladd McConkey (35)**
 
 Upgrades my WR3 from Evans (60) to McConkey (35); gives him a third back.
 
-**Pitch:** "You're two deep at RB and I've got five. I'm thin at receiver.
-Want to fix both?"
+### Pitch it as an upgrade, not a rescue
+
+**Corrected 2026-09-13.** I had him as *desperate* for running backs. He is not —
+**Rhamondre Stevenson (58) is sitting unowned** and he can patch the hole for $1.
+An active manager will see through "you're stuck," and it costs credibility.
+
+The leverage that is actually real: **the best free RB is rank 58; Hall is 27.**
+The wire cannot replace a back that good. Sell that gap.
+
+**Pitch:** "You can grab Stevenson off the wire, but Hall is a different tier —
+27 versus 58. I'm deep at RB and thin at receiver; McConkey is your WR4. Straight
+up?" Naming the free alternative myself is what makes the rest credible.
 
 **Stretch:** he has three elite QBs. Lamar (10) or Burrow (15) would upgrade
 Daniels (20) — but I can only start one QB, so this only matters as part of the
@@ -80,11 +97,12 @@ sworthy92 sequence below.
 
 Six receivers, starts three. Olave/Smith/Wilson/Flowers are surplus.
 
-**Ask:** Hall (27) or Etienne (34) → **Chris Olave (30)** or **DeVonta Smith (33)**
+**Ask:** **Hall (27)** → **Chris Olave (30)** or **DeVonta Smith (33)**
 
 **Pitch:** lead with *redundancy*, not need. His RB room is fine — Hampton at 12
 is a real RB2 — so "you need RBs" is not true and he'll know it. "You've got six
-receivers and can start three; I've got five backs and can start four" is true.
+receivers and can start three; I've got five backs and can start four" is true
+and is the whole argument.
 
 ---
 
@@ -158,9 +176,10 @@ nobody opens does nothing. A text — "sent you something, look at your RB depth
 
 ## The cost of prodding
 
-The single biggest edge this season is that **four of five managers have not
-opened the app since the autodraft**. They're leaving startable free agents on
-the wire and will start players on bye.
+The single biggest edge this season is dormancy — though it is **already
+decaying: three of five opponents remain dormant, down from four** (HntrRundas
+logged in 09-12). The remaining three still leave startable free agents on the
+wire and start players on bye — ajolson77 started an IR player in Week 1.
 
 A group-chat nudge like "everyone check your lineups" wakes the whole league and
 costs more than any single trade gains.
@@ -169,6 +188,14 @@ costs more than any single trade gains.
 the league is asleep.
 
 ---
+
+## Before believing any scarcity claim, check the wire
+
+Published trade advice assumes 10–12 team leagues. **This league has six.** Only
+~90 of ~660 relevant players are rostered, so "he has no other option" is almost
+never true here. Before pitching a trade on scarcity, pull the unowned list at
+that position — `scripts/fantasy_report.py` §7 — and see what the other side can
+get for a $1 claim. That number is the real floor on what they'll pay.
 
 ## The line
 
