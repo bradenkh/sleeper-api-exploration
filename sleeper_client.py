@@ -5,7 +5,10 @@ The Sleeper API requires no authentication or API key. See https://docs.sleeper.
 from __future__ import annotations
 
 import json
+import os
 import sys
+import tempfile
+import time
 import urllib.request
 import urllib.error
 
@@ -41,6 +44,62 @@ def get_leagues(user_id: str, season: str, sport: str = "nfl"):
 def get_league_users(league_id: str):
     """Every member of a league (user_id, username, display_name, ...)."""
     return _get(f"league/{league_id}/users") or []
+
+
+def get_league(league_id: str):
+    """Full league object (settings, roster_positions, scoring, status, ...)."""
+    return _get(f"league/{league_id}")
+
+
+def get_rosters(league_id: str):
+    """Every roster in a league (owner_id, players, starters, wins/losses/fpts)."""
+    return _get(f"league/{league_id}/rosters") or []
+
+
+def get_matchups(league_id: str, week: int):
+    """All matchup entries for a given week (one per roster, grouped by matchup_id)."""
+    return _get(f"league/{league_id}/matchups/{week}") or []
+
+
+def get_transactions(league_id: str, week: int):
+    """All transactions (adds/drops, waivers, trades) reported under a given week."""
+    return _get(f"league/{league_id}/transactions/{week}") or []
+
+
+def get_traded_picks(league_id: str):
+    """Draft picks that have been traded away from their original owner."""
+    return _get(f"league/{league_id}/traded_picks") or []
+
+
+def get_nfl_state(sport: str = "nfl"):
+    """Current season/week state for a sport (season, week, season_type, ...)."""
+    return _get(f"state/{sport}")
+
+
+def get_players(sport: str = "nfl", cache_hours: float = 24.0):
+    """The full player map {player_id: {...}} for a sport.
+
+    This payload is large (~15 MB for the NFL), so it is cached on disk and
+    reused for ``cache_hours`` to keep repeated reports fast and gentle on the
+    API. Pass ``cache_hours=0`` to always refetch.
+    """
+    cache_path = os.path.join(tempfile.gettempdir(), f"sleeper_players_{sport}.json")
+    if cache_hours > 0 and os.path.exists(cache_path):
+        age_hours = (time.time() - os.path.getmtime(cache_path)) / 3600.0
+        if age_hours < cache_hours:
+            try:
+                with open(cache_path, "r", encoding="utf-8") as fh:
+                    return json.load(fh)
+            except (OSError, ValueError):
+                pass  # fall through and refetch on a corrupt/unreadable cache
+
+    players = _get(f"players/{sport}") or {}
+    try:
+        with open(cache_path, "w", encoding="utf-8") as fh:
+            json.dump(players, fh)
+    except OSError:
+        pass  # caching is best-effort; a read-only tmp is not fatal
+    return players
 
 
 def main(argv):
