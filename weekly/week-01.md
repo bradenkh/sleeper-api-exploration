@@ -1,16 +1,27 @@
-# Week 1 — 2026-09-08 (pre-kickoff)
+# Week 1 — opened 2026-09-08, updated 2026-09-13
 
-**Record:** 0-0 · **Standing:** — · **This week's opponent:** TuR7L3z
+**Record:** 0-0 · **Opponent:** TuR7L3z · **Status:** leading 26.20 — 9.00 with
+Sunday's games still to play
 
-This is the baseline entry, written before Week 1 games start (NFL season opens
-2026-09-09). No results yet — this records the starting state and the opening
-set of decisions so later weeks have something to diff against.
+Baseline entry for the season, started pre-kickoff and updated as Week 1 played
+out. Later weeks diff against this.
 
 ---
 
 ## 1. Result
 
-Not yet played.
+In progress. Through the Thursday/Friday openers:
+
+| | Score |
+|---|---|
+| Me | **26.20** |
+| TuR7L3z | 9.00 |
+
+All 26.2 came from Jaxon Smith-Njigba in the 09-09 opener. Everyone else played
+or plays on 09-13.
+
+Mike Evans scored 16.9 **on the bench** — not an avoidable miss, since starting
+him would have meant benching London or a FLEX back before any had played.
 
 ---
 
@@ -54,15 +65,25 @@ None. There are no byes in Weeks 1–4.
 
 ## 3. What the other managers did
 
-| Manager | Moves since draft | Active? |
+| Manager | Moves | Active? |
 |---|---|---|
-| HntrRundas | none | dormant |
-| **TuR7L3z** | **3 free-agent moves** | **active** |
+| **TuR7L3z** | 3 free-agent moves (09-07) | **active** |
+| **HntrRundas** | 1 move (09-12): +Mark Andrews / −Brock Bowers | **active — woke up** |
 | ajolson77 | none | dormant |
 | sworthy92 | none | dormant |
 | stalbot8 | none | dormant |
 
-**Dormant count: 4 of 5.**
+**Dormant count: 3 of 5** — down from 4. HntrRundas logged in on 09-12 and
+correctly reacted to Brock Bowers being ruled `Out` by replacing him with Mark
+Andrews. That is real management, not a cleanup of autodraft damage.
+
+**This matters for the trade timeline.** The edge assumed four dormant
+opponents; it is now three, and the two active managers (TuR7L3z, HntrRundas)
+are the two best trade targets. Front-load the approach rather than waiting for
+Weeks 5–8 as originally planned — see `docs/trade-targets.md`.
+
+**Dormant managers are already leaking points:** ajolson77 started A.J. Brown
+(on IR, a certain zero) in Week 1.
 
 TuR7L3z logged in ~25 minutes after the draft ended and cleaned up the worst of
 the bot damage:
@@ -135,10 +156,29 @@ Also: **25 of 32 defenses are unowned**, so DEF is fully streamable.
 | — | Josh Jacobs (RB-GB) | `NA` with groin injury, 4th on GB depth chart. Dropped rather than benched: no IR slot, and five other RBs made him a luxury. |
 | Oronde Gadsden (TE-LAC) | — | Insurance behind Tyler Warren, who is my only TE, Questionable this week, and on bye Week 13. Bye week 7 avoids both crunch weeks. |
 
-Travis Etienne moved into the vacated FLEX slot. Roster back to **15/15**.
+| Cam Little (K-JAX) | Harrison Mevis (K-LAR) | **Waiver claim won 09-09.** Better rank and, more importantly, a Week 7 bye instead of Week 11 — one of my two crunch weeks. |
+| — | Tyler Warren (TE-IND) | Dropped 09-13 04:13. **See the post-mortem below — this looks like a mistake.** |
 
-**Still outstanding:** Mevis → Cam Little (kicker swap; uses no roster spot).
-Verified 2026-09-08: Mevis still rostered, Little still a free agent.
+Travis Etienne moved into the vacated FLEX slot. Roster now **14/15**.
+
+### Post-mortem: dropping Tyler Warren
+
+Dropped him hours before Indianapolis played on 09-13, which left the **TE slot
+empty** — an empty starting slot scores zero. Caught by the report's "Cannot
+play" column; fixed by moving Gadsden off the bench into the slot.
+
+Two things make this a genuine loss rather than a wash:
+
+1. **Warren was healthy again.** The groin injury cleared — `injury_status` null,
+   still 1st on the IND depth chart. The reason he was worth insuring against had
+   already gone away.
+2. **He outranks his replacement**, 48 to Gadsden's 83, and he played that day.
+
+He is now unowned but **on waivers** (I dropped him, so the 2-day clear applies),
+meaning a FAAB claim is needed and it cannot help in Week 1 regardless.
+
+**Process lesson:** run `scripts/fantasy_report.py` *after* making roster moves,
+not just before. §2's "Cannot play" column flags an empty slot instantly.
 
 ### "Unowned" means two different things
 
@@ -221,13 +261,10 @@ starts three), not need.
 
 - [x] **Remove Josh Jacobs from the lineup** — dropped outright; Etienne in FLEX
 - [x] **Add a backup TE** — Oronde Gadsden (bye 7) added; roster 15/15
-- [ ] **STILL OPEN — submit now:** waiver claim for Cam Little (K-JAX), dropping
-      Harrison Mevis. **This is a claim, not an instant add** — Little was dropped
-      by TuR7L3z on 09-07 and is in the 2-day waiver period. Bid **$1**; kickers
-      are fungible and nobody else needs one. Processing time is shown on the
-      claim screen in the app. If it lands before the Rams' 09-10 game Little
-      kicks in Week 1; otherwise Mevis does and Little takes over Week 2. Either
-      way the real prize is the Week 11 bye fix.
-- [ ] **Sunday 09-13 AM:** if Tyler Warren is downgraded to Out, start Gadsden at TE
+- [x] **Waiver claim for Cam Little** — won 09-09, Mevis dropped
+- [ ] **URGENT 09-13:** TE slot is **empty** after the Warren drop. Move Oronde
+      Gadsden off the bench into it. ARI @ LAC is still `pre_game`.
+- [ ] **Consider:** waiver claim to bring Tyler Warren back (healthy, rank 48 vs
+      Gadsden 83). Roster is 14/15 so no drop needed. ~$2–3. Will not help Week 1.
 - [ ] Do **not** send trade offers yet — nothing has happened to argue from.
       Playbook and timing in `docs/trade-targets.md`.

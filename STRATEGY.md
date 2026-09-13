@@ -56,6 +56,13 @@ full season, especially against dormant opponents.
 
 ## 4. Core strategy
 
+### 4.0 Run the report *after* roster moves, not just before
+
+Week 1 lesson: dropping Tyler Warren left the **TE slot empty**, which scores
+zero just as surely as starting an injured player. The report's "Cannot play"
+column catches empty slots, but only if it is run after the change. Make the
+last step of any roster move a re-run of `scripts/fantasy_report.py`.
+
 ### 4.1 Never start a broken player
 
 The Week 1 audit found **Josh Jacobs in the starting lineup while listed `NA`
@@ -101,12 +108,21 @@ These are the two weeks the schedule breaks against me. Detail in §5. The fix i
 boring and works: acquire the fill-ins in Week 9–10, *before* the crunch, when
 they're cheap and available.
 
-### 4.5 Exploit dormancy
+### 4.5 Exploit dormancy — and note that it is already decaying
 
-Only TuR7L3z has made a roster move. Four managers are untouched since the
-autodraft. Practically: good players are sitting unowned, and injured or
-bye-week players are sitting in opponents' starting lineups every week. This
-advantage decays if they wake up — so front-load the value capture.
+**Updated 2026-09-13: three of five opponents are dormant, down from four.**
+HntrRundas logged in on 09-12 and correctly replaced an injured Brock Bowers
+with Mark Andrews — real management, not autodraft cleanup. TuR7L3z was already
+active.
+
+The advantage is still real (ajolson77 started an IR player in Week 1), but it
+is shrinking. Two consequences:
+
+1. **Front-load the trade approach.** The original plan waited for Weeks 5–8.
+   The two active managers are also the two best trade targets, and an active
+   manager is one who will actually see an offer. Do not wait for Week 8.
+2. **Good free agents will start disappearing.** Drake Maye (8) has sat unowned
+   for a week; that will not hold once more managers are looking.
 
 ---
 
@@ -176,7 +192,8 @@ the advice can be graded honestly.
 |---|---|---|---|
 | 2026-09-08 | Bench Josh Jacobs (NA, groin, GB depth 4) for Week 1 | **DONE** — dropped him outright, Etienne into FLEX | Roster 14/15, one bench spot open |
 | 2026-09-08 | Use open bench spot on **Oronde Gadsden (TE-LAC, bye 7)** — Warren is my only TE, Questionable now, and out Week 13 | **DONE** | Roster back to 15/15 |
-| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | **STILL OPEN — waiver claim, bid $1** | Not an instant add: Little was dropped 09-07 and is in the 2-day waiver period. Submit and let it process. |
+| 2026-09-08 | Drop Harrison Mevis → add Cam Little (K-JAX): better rank *and* Week 7 bye instead of Week 11 | **DONE** — waiver claim won 09-09 | Week 11 bye exposure now 2, not 3 |
+| 2026-09-13 | Dropped Tyler Warren, leaving the TE slot empty | **MISTAKE** | Warren had recovered (healthy, rank 48 vs Gadsden 83) and played that day. Fixed by starting Gadsden. Warren now on waivers. |
 | 2026-09-08 | Claim Drake Maye (8) — deferred behind the TE fix | Deferred | Still unowned 09-08. Trading him *for a TE* was checked and rejected — see below. |
 | Weeks 5–8 | Trade an RB (Hall 27 / Etienne 34) for a WR. Playbook in `docs/trade-targets.md` | Not yet sent | — |
 
