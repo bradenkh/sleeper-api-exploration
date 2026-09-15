@@ -104,7 +104,9 @@ Barkley — and still carries 3 QBs and 2 kickers.
 
 ## 4. Waiver wire
 
-**FAAB remaining:** $100 of $100 (nothing spent)
+**Waiver system:** rolling **priority**, not FAAB (confirmed 09-15 — see
+`docs/api-notes.md`). My `waiver_position` was **2nd** before the Cam Little
+claim and **6th (last)** after winning it. Claims cost position, not money.
 
 ### Best available, by position
 
@@ -129,7 +131,14 @@ Also: **25 of 32 defenses are unowned**, so DEF is fully streamable.
 **Do now — free upgrade, no roster spot needed:**
 > Drop Harrison Mevis → add **Cam Little (K-JAX)**. Better rank (134 vs 154)
 > *and* a Week 7 bye instead of Week 11, which is one of my two crunch weeks.
-> Strictly better on both axes. (Ironically, TuR7L3z just dropped him.)
+> (Ironically, TuR7L3z just dropped him.)
+>
+> **Retrospect (09-15): this was recommended as costing "$1" and it was not.**
+> The league uses waiver priority, not FAAB — the claim spent my 2nd-best
+> waiver position in the league on a kicker and dropped me to last. It returned
+> +11 points in Week 1 (12.00 vs Mevis's 1.00) and fixed the Week 11 bye, so it
+> paid off, but the cost was misstated. Never spend a high waiver position on a
+> streamer again.
 
 **Deferred — Drake Maye (8), still unowned:**
 > The best player on the wire, but a backup QB cannot be started. His only value
@@ -175,7 +184,7 @@ Two things make this a genuine loss rather than a wash:
 2. **He outranks his replacement**, 48 to Gadsden's 83, and he played that day.
 
 He is now unowned but **on waivers** (I dropped him, so the 2-day clear applies),
-meaning a FAAB claim is needed and it cannot help in Week 1 regardless.
+meaning a waiver claim is needed and it cannot help in Week 1 regardless.
 
 **Process lesson:** run `scripts/fantasy_report.py` *after* making roster moves,
 not just before. §2's "Cannot play" column flags an empty slot instantly.
@@ -186,8 +195,8 @@ The Gadsden pickup posted as `free_agent` / `complete` with no waiver period —
 he was never rostered, so he was a true free agent.
 
 **But Cam Little and Drake Maye are not.** TuR7L3z dropped both on 09-07, which
-puts them in the 2-day waiver period: they require a FAAB claim that processes on
-the waiver run, not an instant add. The API shows all three simply as "unowned".
+puts them in the 2-day waiver period: they require a waiver claim that processes
+on the waiver run, not an instant add. The API shows all three simply as "unowned".
 
 Practical rule: before assuming an unowned player can be grabbed on the spot,
 check whether they appear in a recent `drops`. Detail in `docs/api-notes.md`.

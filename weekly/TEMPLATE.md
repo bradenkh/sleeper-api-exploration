@@ -64,15 +64,18 @@ that shrinks the attention edge and raises the urgency of the trade plan.
 
 ## 4. Waiver wire
 
-**FAAB remaining:** $NN of $100
+**My waiver priority:** N of 6 — *rolling priority, no money. Winning a claim
+drops you to last, so a claim's cost is position. See STRATEGY.md §4.3.*
 
 **Claims made:**
 
-| Player | Pos | Bid | Won? | Dropped |
+| Player | Pos | Won? | Dropped | Priority before → after |
 |---|---|---|---|---|
 
 **Notable available players:** Anyone genuinely startable sitting unowned.
-Flag if a top-40 player gets dropped.
+Flag if a top-40 player gets dropped. Check §7 of the report for whether each is
+an instant-add **free agent** or a **WAIVER** claim — only the latter costs
+priority.
 
 ---
 

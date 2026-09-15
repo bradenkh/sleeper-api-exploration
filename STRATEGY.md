@@ -1,7 +1,7 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-13 (Week 1 in progress; revised against published
-fantasy strategy — see §9 for what changed and why)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-15 (Week 1 final — won 158.76–153.46; waiver system
+corrected to priority, see §4.3 and §9)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
@@ -57,8 +57,8 @@ was wrong and left points on the table.
 
 | Lever | Window | Why it matters |
 |---|---|---|
-| **Set the lineup weekly** | All season | Highest-value, lowest-effort. Already caught a starter producing zero. |
-| **Waivers / free agents** | All season, $100 FAAB | Where in-season value actually comes from |
+| **Set the lineup weekly** | All season | Highest-value, lowest-effort. Won Week 1 on its own — see §8. |
+| **Waivers / free agents** | All season, **priority order (no money)** | Where in-season value actually comes from |
 | **Trades** | Now → Week 11 only | The only tool that can fix WR; expires |
 
 The order matters. Lineup discipline beats clever roster construction over a
@@ -119,28 +119,46 @@ he does not have.
 don't trade depth away when the bench is already thin — right now the bench is
 Hall plus three middling WRs, so Hall is the only piece that can leave.
 
-### 4.3 Spend FAAB aggressively and early — do not hoard
+### 4.3 Waivers are PRIORITY, not money — spend position deliberately
 
-**Reworked 2026-09-13.** The old rule here (cap ~$25 per player before Week 8,
-reserve $25+ for bye weeks) was too conservative on both counts and would have
-cost me a league-winner.
+**Corrected 2026-09-15. This league does not use FAAB.** The league config carries
+`waiver_budget: 100`, but it is inert: `waiver_type: 0` means rolling priority,
+every roster has a `waiver_position` (1-6), `waiver_budget_used` is 0 for
+everyone, and the completed Cam Little claim came back with `waiver_budget: []`
+and no bid. There is no bid box in the app because there is nothing to bid.
 
-$100 for the season, no refill, and **unused budget expires worthless.** Tiers:
+Everything previously written here about bid tiers and budget percentages was
+wrong for this league and has been removed.
 
-| Player type | Bid |
+**How it actually works.** Claims are ranked by `waiver_position`. Highest
+position wins a contested player. **Winning a claim sends you to the back of the
+line.** That is the entire cost — and it is a real one.
+
+| Date | My waiver_position |
 |---|---|
-| True league-winner (a backup inheriting a full starting job) | **40–70%+** |
-| Solid new weekly starter | 15–30% |
-| Flex-worthy upside add | 5–12% |
-| Streamer (bye fill, matchup DEF/K) | **$1–4** |
+| 2026-09-08 (before the Cam Little claim) | **2nd** |
+| after winning it | **6th — last** |
 
-Two things the old rule got backwards:
+So the cost of that claim was not "$1". It was my second-best priority in the
+league, spent on a kicker. It returned +11 points in Week 1 and fixed the Week 11
+bye, so it was not a loss — but it was never free, and it was recommended as
+though it were.
 
-1. **Be aggressive early.** The biggest pickups come in the first weeks, when a
-   role opens up and the player is available to everyone. A $25 cap loses those.
-2. **Do not reserve budget for bye weeks.** Bye fills are $1–4 streamers. There
-   is nothing to save up for. By mid-November the pool of league-changing adds
-   has dried up, so budget still sitting there past ~Week 10 was wasted.
+**The rules that follow from priority, not budget:**
+
+1. **A claim costs position, so spend it on difference-makers.** A player I would
+   actually start, not a streamer. Kickers and defenses are exactly what *not* to
+   burn a high position on.
+2. **While at the bottom, claim freely.** At position 6 there is nowhere to fall,
+   so the marginal cost of a claim is zero. Bottom of the order is the time to be
+   aggressive; near the top is the time to be picky.
+3. **Free agents cost nothing.** A never-rostered player is an instant add that
+   does not touch waiver position at all (confirmed: Gadsden). Only
+   recently-dropped players go through the waiver period. Always check whether a
+   target is actually on waivers before spending position — the report's §7
+   labels this.
+4. **There is no budget to hoard or exhaust**, so the FAAB-era worries about
+   saving for byes or spending before Week 10 simply do not apply here.
 
 ### 4.3b Churn the bench — this league is shallow
 
@@ -322,8 +340,8 @@ path is a **WR from sworthy92**. Separately, TE scarcity is not a live risk:
 
 **"Unowned" is two states, and the API doesn't distinguish them.** Never-rostered
 players (Gadsden) add instantly. Recently-dropped players (Cam Little, Drake Maye
-— both cut by TuR7L3z on 09-07) sit in a 2-day waiver period and need a FAAB
-claim. Check `/transactions` for a recent drop before assuming a player can be
+— both cut by TuR7L3z on 09-07) sit in a 2-day waiver period and need a waiver
+claim, which costs waiver position (see §4.3), not money. Check `/transactions` for a recent drop before assuming a player can be
 grabbed on the spot. This also means a Sunday-morning injury fix only works for
 never-rostered players, so bench insurance still earns its spot.
 
@@ -336,7 +354,7 @@ one was validated, one caveat was added. Sources at the bottom.
 
 | § | Verdict | What changed |
 |---|---|---|
-| 4.3 FAAB | **Reworked** | Old rule (cap $25/player pre-Week 8, reserve $25 for byes) was too conservative *and* backwards on byes. Replaced with tiered bids and spend-early. |
+| 4.3 FAAB | **THROWN OUT 09-15** | The whole section was moot: **this league uses waiver priority, not FAAB.** `waiver_budget: 100` is inert. Replaced with priority-cost rules. The bid-tier research below does not apply here. |
 | 2 K/DEF | **Reworked** | "Shouldn't consume attention" was wrong. Streaming on matchup is worth ~1+ pt/game at DEF. |
 | 2 RB surplus | **Corrected** | Claimed two tradeable backs; it is one. Four of five RBs start. |
 | 4.2 trade pitch | **Corrected** | TuR7L3z is not desperate for RBs — Stevenson (58) is free on the wire. Sell the 27-vs-58 gap instead. |
@@ -353,7 +371,12 @@ one was validated, one caveat was added. Sources at the bottom.
 [SI — Positional Streaming Strategies](https://www.si.com/onsi/fantasy/nfl/fantasy-football-positional-streaming-strategies-redraft-leagues) ·
 [FantraxHQ — In-Season Trade Strategy](https://fantraxhq.com/in-season-fantasy-football-trade-strategy-for-2026/)
 
-**Standing caution:** this advice is written for 10–12 team leagues. In a 6-team
+**Standing caution 1 — verify league settings before importing advice.** The FAAB
+rework above was researched carefully and was still useless, because I never
+checked that this league actually runs FAAB. It does not. Read the settings *and*
+a completed transaction before building strategy on a setting's presence.
+
+**Standing caution 2:** this advice is written for 10–12 team leagues. In a 6-team
 league the wire is far richer than any of these authors assume, which makes the
 shallow-league and churn advice *more* applicable, and any "scarcity" claim
 *less* so. Check scarcity against the actual wire before believing it.

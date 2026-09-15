@@ -358,7 +358,7 @@ def main():
                 t.get("status_updated", 0) / 1000
             ).strftime("%Y-%m-%d")
             bid = (t.get("settings") or {}).get("waiver_bid")
-            bid_s = f" (FAAB ${bid})" if bid else ""
+            bid_s = f" (bid ${bid})" if bid else ""  # only set in FAAB leagues
             w(f"- **wk{wk}** {when} · {who} · `{t['type']}`{bid_s}")
             for pid in (t.get("adds") or {}):
                 w(f"  - **+** {pname(players, pid)}")
@@ -398,7 +398,8 @@ def main():
     w("")
     w("**How to get them** differs and the API does not say which is which: a "
       "player nobody has rostered is an instant add, but one another manager "
-      "recently *dropped* sits in the waiver period and needs a FAAB claim. The "
+      "recently *dropped* sits in the waiver period and needs a waiver claim "
+      "(which costs waiver position, not money, in this league). The "
       "`WAIVER` tag below marks players dropped within the last "
       f"`waiver_clear_days` ({lsettings.get('waiver_clear_days', '?')}) — "
       "those cannot be grabbed on the spot.")
@@ -467,14 +468,32 @@ def main():
     w(f"Unowned defenses: **{ndef}**")
     w("")
 
-    # ---- 8. my FAAB --------------------------------------------------------
-    w("## 8. FAAB")
+    # ---- 8. waiver order ---------------------------------------------------
+    # This league runs rolling waiver PRIORITY, not FAAB -- waiver_budget in the
+    # league settings is inert. Winning a claim sends you to the back of the
+    # order, so position is the currency. See docs/api-notes.md.
+    w("## 8. Waiver order")
     w("")
-    w("| Manager | Spent | Remaining |")
-    w("|---|---|---|")
-    for rid in sorted(r2name):
-        used = (r2roster[rid].get("settings") or {}).get("waiver_budget_used", 0)
-        w(f"| {label(rid)} | ${used} | ${100 - used} |")
+    faab = lsettings.get("waiver_type") not in (0, None)
+    if faab:
+        w("| Manager | FAAB spent | Remaining |")
+        w("|---|---|---|")
+        for rid in sorted(r2name):
+            used = (r2roster[rid].get("settings") or {}).get("waiver_budget_used", 0)
+            w(f"| {label(rid)} | ${used} | ${lsettings.get('waiver_budget', 100) - used} |")
+    else:
+        w("Rolling priority (`waiver_type: 0`) — **no money involved**. Lowest "
+          "number wins a contested claim; winning drops you to last.")
+        w("")
+        w("| Priority | Manager |")
+        w("|---|---|")
+        order = sorted(
+            r2name,
+            key=lambda r: (r2roster[r].get("settings") or {}).get("waiver_position", 99),
+        )
+        for rid in order:
+            pos = (r2roster[rid].get("settings") or {}).get("waiver_position", "?")
+            w(f"| {pos} | {label(rid)} |")
     w("")
 
     text = "\n".join(out)

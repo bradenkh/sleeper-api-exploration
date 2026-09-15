@@ -15,8 +15,9 @@ Everything here was derived from the Sleeper API on 2026-09-08 (pre-Week 1).
 | Roster size | 15 (10 starters + 5 bench) |
 | **IR / reserve slots** | **0** — injured players occupy real roster spots |
 | Taxi slots | 0 |
-| Waiver type | FAAB, **$100** season budget, no refill |
-| Waiver processing | Tuesdays (`waiver_day_of_week: 2`), 2-day clear |
+| Waiver type | **Rolling priority (`waiver_type: 0`) — NOT FAAB.** `waiver_budget: 100` appears in settings but is inert; no bids are used. Winning a claim drops you to last. |
+| Waiver processing | `waiver_day_of_week: 2`, 2-day clear. Check the claim screen for the exact run time. |
+| Waiver order | Rolling. Snapshot 09-08: ajolson77 1, brdnhnsn 2, sworthy92 3, HntrRundas 4, stalbot8 5, TuR7L3z 6. After brdnhnsn won the Cam Little claim on 09-09 he fell to 6th. |
 | **Trade deadline** | **Week 11** |
 | Trade review | 2 days |
 | **Playoffs start** | **Week 15** |

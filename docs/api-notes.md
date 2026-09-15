@@ -20,7 +20,7 @@ have to be done by hand in the Sleeper app. This repo can only advise, not act.
 | `/v1/league/{league_id}/users` | Managers (incl. `is_owner` = commissioner) |
 | `/v1/league/{league_id}/rosters` | Rosters, starters, records, points |
 | `/v1/league/{league_id}/matchups/{week}` | Matchups + per-player scoring |
-| `/v1/league/{league_id}/transactions/{week}` | Adds, drops, trades, FAAB |
+| `/v1/league/{league_id}/transactions/{week}` | Adds, drops, trades, waiver claims |
 | `/v1/league/{league_id}/traded_picks` | Traded draft picks |
 | `/v1/league/{league_id}/drafts` | Drafts for the league |
 | `/v1/draft/{draft_id}` | Draft settings, order, slot→roster map |
@@ -106,7 +106,7 @@ recently dropped them.
 | State | How it arises | How to get them |
 |---|---|---|
 | Free agent | never rostered this season | instant add, no bid |
-| On waivers | **dropped** by a manager within `waiver_clear_days` (2) | FAAB claim, processes on the waiver run |
+| On waivers | **dropped** by a manager within `waiver_clear_days` (2) | waiver claim, processes on the waiver run |
 
 Confirmed empirically on 2026-09-08:
 
@@ -127,6 +127,22 @@ common cheap upgrade.
 Practical consequence: a Sunday-morning fix works only for never-rostered
 players. Insurance behind a Questionable starter is still worth a bench spot,
 because the obvious replacement may well be someone another manager just cut.
+
+### `waiver_budget` in settings does not mean the league uses FAAB
+
+This league's `/v1/league/{id}` returns `waiver_budget: 100`, which looks like
+FAAB. It is not — the league runs **rolling waiver priority**. Three checks
+settle it, and the third is decisive:
+
+1. `settings.waiver_type` — `0` is rolling priority. FAAB is a different value.
+2. Every roster carries `settings.waiver_position` (1..N) and
+   `waiver_budget_used: 0`. A budget nobody has spent is a budget nobody has.
+3. **Look at a completed `waiver` transaction.** A real FAAB claim carries a bid;
+   this league's came back with `"waiver_budget": []` and `settings: {"seq": 0}`.
+
+Winning a claim moves that roster to the back of the order — comparable
+`waiver_position` across two snapshots proves it (brdnhnsn: 2nd on 09-08, 6th
+after winning a claim on 09-09). Compare snapshots rather than assuming.
 
 ### Transactions are per-week and sparse
 

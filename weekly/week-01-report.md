@@ -1,6 +1,6 @@
 # Week 1 report — auto-generated
 
-Generated 2026-09-13 04:15 · NFL state: season 2026, week 1, regular · players.json freshly fetched
+Generated 2026-09-15 01:57 · NFL state: season 2026, week 1, regular · players.json cached, 0.0h old
 
 > Report only. Flags are observable facts from the API, not advice. `OUT`/`BYE` mean the player cannot or likely will not play; `QUES` and `DEPTH` are context, not verdicts. Judgment stays out of this file.
 
@@ -34,14 +34,14 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Jake Bates | K | DET | ok |
 | SEA DEF | DEF | SEA | ok |
 
-### TuR7L3z — 0 cannot play, 2 questionable (of 10 starters)
+### TuR7L3z — 0 cannot play, 3 questionable (of 10 starters)
 
 | Starter | Pos | Team | Flags |
 |---|---|---|---|
 | Josh Allen | QB | BUF | ok |
 | Jahmyr Gibbs | RB | DET | ok |
 | Saquon Barkley | RB | PHI | ok |
-| Ladd McConkey | WR | LAC | ok |
+| Ladd McConkey | WR | LAC | **QUES** injury_status=Questionable (Chest) |
 | Jayden Reed | WR | GB | **DEPTH** depth_chart_order=2 |
 | Harold Fannin | TE | CLE | ok |
 | Dalton Kincaid | TE | BUF | ok |
@@ -49,7 +49,7 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Jason Myers | K | SEA | ok |
 | LAR DEF | DEF | LAR | ok |
 
-### brdnhnsn (me) — 1 cannot play, 1 questionable (of 10 starters)
+### brdnhnsn (me) — 0 cannot play, 1 questionable (of 10 starters)
 
 | Starter | Pos | Team | Flags |
 |---|---|---|---|
@@ -58,9 +58,9 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Derrick Henry | RB | BAL | ok |
 | Jaxon Smith-Njigba | WR | SEA | ok |
 | Drake London | WR | ATL | ok |
-| — empty slot — |  |  | **EMPTY** no player set |
-| Jeremiyah Love | RB | ARI | **QUES** injury_status=Questionable (Ankle) |
-| Travis Etienne | RB | NO | ok |
+| Oronde Gadsden | TE | LAC | **DEPTH** depth_chart_order=2 |
+| Jeremiyah Love | RB | ARI | ok |
+| Breece Hall | RB | NYJ | ok |
 | Cam Little | K | JAX | ok |
 | HOU DEF | DEF | HOU | ok |
 
@@ -79,7 +79,7 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Brandon Aubrey | K | DAL | ok |
 | PHI DEF | DEF | PHI | ok |
 
-### sworthy92 — 0 cannot play, 1 questionable (of 10 starters)
+### sworthy92 — 0 cannot play, 0 questionable (of 10 starters)
 
 | Starter | Pos | Team | Flags |
 |---|---|---|---|
@@ -87,7 +87,7 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Bijan Robinson | RB | ATL | ok |
 | De'Von Achane | RB | MIA | ok |
 | Justin Jefferson | WR | MIN | ok |
-| Malik Nabers | WR | NYG | **QUES** injury_status=Questionable (Knee - ACL) |
+| Malik Nabers | WR | NYG | ok |
 | Sam LaPorta | TE | DET | ok |
 | Kyren Williams | RB | LAR | ok |
 | Kenneth Walker | RB | KC | ok |
@@ -113,20 +113,20 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 
 | Manager | Cannot play | Questionable | Who cannot play |
 |---|---|---|---|
-| brdnhnsn (me) | 1 | 1 | empty slot |
 | ajolson77 | 1 | 0 | A.J. Brown (injury_status=IR (Ankle)) |
-| TuR7L3z | 0 | 2 | — |
+| TuR7L3z | 0 | 3 | — |
 | HntrRundas | 0 | 1 | — |
-| sworthy92 | 0 | 1 | — |
+| brdnhnsn (me) | 0 | 1 | — |
 | stalbot8 | 0 | 1 | — |
+| sworthy92 | 0 | 0 | — |
 
 ## 3. Matchups — week 1
 
 | Matchup | Cannot play | Questionable | Points |
 |---|---|---|---|
-| HntrRundas vs stalbot8 | 0 — 0 | 1 — 1 | 25.40 — 0.00 |
-| ajolson77 vs sworthy92 | 1 — 0 | 0 — 1 | 19.40 — 20.60 |
-| TuR7L3z vs brdnhnsn (me) | 0 — 1 | 2 — 1 | 9.00 — 26.20 |
+| HntrRundas vs stalbot8 | 0 — 0 | 1 — 1 | 122.52 — 163.86 |
+| ajolson77 vs sworthy92 | 1 — 0 | 0 — 0 | 113.30 — 137.90 |
+| TuR7L3z vs brdnhnsn (me) | 0 — 0 | 3 — 1 | 153.46 — 158.76 |
 
 ## 4. Manager activity
 
@@ -186,19 +186,19 @@ Players on each roster whose NFL team is on bye, by upcoming week. Shows when ea
 
 Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags real-world news and is listed as raw data, not a ranking endorsement — see docs/api-notes.md.
 
-**How to get them** differs and the API does not say which is which: a player nobody has rostered is an instant add, but one another manager recently *dropped* sits in the waiver period and needs a FAAB claim. The `WAIVER` tag below marks players dropped within the last `waiver_clear_days` (2) — those cannot be grabbed on the spot.
+**How to get them** differs and the API does not say which is which: a player nobody has rostered is an instant add, but one another manager recently *dropped* sits in the waiver period and needs a waiver claim (which costs waiver position, not money, in this league). The `WAIVER` tag below marks players dropped within the last `waiver_clear_days` (2) — those cannot be grabbed on the spot.
 
 **QB**
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 9 | Drake Maye | NE | 11 | — | free agent |
-| 33 | Justin Herbert | LAC | 7 | — | free agent |
-| 39 | Patrick Mahomes | KC | 5 | — | free agent |
-| 40 | Jaxson Dart | NYG | 8 | — | free agent |
+| 11 | Drake Maye | NE | 11 | — | free agent |
+| 34 | Justin Herbert | LAC | 7 | — | free agent |
+| 40 | Patrick Mahomes | KC | 5 | — | free agent |
+| 42 | Jaxson Dart | NYG | 8 | — | free agent |
 | 42 | Trevor Lawrence | JAX | 7 | — | free agent |
-| 45 | Bo Nix | DEN | 10 | — | free agent |
-| 56 | Brock Purdy | SF | 8 | — | free agent |
+| 46 | Bo Nix | DEN | 10 | — | free agent |
+| 55 | Brock Purdy | SF | 8 | — | free agent |
 | 61 | Jared Goff | DET | 6 | — | free agent |
 
 **RB**
@@ -220,23 +220,23 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 |---|---|---|---|---|---|
 | 61 | Carnell Tate | TEN | 9 | — | free agent |
 | 64 | Christian Watson | GB | 11 | — | free agent |
-| 69 | Parker Washington | JAX | 7 | — | free agent |
+| 68 | Parker Washington | JAX | 7 | — | free agent |
 | 72 | Courtland Sutton | DEN | 10 | — | free agent |
 | 73 | DK Metcalf | PIT | 9 | — | free agent |
+| 74 | Brian Thomas | JAX | 7 | Questionable | free agent |
 | 75 | Michael Wilson | ARI | 14 | — | free agent |
-| 75 | Brian Thomas | JAX | 7 | — | free agent |
 | 77 | Jakobi Meyers | JAX | 7 | — | free agent |
 
 **TE**
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 23 | Brock Bowers | LV | 13 | Out | **WAIVER** (claim + bid) |
-| 48 | Tyler Warren | IND | 13 | — | **WAIVER** (claim + bid) |
-| 65 | Tucker Kraft | GB | 11 | — | free agent |
-| 68 | Kyle Pitts | ATL | 11 | — | free agent |
-| 82 | George Kittle | SF | 8 | — | free agent |
-| 89 | Travis Kelce | KC | 5 | — | free agent |
+| 22 | Brock Bowers | LV | 13 | Out | free agent |
+| 47 | Tyler Warren | IND | 13 | — | **WAIVER** (claim + bid) |
+| 64 | Tucker Kraft | GB | 11 | — | free agent |
+| 67 | Kyle Pitts | ATL | 11 | — | free agent |
+| 80 | George Kittle | SF | 8 | — | free agent |
+| 90 | Travis Kelce | KC | 5 | — | free agent |
 | 92 | Hunter Henry | NE | 11 | — | free agent |
 | 94 | Dallas Goedert | PHI | 10 | — | free agent |
 
@@ -246,20 +246,22 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 |---|---|---|---|---|---|
 | 150 | Tyler Loop | BAL | 13 | — | free agent |
 | 154 | Harrison Mevis | LAR | 11 | — | free agent |
-| 154 | Evan McPherson | CIN | 6 | — | free agent |
 | 155 | Harrison Butker | KC | 5 | — | free agent |
+| 156 | Evan McPherson | CIN | 6 | — | free agent |
 | 157 | Andy Borregales | NE | 11 | — | free agent |
 
 Unowned defenses: **25**
 
-## 8. FAAB
+## 8. Waiver order
 
-| Manager | Spent | Remaining |
-|---|---|---|
-| HntrRundas | $0 | $100 |
-| TuR7L3z | $0 | $100 |
-| brdnhnsn (me) | $0 | $100 |
-| ajolson77 | $0 | $100 |
-| sworthy92 | $0 | $100 |
-| stalbot8 | $0 | $100 |
+Rolling priority (`waiver_type: 0`) — **no money involved**. Lowest number wins a contested claim; winning drops you to last.
+
+| Priority | Manager |
+|---|---|
+| 1 | ajolson77 |
+| 2 | sworthy92 |
+| 3 | HntrRundas |
+| 4 | stalbot8 |
+| 5 | TuR7L3z |
+| 6 | brdnhnsn (me) |
 

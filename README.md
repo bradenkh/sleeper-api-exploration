@@ -48,10 +48,10 @@ No dependencies — Python 3 standard library only.
 | 2 | **Lineup audit, all 6 managers** | Starters who can't play — mine *and* opponents' |
 | 3 | Matchups | Exposure on both sides of each game |
 | 4 | **Manager activity** | Who's managing vs. dormant — the core edge |
-| 5 | Recent transactions | Every add/drop/trade with FAAB bids |
+| 5 | Recent transactions | Every add/drop/trade |
 | 6 | Bye lookahead | 5-week horizon, per manager |
 | 7 | Unowned players | What's on the wire |
-| 8 | FAAB | Everyone's remaining budget |
+| 8 | Waiver order | Everyone's priority position |
 
 ### Report-only, on purpose
 
@@ -67,7 +67,7 @@ with; the script just makes sure nothing gets missed.
 |---|---|
 | Format | 6-team PPR keeper league |
 | Roster | 15 (10 starters, 5 bench, **no IR slot**) |
-| Waivers | FAAB, $100/season, processes Tuesdays |
+| Waivers | **Rolling priority, no money.** Winning a claim drops you to last. |
 | Trade deadline | **Week 11** |
 | Playoffs | Week 15 — **all 6 teams qualify**, standings set seeding only |
 | Draft | 15-round snake, **autodrafted** (90 picks in 2m51s) |
