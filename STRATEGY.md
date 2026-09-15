@@ -37,10 +37,14 @@ genuinely good. Behind them, Mike Evans / Rome Odunze / Marvin Harrison Jr are
 all roughly interchangeable mid-tier guys. If either starter misses time, the
 drop-off is steep.
 
-**Fragile again: tight end.** Oronde Gadsden (83) is now my **only** TE — Warren
-was dropped on 09-13 (a mistake, see §8). TE is a required slot, so this is a
-single point of failure once more, and Gadsden's **Week 7 bye is now uncovered**.
-Either reclaim Warren off waivers or add a second TE whose bye is not Week 7.
+**Fragile again: tight end.** Oronde Gadsden (83) is my **only** TE — Warren was
+dropped on 09-13 (a mistake, see §8). TE is a required slot, so this is a single
+point of failure, and Gadsden's **Week 7 bye is uncovered**.
+
+**Fix available now:** Warren cleared waivers on 09-15 and is an **instant
+free-agent add** — no claim, no priority. He outscored Gadsden 10.3 to 5.2 in
+Week 1, and his bye (W13) is covered by Gadsden while Gadsden's (W7) is covered
+by him. The roster is at 14/15, so this costs nothing at all.
 
 **Adequate QB; K and DEF are an active scoring opportunity, not an afterthought.**
 Jayden Daniels is a fine starter. Kicker and defense should be **streamed on
@@ -90,16 +94,18 @@ my WR3–5 rank 60–74. That's a lateral move. Only a trade fixes this.
 
 **The identified opening:** sworthy92 has the strongest roster in the league but
 by far its **worst quarterback** (Matthew Stafford, rank 66) — and four quality
-receivers. Meanwhile **Drake Maye (rank 8)** is sitting unowned on waivers,
-dropped by TuR7L3z after the autodraft gave him four quarterbacks.
+receivers. Meanwhile **Drake Maye (rank 8)** sits unowned, dropped by TuR7L3z
+after the autodraft gave him four quarterbacks. As of 09-15 he has cleared
+waivers and is an **instant free-agent add**.
 
-The play: claim Maye for free, then offer a quarterback to sworthy92 for a
-receiver. It uses an asset that cost nothing to fix the one hole I have.
+The play: add Maye, then offer a quarterback to sworthy92 for a receiver. It uses
+an asset that costs nothing but a roster spot.
 
 Caveat honestly stated: this depends on sworthy92 logging in and accepting. If
-they stay dormant, Maye is a bench-spot cost with no payoff. Roster is at 15/15
-with **no IR slot**, so bench space is genuinely scarce — which is why the spot
-went to TE insurance instead in Week 1.
+they stay dormant, Maye is a bench spot doing nothing — and per §4.3c a bench
+spot must have a job. Do not add him speculatively; add him the week the trade is
+actually being pursued. Access is uncontested (§4.3), so waiting costs nothing
+and he has sat unowned for over a week already.
 
 **Better first target: TuR7L3z.** One of two managers actually active, and he
 rosters just **two** RBs (Gibbs, Barkley) against my five. Ask: **Hall (27)** for
@@ -108,7 +114,8 @@ counterparty required. Full per-manager playbook in `docs/trade-targets.md`.
 
 **Pitch it as an upgrade, not a rescue.** Corrected 2026-09-13: I had him as
 *desperate* for RBs. He is not — **Rhamondre Stevenson (58) is on the wire** and
-he can patch for $1. Claiming he is stuck is both false and transparently so,
+he can patch instantly for free. Claiming he is stuck is both false and
+transparently so,
 which costs credibility with an active manager.
 
 The leverage that *is* real: the best free RB is rank 58, and **Hall is 27**. The
@@ -118,6 +125,11 @@ he does not have.
 **One tradeable back, not two** (see §2). And per the consolidation research,
 don't trade depth away when the bench is already thin — right now the bench is
 Hall plus three middling WRs, so Hall is the only piece that can leave.
+
+**Timing note (09-15):** trading Hall away removes my Week 13 insurance behind
+Taylor/Henry/Hall, who are all on bye that week. Etienne and Love would be the
+only backs left. Either make the trade and accept a thin Week 13, or plan to
+replace the depth off the wire beforehand — which is cheap, since access is free.
 
 ### 4.3 Waivers are PRIORITY, not money — spend position deliberately
 
@@ -144,21 +156,56 @@ league, spent on a kicker. It returned +11 points in Week 1 and fixed the Week 1
 bye, so it was not a loss — but it was never free, and it was recommended as
 though it were.
 
-**The rules that follow from priority, not budget:**
+**But priority turns out to be nearly worthless here — nobody contests it.**
+Measured 2026-09-15, every transaction in the league to date:
 
-1. **A claim costs position, so spend it on difference-makers.** A player I would
-   actually start, not a streamer. Kickers and defenses are exactly what *not* to
-   burn a high position on.
-2. **While at the bottom, claim freely.** At position 6 there is nowhere to fall,
-   so the marginal cost of a claim is zero. Bottom of the order is the time to be
-   aggressive; near the top is the time to be picky.
-3. **Free agents cost nothing.** A never-rostered player is an instant add that
-   does not touch waiver position at all (confirmed: Gadsden). Only
-   recently-dropped players go through the waiver period. Always check whether a
-   target is actually on waivers before spending position — the report's §7
-   labels this.
-4. **There is no budget to hoard or exhaust**, so the FAAB-era worries about
-   saving for byes or spending before Week 10 simply do not apply here.
+| Manager | Waiver claims | Free-agent adds |
+|---|---|---|
+| **brdnhnsn (me)** | **1** | 3 |
+| TuR7L3z | 0 | 3 |
+| HntrRundas | 0 | 1 |
+| ajolson77 / sworthy92 / stalbot8 | 0 | 0 |
+
+I am the only manager who has ever submitted a claim. So being 6th of 6 costs
+essentially nothing: an uncontested claim at position 6 wins exactly like one at
+position 1, I cannot fall further, and a dropped player clears to free agency in
+two days anyway — at which point anyone can take him instantly.
+
+**So the rules are:**
+
+1. **Access is effectively free. Act like it.** Any unowned player can be had —
+   instantly if he is a free agent, or after a 2-day wait if recently dropped.
+   Never talk myself out of an add on "cost" grounds.
+2. **Prefer waiting two days over claiming**, when the player is not urgent. The
+   claim becomes an instant add and nothing is spent at all.
+3. **Do not pre-stock replaceable positions.** Because access is uncontested, a
+   Week 7 fill-in QB or kicker can be picked up *in Week 6*. Spending a bench
+   spot months early on something sitting on the shelf is pure waste.
+4. **The scarce resource is roster spots, not priority.** 15 spots, no IR. Space
+   is the binding constraint — see §4.3c.
+5. **Revisit if anyone starts claiming.** Two managers are now active. If claims
+   start appearing in the transaction log, position matters again.
+
+### 4.3c Every bench spot must have a stated job
+
+With access free and space scarce, the bench is the thing to optimize. A player
+earns his spot only if he is **better than what is on the wire**, or **covers a
+specific week I can name**. "Decent depth" is not a job.
+
+Audited 2026-09-15:
+
+| Player | Rank | Bye | Job | Verdict |
+|---|---|---|---|---|
+| Travis Etienne | 34 | W8 | **Week 13** — Taylor, Henry, Hall all on bye; he and Love are the only RBs left | keep |
+| Mike Evans | 60 | W8 | **Week 11** — JSN and London both out; outscored London 16.9 to 5.5 in Wk1 | keep |
+| Rome Odunze | 64 | W10 | second WR fill for Week 11 | thin but real |
+| Marvin Harrison Jr | 73 | W14 | none — rank ≈ free agents (Sutton 72, Metcalf 73), and his W14 bye collides with Love | **first to drop** |
+| *(open spot)* | — | — | **Tyler Warren (TE)** — covers the Week 7 hole and outscores Gadsden | fill it |
+
+**The uncovered gap is Week 7:** Daniels (QB), Gadsden (TE) and Cam Little (K)
+are all out the same week, with no backup rostered for any of them. Warren fixes
+TE permanently (his bye is W13, which Gadsden covers — they cover each other).
+QB and K get picked up in Week 6 per rule 3 above, not hoarded now.
 
 ### 4.3b Churn the bench — this league is shallow
 
