@@ -105,8 +105,22 @@ recently dropped them.
 
 | State | How it arises | How to get them |
 |---|---|---|
-| Free agent | never rostered this season | instant add, no bid |
-| On waivers | **dropped** by a manager within `waiver_clear_days` (2) | waiver claim, processes on the waiver run |
+| Free agent | never rostered, **or** dropped before the last waiver run | instant add |
+| On waivers | dropped **since** the last waiver run | claim, resolves at the next run |
+
+**Waivers clear on the league's weekly run day, not N days after the drop.**
+`waiver_clear_days: 2` reads like a rolling 2-day timer. It is not one. A player
+dropped at any point after a run stays on waivers until the *next* run, whether
+that is six days later or six hours.
+
+Verified twice: the Cam Little claim was submitted Tue 09-08 and processed
+**Wed 09-09**; Tyler Warren, dropped Sun 09-13, showed in-app as waivers through
+**Wed 09-16**. A rolling-2-day model predicted Warren would clear on 09-15 and
+was wrong.
+
+`waiver_day_of_week` is 0=Monday..6=Sunday; this league stores `2` and runs
+early Wednesday UTC. `_last_waiver_run_ms()` in `scripts/fantasy_report.py`
+implements this — anyone dropped after that timestamp is still on waivers.
 
 Confirmed empirically on 2026-09-08:
 

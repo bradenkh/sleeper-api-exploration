@@ -134,6 +134,28 @@ def audit_starter(players, byes, pid, week):
     return d, flags
 
 
+def _last_waiver_run_ms(lsettings, now=None):
+    """
+    Epoch ms of the most recent weekly waiver run. Anyone dropped after this is
+    still on waivers; anyone dropped before it has cleared to free agency.
+
+    Sleeper's `waiver_day_of_week` is 0=Monday..6=Sunday. This league stores 2,
+    and runs observed in the transaction log land early Wednesday UTC, so the
+    value maps to Wednesday and is used directly as a Python weekday().
+    """
+    now = now or dt.datetime.now()
+    run_dow = lsettings.get("waiver_day_of_week")
+    if run_dow is None:
+        run_dow = 2
+    days_since = (now.weekday() - run_dow) % 7
+    run_day = (now - dt.timedelta(days=days_since)).replace(
+        hour=0, minute=0, second=0, microsecond=0
+    )
+    if run_day > now:  # run day is later today; use last week's
+        run_day -= dt.timedelta(days=7)
+    return run_day.timestamp() * 1000
+
+
 # A starter who is on bye, ruled out, or missing entirely cannot score. That is
 # categorically different from a "Questionable" tag, most of which play. Keep the
 # two counts separate so a manager with four questionables doesn't read as more
@@ -400,9 +422,8 @@ def main():
       "player nobody has rostered is an instant add, but one another manager "
       "recently *dropped* sits in the waiver period and needs a waiver claim "
       "(which costs waiver position, not money, in this league). The "
-      "`WAIVER` tag below marks players dropped within the last "
-      f"`waiver_clear_days` ({lsettings.get('waiver_clear_days', '?')}) — "
-      "those cannot be grabbed on the spot.")
+      "`WAIVER` tag marks players dropped since the last weekly waiver run, "
+      "so they clear at the next one — they cannot be grabbed on the spot.")
     w("")
 
     rostered = set()
@@ -411,8 +432,14 @@ def main():
 
     # Recently-dropped players are on waivers, not instantly addable. There is no
     # field for this, so reconstruct it from the transaction log.
-    clear_days = lsettings.get("waiver_clear_days", 2)
-    cutoff_ms = dt.datetime.now().timestamp() * 1000 - clear_days * 86400 * 1000
+    #
+    # NOT a rolling `waiver_clear_days` window from the drop -- that model was
+    # wrong and mispredicted Tyler Warren. Sleeper clears waivers on the league's
+    # weekly RUN DAY: a player dropped any time after one run stays on waivers
+    # until the next one, whether that is six days later or six hours.
+    # Verified: the Cam Little claim was submitted Tue 09-08 and processed
+    # Wed 09-09; Warren, dropped Sun 09-13, showed as waivers until Wed 09-16.
+    cutoff_ms = _last_waiver_run_ms(lsettings)
     on_waivers = {}
     for wk in range(0, week + 1):
         try:
@@ -455,7 +482,7 @@ def main():
         w("|---|---|---|---|---|---|")
         for rank, pid, p in top:
             t = p.get("team")
-            how = "**WAIVER** (claim + bid)" if pid in on_waivers else "free agent"
+            how = "**WAIVER** (clears next run)" if pid in on_waivers else "free agent"
             w(f"| {rank} | {pname(players, pid)} | {t} | {byes.get(t) or '—'} "
               f"| {p.get('injury_status') or '—'} | {how} |")
         w("")
