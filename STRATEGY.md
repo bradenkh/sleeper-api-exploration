@@ -176,8 +176,11 @@ two days anyway — at which point anyone can take him instantly.
 1. **Access is effectively free. Act like it.** Any unowned player can be had —
    instantly if he is a free agent, or after a 2-day wait if recently dropped.
    Never talk myself out of an add on "cost" grounds.
-2. **Prefer waiting two days over claiming**, when the player is not urgent. The
-   claim becomes an instant add and nothing is spent at all.
+2. **Timing beats claiming, but only outside the waiver window.** Between runs
+   the wire is open for instant adds; during the window (~Tue → Wed run)
+   everything is a claim regardless of who was dropped when. Observed 09-15:
+   Drake Maye had long cleared waivers and was still claim-only on a Tuesday.
+   To add instantly, act after the run processes.
 3. **Do not pre-stock replaceable positions.** Because access is uncontested, a
    Week 7 fill-in QB or kicker can be picked up *in Week 6*. Spending a bench
    spot months early on something sitting on the shelf is pure waste.

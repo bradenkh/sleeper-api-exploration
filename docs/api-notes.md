@@ -138,9 +138,41 @@ the player object for this.
 transaction log. Kickers are included there too, since a bye-week swap at K is a
 common cheap upgrade.
 
-Practical consequence: a Sunday-morning fix works only for never-rostered
-players. Insurance behind a Questionable starter is still worth a bench spot,
-because the obvious replacement may well be someone another manager just cut.
+### …but during the waiver window, everything is a claim
+
+The free-agent / waiver split above describes *who has been dropped recently*. It
+is not the whole rule. Observed 2026-09-15 (a Tuesday): **Drake Maye, who had
+cleared the 09-09 run and should have been an instant add by that logic, showed
+in-app as a waiver claim.** So did every other unowned player.
+
+Working model, stated as the observation rather than a mechanism (Sleeper's exact
+trigger is not visible in the API):
+
+| When | The wire behaves as |
+|---|---|
+| Between runs (e.g. Wed after processing → Mon) | free agency — instant adds |
+| During the waiver window (~Tue → Wed run) | everything is a claim |
+
+Supporting data point: Oronde Gadsden was added as `free_agent` / `complete`
+instantly at 09-08 01:30 UTC (Monday evening ET), while on Tuesday 09-15 nothing
+could be added instantly.
+
+**Practical rule:** during the waiver window, assume every add is a claim. For an
+instant add, act after the run processes. `fantasy_report.py` §7's `WAIVER` tag
+identifies recently-dropped players specifically — it does **not** model this
+window, so treat "free agent" there as "not recently dropped", not as a promise
+that the player can be grabbed this second.
+
+Practical consequence: a Sunday-morning injury fix works only outside the waiver
+window, and only for never-rostered players. Insurance behind a Questionable
+starter is still worth a bench spot.
+
+### Pending waiver claims are not exposed by the API
+
+`/transactions/{week}` returns only completed (and failed) transactions. A claim
+sitting in the queue is invisible — which is correct, since claims are blind and
+nobody should be able to read anyone else's. There is no way to confirm from the
+API that a claim was submitted; check the app, and verify after the run.
 
 ### `waiver_budget` in settings does not mean the league uses FAAB
 
