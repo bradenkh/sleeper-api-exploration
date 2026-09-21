@@ -8,5 +8,8 @@ data/players.json
 
 # cached player dictionary (~14MB)
 .cache/
+
+# Python bytecode caches
 __pycache__/
+*.py[cod]
 *.pyc

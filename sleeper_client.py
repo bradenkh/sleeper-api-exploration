@@ -5,16 +5,20 @@ The Sleeper API requires no authentication or API key. See https://docs.sleeper.
 from __future__ import annotations
 
 import json
+import os
 import sys
+import tempfile
+import time
 import urllib.request
 import urllib.error
 
 BASE = "https://api.sleeper.app/v1"
+# Projections/stats live on a different host and are not under /v1.
+DATA_BASE = "https://api.sleeper.com"
 
 
-def _get(path: str):
-    """GET {BASE}/{path} and return parsed JSON (or None for a null/404 body)."""
-    url = f"{BASE}/{path}"
+def _get_url(url: str):
+    """GET an absolute URL and return parsed JSON (or None for a null/404 body)."""
     req = urllib.request.Request(url, headers={"User-Agent": "sleeper-api-exploration"})
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -26,6 +30,11 @@ def _get(path: str):
     if not body or body == "null":
         return None
     return json.loads(body)
+
+
+def _get(path: str):
+    """GET {BASE}/{path} and return parsed JSON (or None for a null/404 body)."""
+    return _get_url(f"{BASE}/{path}")
 
 
 def get_user(username_or_id: str):
@@ -41,6 +50,101 @@ def get_leagues(user_id: str, season: str, sport: str = "nfl"):
 def get_league_users(league_id: str):
     """Every member of a league (user_id, username, display_name, ...)."""
     return _get(f"league/{league_id}/users") or []
+
+
+def get_league(league_id: str):
+    """Full league object (settings, roster_positions, scoring, status, ...)."""
+    return _get(f"league/{league_id}")
+
+
+def get_rosters(league_id: str):
+    """Every roster in a league (owner_id, players, starters, wins/losses/fpts)."""
+    return _get(f"league/{league_id}/rosters") or []
+
+
+def get_matchups(league_id: str, week: int):
+    """All matchup entries for a given week (one per roster, grouped by matchup_id)."""
+    return _get(f"league/{league_id}/matchups/{week}") or []
+
+
+def get_transactions(league_id: str, week: int):
+    """All transactions (adds/drops, waivers, trades) reported under a given week."""
+    return _get(f"league/{league_id}/transactions/{week}") or []
+
+
+def get_traded_picks(league_id: str):
+    """Draft picks that have been traded away from their original owner."""
+    return _get(f"league/{league_id}/traded_picks") or []
+
+
+def get_nfl_state(sport: str = "nfl"):
+    """Current season/week state for a sport (season, week, season_type, ...)."""
+    return _get(f"state/{sport}")
+
+
+DEFAULT_POSITIONS = ("QB", "RB", "WR", "TE", "K", "DEF")
+
+
+def get_projections(season, week, positions=DEFAULT_POSITIONS,
+                    sport: str = "nfl", season_type: str = "regular"):
+    """Per-player stat projections for a week.
+
+    Returns a list of ``{player_id, stats: {...}, ...}`` entries. ``stats`` uses
+    the same stat keys as a league's ``scoring_settings`` (rec, rush_yd,
+    pass_td, fgm_40_49, pts_allow_0, ...), so expected fantasy points are just
+    the dot product of ``stats`` with the league's scoring weights.
+
+    Note: this hits the ``api.sleeper.com`` host (not the documented /v1 API);
+    the projection feed is unofficial but stable and is what the Sleeper app
+    itself displays.
+    """
+    query = f"season_type={season_type}"
+    for pos in positions:
+        query += f"&position[]={pos}"
+    url = f"{DATA_BASE}/projections/{sport}/{season}/{week}?{query}"
+    return _get_url(url) or []
+
+
+def get_stats(season, week, positions=DEFAULT_POSITIONS,
+              sport: str = "nfl", season_type: str = "regular"):
+    """Actual per-player stats for a completed week.
+
+    Same shape and stat keys as ``get_projections`` (rec, rush_yd, pass_td, ...),
+    so actual fantasy points are the same dot product with the league's scoring
+    weights -- which makes projections and actuals directly comparable for a
+    backtest.
+    """
+    query = f"season_type={season_type}"
+    for pos in positions:
+        query += f"&position[]={pos}"
+    url = f"{DATA_BASE}/stats/{sport}/{season}/{week}?{query}"
+    return _get_url(url) or []
+
+
+def get_players(sport: str = "nfl", cache_hours: float = 24.0):
+    """The full player map {player_id: {...}} for a sport.
+
+    This payload is large (~15 MB for the NFL), so it is cached on disk and
+    reused for ``cache_hours`` to keep repeated reports fast and gentle on the
+    API. Pass ``cache_hours=0`` to always refetch.
+    """
+    cache_path = os.path.join(tempfile.gettempdir(), f"sleeper_players_{sport}.json")
+    if cache_hours > 0 and os.path.exists(cache_path):
+        age_hours = (time.time() - os.path.getmtime(cache_path)) / 3600.0
+        if age_hours < cache_hours:
+            try:
+                with open(cache_path, "r", encoding="utf-8") as fh:
+                    return json.load(fh)
+            except (OSError, ValueError):
+                pass  # fall through and refetch on a corrupt/unreadable cache
+
+    players = _get(f"players/{sport}") or {}
+    try:
+        with open(cache_path, "w", encoding="utf-8") as fh:
+            json.dump(players, fh)
+    except OSError:
+        pass  # caching is best-effort; a read-only tmp is not fatal
+    return players
 
 
 def main(argv):

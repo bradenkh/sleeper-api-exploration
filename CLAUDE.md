@@ -108,3 +108,39 @@ The single highest-value check is **starters who cannot play** — the script's
 - Trade deadline: **Week 11**. Playoffs start **Week 15**. All 6 teams make playoffs.
 - **No byes in Weeks 1–4, 12, or 15–18** — the playoffs are bye-free.
 - The draft was a **full autodraft** (90 picks in 2m51s, 10-second pick timer).
+
+## Waiver mechanics (operating assumptions)
+
+- **Waivers are PRIORITY (rolling order), NOT FAAB.** No bidding / FAAB budget
+  (`waiver_type: 0`; the `waiver_budget: 100` is an unused default; each roster
+  carries a `waiver_position`). Contested claims are decided by waiver *order*,
+  and winning a claim drops that team to the back. Never advise "outbidding".
+- **Treat every unrostered player, defense, and team as a WAIVER CLAIM** — assume
+  there are no instantly-addable free agents. Frame every pickup/stream as a
+  claim and factor in Braden's current waiver position (he loses contested
+  claims when low in the order).
+
+## Additional tooling on this branch
+
+Alongside the report-only `scripts/fantasy_report.py`, this branch adds a set of
+**opinionated** Python helpers (they *do* rank players and recommend lineups —
+the opposite of the report script's philosophy above; see the note at the end):
+
+- `sleeper_client.py` — read-only Sleeper API client (users, leagues, rosters,
+  matchups, transactions, NFL state, projections, cached player map).
+- `league_report.py` — standings + since-last-week manager activity.
+- `optimize_lineup.py` — points-optimal lineup by the league's own scoring, plus
+  a per-position waiver board; injury-aware by default (`--fresh`, `--all`,
+  `--ignore-injuries`).
+- `season_report.py` — rest-of-season points optimization and bye-week planning.
+- `activity_report.py` — per-manager engagement (roster churn + lineup discipline).
+- `injury_report.py` — Sleeper injury designations (`--all`, `--fresh`).
+- `backtest.py` — validates Sleeper projections vs. actuals (corr/MAE/bias,
+  start-sit accuracy, vs a naive baseline). On 2025: start-sit accuracy RB 71% /
+  WR 67% / TE 63% / QB/DEF ~60% / **K 54% (near coin-flip)**, projections beat
+  the season-avg baseline. Empirical basis for "trust RB/WR/TE calls and big
+  gaps; treat K (and decimal-level gaps) as noise."
+
+> Note: these optimizer tools and the report-only script embody two different
+> philosophies (opinionated projections vs. facts-only). They currently coexist;
+> reconcile or pick one deliberately rather than letting them drift.
