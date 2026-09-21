@@ -27,3 +27,6 @@ fantasy league check-in / lineup optimization.
 - `optimize_lineup.py` — points-optimal lineup by the league's own scoring, plus
   a per-position waiver board (best available vs. your starters).
 - `season_report.py` — rest-of-season points optimization and bye-week planning.
+- `activity_report.py` — per-manager engagement (roster churn + lineup discipline).
+- `injury_report.py` — Sleeper injury designations for your roster (`--all` for
+  the whole league; `--fresh` forces a player-map refresh).
