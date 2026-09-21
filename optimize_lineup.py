@@ -34,6 +34,15 @@ FLEX_ELIGIBLE = {"FLEX": {"RB", "WR", "TE"},
                  "SUPER_FLEX": {"QB", "RB", "WR", "TE"}}
 
 
+# Injury designations that mean a player can't be counted on to start. (A
+# "Questionable" player is a game-time decision -- left eligible but flagged.)
+DNP_STATUSES = {"Out", "IR", "PUP", "Sus", "DNR", "COV", "Doubtful"}
+
+
+def injury_status(players, pid):
+    return (players.get(str(pid), {}) or {}).get("injury_status")
+
+
 def expected_points(stats: dict, scoring: dict) -> float:
     """Projected fantasy points = projected stats dotted with scoring weights."""
     return round(sum(weight * stats.get(stat, 0) for stat, weight in scoring.items()), 2)
@@ -129,6 +138,8 @@ def free_agent_board(all_rosters, my_ids, scoring, proj_by_pid, players,
         pos = (players.get(pid, {}) or {}).get("position")
         if pos not in SCAN_POSITIONS:
             continue
+        if injury_status(players, pid) in DNP_STATUSES:
+            continue  # don't recommend claiming a player who's out/IR
         pts = expected_points(stats, scoring)
         ranked.setdefault(pos, []).append((pts, pid, players.get(pid, {}).get("full_name", pid)))
     for pos in ranked:
@@ -178,7 +189,8 @@ def main(argv) -> int:
     show_all = "--all" in argv
     args = [a for a in argv[1:] if not a.startswith("--")]
     if not args:
-        print("usage: python optimize_lineup.py <username|league_id> [week] [--all]")
+        print("usage: python optimize_lineup.py <username|league_id> [week] "
+              "[--all] [--fresh] [--ignore-injuries]")
         return 1
     who = args[0]
 
@@ -192,7 +204,8 @@ def main(argv) -> int:
     league = api.get_league(league_id)
     scoring = league.get("scoring_settings", {})
     roster_positions = league.get("roster_positions", [])
-    players = api.get_players()
+    # Injury awareness is only as current as the player map; --fresh forces a pull.
+    players = api.get_players(cache_hours=0 if "--fresh" in argv else 24)
 
     # Find the roster: by username if given, else this prints for every team.
     user = None if who.isdigit() else api.get_user(who)
@@ -204,9 +217,25 @@ def main(argv) -> int:
     proj = api.get_projections(season, week)
     proj_by_pid = {str(p.get("player_id")): (p.get("stats") or {}) for p in proj}
 
+    injury_aware = "--ignore-injuries" not in argv
     for r in rosters:
         projected = project_roster(r, scoring, proj_by_pid, players)
         starters_now = set(str(x) for x in (r.get("starters") or []) if str(x) != "0")
+
+        # By default, drop players who can't start (Out/IR/etc.) so the optimal
+        # lineup and the swaps reflect who is actually available this week. Any
+        # hole this opens (e.g. your only QB is Out) shows up in the FA board as
+        # the position to claim.
+        out_players = []
+        if injury_aware:
+            eligible = []
+            for pid, name, pos, pts in projected:
+                if injury_status(players, pid) in DNP_STATUSES:
+                    out_players.append((injury_status(players, pid), name, pos, pts))
+                else:
+                    eligible.append((pid, name, pos, pts))
+            projected = eligible
+
         lineup, bench = optimize(projected, roster_positions)
         opt_total = round(sum(p[4] or 0 for p in lineup), 2)
         cur_total = round(sum(pts for pid, _, _, pts in
@@ -234,6 +263,13 @@ def main(argv) -> int:
                 print(f"    SIT   {name} ({pos}) -- proj {pts if pts is not None else 0:.2f}")
         else:
             print("\n  Your current lineup is already points-optimal by projection.")
+
+        if out_players:
+            print("\n  Benched (injured -- excluded from the optimal lineup; "
+                  "the FA board shows the position to claim):")
+            for status, name, pos, pts in out_players:
+                print(f"    {status:12} {name} ({pos}) -- would have projected "
+                      f"{pts or 0:.1f}")
 
         my_ids = set(str(x) for x in (r.get("players") or []))
         free_agent_board(all_rosters, my_ids, scoring, proj_by_pid, players,
