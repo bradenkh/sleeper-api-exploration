@@ -89,6 +89,72 @@ def optimize(projected, roster_positions):
     return lineup, remaining
 
 
+SCAN_POSITIONS = ("QB", "RB", "WR", "TE", "K", "DEF")
+
+
+def free_agent_board(all_rosters, my_ids, scoring, proj_by_pid, players,
+                     lineup, roster_positions):
+    """Best available free agent at every position, and which ones upgrade you.
+
+    A player is a free agent if they sit on no roster in the league. For each
+    position we find the top projected free agent and compare it to the bar it
+    would have to clear to crack your starting lineup:
+
+      * QB / K / DEF (single dedicated slot): beat the player you'd start there.
+      * RB / WR / TE (also feed FLEX): beat your weakest FLEX-eligible starter,
+        since that's the starter a better skill player would bump.
+
+    This is what turns "start my best names" into "optimize every slot,
+    including the streaming spots (DEF, K) that change with the matchup."
+    """
+    rostered = set()
+    for r in all_rosters:
+        rostered.update(str(x) for x in (r.get("players") or []))
+
+    flex_positions = set()
+    for slot in roster_positions:
+        flex_positions |= FLEX_ELIGIBLE.get(slot, set())
+
+    # What I currently start, by position, from the roster-only optimal lineup.
+    started = [(pos, pts, name) for slot, pid, name, pos, pts in lineup if pid is not None]
+    weakest_flex = min([pts for pos, pts, _ in started if pos in flex_positions],
+                       default=0.0)
+    started_by_pos = {}
+    for pos, pts, name in started:
+        started_by_pos.setdefault(pos, []).append((pts, name))
+
+    # Rank every projected player by expected points, split into FA vs rostered.
+    ranked = {}
+    for pid, stats in proj_by_pid.items():
+        pos = (players.get(pid, {}) or {}).get("position")
+        if pos not in SCAN_POSITIONS:
+            continue
+        pts = expected_points(stats, scoring)
+        ranked.setdefault(pos, []).append((pts, pid, players.get(pid, {}).get("full_name", pid)))
+    for pos in ranked:
+        ranked[pos].sort(reverse=True)
+
+    print("\n  Free-agent board (best available vs. you, this week):")
+    upgrades = []
+    for pos in SCAN_POSITIONS:
+        fas = [(pts, name) for pts, pid, name in ranked.get(pos, []) if pid not in rostered]
+        mine = started_by_pos.get(pos)
+        bar = (min(p for p, _ in mine) if mine
+               else (weakest_flex if pos in flex_positions else 0.0))
+        top = ", ".join(f"{name} {pts:.1f}" for pts, name in fas[:3]) or "(none)"
+        print(f"    {pos:4} you start ~{bar:5.1f}  |  top FA: {top}")
+        if fas and fas[0][0] > bar + 0.5:
+            upgrades.append((pos, fas[0][0], fas[0][1], bar))
+
+    if upgrades:
+        print("\n  Streaming / free-agent UPGRADES (add these, they out-project a starter):")
+        for pos, pts, name, bar in sorted(upgrades, key=lambda u: -(u[1] - u[3])):
+            print(f"    {pos:4} add {name} (proj {pts:.1f}) -> +{pts - bar:.1f} over your "
+                  f"~{bar:.1f}")
+    else:
+        print("\n  No free agent out-projects a starter at any position this week.")
+
+
 def resolve_league(arg, season):
     if arg.isdigit() and len(arg) >= 12:
         return arg
@@ -130,9 +196,10 @@ def main(argv) -> int:
 
     # Find the roster: by username if given, else this prints for every team.
     user = None if who.isdigit() else api.get_user(who)
-    rosters = api.get_rosters(league_id)
+    all_rosters = api.get_rosters(league_id)
+    rosters = all_rosters
     if user:
-        rosters = [r for r in rosters if r.get("owner_id") == user["user_id"]] or rosters
+        rosters = [r for r in all_rosters if r.get("owner_id") == user["user_id"]] or all_rosters
 
     proj = api.get_projections(season, week)
     proj_by_pid = {str(p.get("player_id")): (p.get("stats") or {}) for p in proj}
@@ -167,6 +234,10 @@ def main(argv) -> int:
                 print(f"    SIT   {name} ({pos}) -- proj {pts if pts is not None else 0:.2f}")
         else:
             print("\n  Your current lineup is already points-optimal by projection.")
+
+        my_ids = set(str(x) for x in (r.get("players") or []))
+        free_agent_board(all_rosters, my_ids, scoring, proj_by_pid, players,
+                         lineup, roster_positions)
 
         if show_all:
             print("\n  Bench (projected pts):")
