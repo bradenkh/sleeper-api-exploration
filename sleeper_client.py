@@ -13,11 +13,12 @@ import urllib.request
 import urllib.error
 
 BASE = "https://api.sleeper.app/v1"
+# Projections/stats live on a different host and are not under /v1.
+DATA_BASE = "https://api.sleeper.com"
 
 
-def _get(path: str):
-    """GET {BASE}/{path} and return parsed JSON (or None for a null/404 body)."""
-    url = f"{BASE}/{path}"
+def _get_url(url: str):
+    """GET an absolute URL and return parsed JSON (or None for a null/404 body)."""
     req = urllib.request.Request(url, headers={"User-Agent": "sleeper-api-exploration"})
     try:
         with urllib.request.urlopen(req, timeout=15) as resp:
@@ -29,6 +30,11 @@ def _get(path: str):
     if not body or body == "null":
         return None
     return json.loads(body)
+
+
+def _get(path: str):
+    """GET {BASE}/{path} and return parsed JSON (or None for a null/404 body)."""
+    return _get_url(f"{BASE}/{path}")
 
 
 def get_user(username_or_id: str):
@@ -74,6 +80,29 @@ def get_traded_picks(league_id: str):
 def get_nfl_state(sport: str = "nfl"):
     """Current season/week state for a sport (season, week, season_type, ...)."""
     return _get(f"state/{sport}")
+
+
+DEFAULT_POSITIONS = ("QB", "RB", "WR", "TE", "K", "DEF")
+
+
+def get_projections(season, week, positions=DEFAULT_POSITIONS,
+                    sport: str = "nfl", season_type: str = "regular"):
+    """Per-player stat projections for a week.
+
+    Returns a list of ``{player_id, stats: {...}, ...}`` entries. ``stats`` uses
+    the same stat keys as a league's ``scoring_settings`` (rec, rush_yd,
+    pass_td, fgm_40_49, pts_allow_0, ...), so expected fantasy points are just
+    the dot product of ``stats`` with the league's scoring weights.
+
+    Note: this hits the ``api.sleeper.com`` host (not the documented /v1 API);
+    the projection feed is unofficial but stable and is what the Sleeper app
+    itself displays.
+    """
+    query = f"season_type={season_type}"
+    for pos in positions:
+        query += f"&position[]={pos}"
+    url = f"{DATA_BASE}/projections/{sport}/{season}/{week}?{query}"
+    return _get_url(url) or []
 
 
 def get_players(sport: str = "nfl", cache_hours: float = 24.0):
