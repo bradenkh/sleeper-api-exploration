@@ -135,6 +135,11 @@ the opposite of the report script's philosophy above; see the note at the end):
 - `season_report.py` — rest-of-season points optimization and bye-week planning.
 - `activity_report.py` — per-manager engagement (roster churn + lineup discipline).
 - `injury_report.py` — Sleeper injury designations (`--all`, `--fresh`).
+- `backtest.py` — validates Sleeper projections vs. actuals (corr/MAE/bias,
+  start-sit accuracy, vs a naive baseline). On 2025: start-sit accuracy RB 71% /
+  WR 67% / TE 63% / QB/DEF ~60% / **K 54% (near coin-flip)**, projections beat
+  the season-avg baseline. Empirical basis for "trust RB/WR/TE calls and big
+  gaps; treat K (and decimal-level gaps) as noise."
 
 > Note: these optimizer tools and the report-only script embody two different
 > philosophies (opinionated projections vs. facts-only). They currently coexist;

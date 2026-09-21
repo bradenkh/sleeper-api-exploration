@@ -105,6 +105,22 @@ def get_projections(season, week, positions=DEFAULT_POSITIONS,
     return _get_url(url) or []
 
 
+def get_stats(season, week, positions=DEFAULT_POSITIONS,
+              sport: str = "nfl", season_type: str = "regular"):
+    """Actual per-player stats for a completed week.
+
+    Same shape and stat keys as ``get_projections`` (rec, rush_yd, pass_td, ...),
+    so actual fantasy points are the same dot product with the league's scoring
+    weights -- which makes projections and actuals directly comparable for a
+    backtest.
+    """
+    query = f"season_type={season_type}"
+    for pos in positions:
+        query += f"&position[]={pos}"
+    url = f"{DATA_BASE}/stats/{sport}/{season}/{week}?{query}"
+    return _get_url(url) or []
+
+
 def get_players(sport: str = "nfl", cache_hours: float = 24.0):
     """The full player map {player_id: {...}} for a sport.
 
