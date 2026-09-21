@@ -1,32 +1,141 @@
-# CLAUDE.md — repo memory & operating assumptions
+# CLAUDE.md — Context for Claude Code sessions
 
-This repo explores the public Sleeper API and includes tooling for a specific
-fantasy league check-in / lineup optimization.
+This repo tracks Braden's 2026 Sleeper fantasy football season. It is a
+**data + strategy journal**, not an application. The point is that each week I can
+open a Claude Code session, have you pull fresh data, compare it against what's
+recorded here, and tell me what changed and what to do about it.
 
-## League context
-- **League:** "The Boys" — `league_id 1401765585515237376`, 6 teams, **2026** season.
-- **Scoring:** full **PPR** (1.0 per reception); standard yardage/TD weights.
-- **Primary user:** `brdnhnsn` (`user_id 1401782633133780992`).
+## Owner context — read this first
 
-## Operating assumptions (assume these from here on)
-1. **Waivers are PRIORITY (rolling order), NOT FAAB.** There is no bidding /
-   FAAB budget in this league (the `waiver_budget: 100` in the settings is an
-   unused default; `waiver_type: 0` and each roster carries a `waiver_position`).
-   Contested claims are decided by waiver *order*, and winning a claim drops that
-   team to the back of the order. Never advise "outbidding" or spending FAAB.
-2. **Treat every unrostered player, defense, and team as a WAIVER CLAIM — assume
-   there are NO instantly-addable free agents.** When recommending a pickup or a
-   stream (DEF/K/QB/etc.), frame it as a waiver claim, and factor in the user's
-   current waiver priority (they lose contested claims when low in the order).
-   Do not tell the user something can be added instantly as a free agent.
+**Braden is new to football.** He does not know the sport's terminology or
+conventions. When explaining anything:
 
-## Tooling in this repo
+- Define football terms on first use (FLEX, waiver, bye week, snap share, target
+  share, handcuff, etc.).
+- Lead with the recommendation, then the reasoning.
+- Say plainly when something is a hard fact from the API vs. a judgment call.
+  He has explicitly asked for that distinction before.
+- Don't assume he'll spot an implication — spell it out.
+
+## League identifiers
+
+| Thing | Value |
+|---|---|
+| Sleeper username | `brdnhnsn` |
+| User ID | `1401782633133780992` |
+| League name | The Boys |
+| League ID | `1401765585515237376` |
+| Draft ID | `1401765586874150912` |
+| Braden's roster ID | `3` |
+| Season | 2026 (NFL) |
+
+Roster ID → manager mapping lives in `docs/league-reference.md`. Always
+re-derive it from `data/users.json` + `data/rosters.json` rather than trusting a
+memorized mapping — ownership can change.
+
+## Sleeper API — how to pull fresh data
+
+Public, no auth, no rate limit worth worrying about. Base: `https://api.sleeper.app`
+
+```
+/v1/state/nfl                             # current week + season — CHECK THIS FIRST
+/v1/league/{league_id}                    # settings, scoring, roster_positions
+/v1/league/{league_id}/users              # managers
+/v1/league/{league_id}/rosters            # rosters, records, points
+/v1/league/{league_id}/matchups/{week}    # weekly matchups + scores
+/v1/league/{league_id}/transactions/{week}# adds, drops, trades
+/v1/league/{league_id}/traded_picks       # traded draft picks
+/v1/draft/{draft_id}/picks                # draft results
+/v1/players/nfl                           # ~14MB player dictionary
+/schedule/nfl/regular/{season}            # NFL schedule (undocumented but works)
+```
+
+Gotchas learned the hard way — see `docs/api-notes.md` for the full list:
+
+- `/v1/players/nfl` is **14MB**. It is deliberately **not committed**. Fetch it to
+  the scratchpad and cache it for the session.
+- There is **no bye-week field** on players. Byes must be derived from
+  `/schedule/nfl/regular/2026` — a team's bye is the week it has no game.
+  Already derived and committed as `data/byes_2026.json`.
+- `search_rank` is Sleeper's own ranking (lower = better). It's a decent value
+  proxy but **lags real-world news** — always flag it as directional, not fact.
+- Autopicked draft picks still populate `picked_by`, so that field can't detect
+  autodrafting. Use draft duration instead (`start_time` → `last_picked`).
+- Defenses have `player_id` = team abbreviation (e.g. `"HOU"`) and usually no
+  `search_rank`.
+
+## Weekly workflow
+
+Start by running the report script — it does the mechanical data gathering:
+
+```bash
+python3 scripts/fantasy_report.py                    # current week, to stdout
+python3 scripts/fantasy_report.py --out weekly/week-03-report.md
+python3 scripts/fantasy_report.py --week 13          # look ahead
+```
+
+**The script is report-only by design.** It states facts and flags anomalies;
+it does not recommend lineups or rank players. That is deliberate — ranking
+heuristics go stale (`search_rank` had Josh Jacobs at rank 20 while he was
+listed `NA` and 4th on the depth chart), and baking judgment into a file means
+nobody argues with it. Interpretation happens in conversation. **Keep it that
+way** — if asked to extend the script, add signals, not opinions.
+
+Then:
+
+1. Read the report's §2 (league-wide lineup audit) and §4 (manager activity).
+2. Diff against last week's entry in `weekly/`: what changed, who woke up.
+3. Write `weekly/week-NN.md` from the template, adding the judgment the script
+   deliberately omits.
+4. Update `STRATEGY.md` only if the plan actually changed. Don't churn it.
+
+The single highest-value check is **starters who cannot play** — the script's
+"Cannot play" column. It has already caught one real problem.
+
+## Repo conventions
+
+- One markdown file per week in `weekly/`, named `week-NN.md` (zero-padded).
+- Raw JSON snapshots go in `data/`. Keep them small; never commit `players.json`.
+- `STRATEGY.md` is the living plan. `docs/league-reference.md` is static facts
+  that only change if league settings change.
+- Record **what actually happened** alongside what was recommended, so the
+  advice can be checked against reality later. Wrong calls stay in the log.
+
+## Standing facts worth not re-deriving
+
+- Lineup is **10 starters**: QB, RB, RB, WR, WR, TE, FLEX, FLEX, K, DEF + 5 bench = 15 total.
+- **No IR slot** (`reserve_slots: 0`), so injured players occupy real roster spots.
+- Trade deadline: **Week 11**. Playoffs start **Week 15**. All 6 teams make playoffs.
+- **No byes in Weeks 1–4, 12, or 15–18** — the playoffs are bye-free.
+- The draft was a **full autodraft** (90 picks in 2m51s, 10-second pick timer).
+
+## Waiver mechanics (operating assumptions)
+
+- **Waivers are PRIORITY (rolling order), NOT FAAB.** No bidding / FAAB budget
+  (`waiver_type: 0`; the `waiver_budget: 100` is an unused default; each roster
+  carries a `waiver_position`). Contested claims are decided by waiver *order*,
+  and winning a claim drops that team to the back. Never advise "outbidding".
+- **Treat every unrostered player, defense, and team as a WAIVER CLAIM** — assume
+  there are no instantly-addable free agents. Frame every pickup/stream as a
+  claim and factor in Braden's current waiver position (he loses contested
+  claims when low in the order).
+
+## Additional tooling on this branch
+
+Alongside the report-only `scripts/fantasy_report.py`, this branch adds a set of
+**opinionated** Python helpers (they *do* rank players and recommend lineups —
+the opposite of the report script's philosophy above; see the note at the end):
+
 - `sleeper_client.py` — read-only Sleeper API client (users, leagues, rosters,
   matchups, transactions, NFL state, projections, cached player map).
 - `league_report.py` — standings + since-last-week manager activity.
 - `optimize_lineup.py` — points-optimal lineup by the league's own scoring, plus
-  a per-position waiver board (best available vs. your starters).
+  a per-position waiver board; injury-aware by default (`--fresh`, `--all`,
+  `--ignore-injuries`).
 - `season_report.py` — rest-of-season points optimization and bye-week planning.
 - `activity_report.py` — per-manager engagement (roster churn + lineup discipline).
-- `injury_report.py` — Sleeper injury designations for your roster (`--all` for
-  the whole league; `--fresh` forces a player-map refresh).
+- `injury_report.py` — Sleeper injury designations (`--all`, `--fresh`).
+
+> Note: these optimizer tools and the report-only script embody two different
+> philosophies (opinionated projections vs. facts-only). They currently coexist;
+> reconcile or pick one deliberately rather than letting them drift.

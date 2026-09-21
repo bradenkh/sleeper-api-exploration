@@ -1,3 +1,15 @@
+# Sleeper's full player dictionary is ~14MB — fetch on demand, never commit
+players.json
+data/players.json
+
+# scratch
+*.tmp
+.DS_Store
+
+# cached player dictionary (~14MB)
+.cache/
+
 # Python bytecode caches
 __pycache__/
 *.py[cod]
+*.pyc
