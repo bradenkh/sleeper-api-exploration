@@ -208,7 +208,7 @@ def main(argv) -> int:
         projected = project_roster(r, scoring, proj_by_pid, players)
         starters_now = set(str(x) for x in (r.get("starters") or []) if str(x) != "0")
         lineup, bench = optimize(projected, roster_positions)
-        opt_total = round(sum(p[4] for p in lineup), 2)
+        opt_total = round(sum(p[4] or 0 for p in lineup), 2)
         cur_total = round(sum(pts for pid, _, _, pts in
                               [(p[0], p[1], p[2], p[3] or 0) for p in projected]
                               if pid in starters_now), 2)
