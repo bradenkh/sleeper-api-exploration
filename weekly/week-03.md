@@ -184,12 +184,19 @@ empty slot twice.
 
 ### Actions — before Sunday 09-27 kickoff
 
-- [ ] **Start Patrick Mahomes at QB, bench Jayden Daniels** (Out, elbow)
-- [ ] **Move DET DEF into the empty DEF slot**
+- [x] **Start Patrick Mahomes at QB, bench Jayden Daniels** (Out, elbow) — done, verified 09-26
+- [x] **Move DET DEF into the empty DEF slot** — done, verified 09-26
 - [ ] Re-run `scripts/fantasy_report.py` — "Cannot play" should read 0
 
 ### Actions — this week
 
-- [ ] Waiver claim: **+Ladd McConkey / −Mike Evans**
+- [x] **+Ladd McConkey / −Mike Evans** — done 09-26 as an instant `free_agent`
+      add, not a waiver claim. Waiver position unchanged (6th).
+
+      **Report bug:** `week-03-report.md` §7 tagged McConkey `WAIVER (clears next
+      run)`. Wrong: TuR7L3z dropped him *inside* the 09-23 waiver run, and a
+      player dropped by a processed waiver claim seems to go straight to free
+      agency. The script's WAIVER tag needs to exclude drops that are part of a
+      waiver-type transaction. (One example so far; treat as likely, not proven.)
 - [ ] Watch Daniels's elbow news; decide QB surplus once his timeline is known
 - [ ] When Bowers is cleared, start him over Warren
