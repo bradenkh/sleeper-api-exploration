@@ -1,7 +1,7 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-15 (Week 1 final — won 158.76–153.46; waiver system
-corrected to priority, see §4.3 and §9)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-26 (2-0; streaming timing
+revised after waiver research, §4.3 rules 2 and 5)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
@@ -176,18 +176,26 @@ two days anyway — at which point anyone can take him instantly.
 1. **Access is effectively free. Act like it.** Any unowned player can be had —
    instantly if he is a free agent, or after a 2-day wait if recently dropped.
    Never talk myself out of an add on "cost" grounds.
-2. **Timing beats claiming, but only outside the waiver window.** Between runs
-   the wire is open for instant adds; during the window (~Tue → Wed run)
-   everything is a claim regardless of who was dropped when. Observed 09-15:
-   Drake Maye had long cleared waivers and was still claim-only on a Tuesday.
-   To add instantly, act after the run processes.
+2. **Stream as a free agent, never as a claim.** Revised 2026-09-26 (mechanics
+   in `docs/api-notes.md`): a player is claim-only if dropped in the last 47 h
+   or his game has kicked off since the Wednesday ~3 a.m. ET run. So:
+   - **Wednesday morning** after the run, almost the whole wire is an instant
+     add. Default time to set K/DEF for the week.
+   - **Sunday/Monday streamers can wait for news** (injuries, weather) until
+     their own kickoff — they stay instant adds all week.
+   - **Thursday-game streamers** must be added before Thursday kickoff.
+   - **Mon–Tue is claim-only.** A streamer claimed then (as DET DEF was on
+     09-21) spends priority for something free on Wednesday.
 3. **Do not pre-stock replaceable positions.** Because access is uncontested, a
    Week 7 fill-in QB or kicker can be picked up *in Week 6*. Spending a bench
    spot months early on something sitting on the shelf is pure waste.
 4. **The scarce resource is roster spots, not priority.** 15 spots, no IR. Space
    is the binding constraint — see §4.3c.
-5. **Revisit if anyone starts claiming.** Two managers are now active. If claims
-   start appearing in the transaction log, position matters again.
+5. **People have started claiming — position matters again.** Week 2 (09-23):
+   TuR7L3z claimed Christian Watson, HntrRundas claimed Jake Ferguson and MIN
+   DEF, and stalbot8 made his first move 09-26. Save priority for contested
+   *players* (a breakout RB, an injury replacement); rule 2 keeps streaming
+   from ever touching it.
 
 ### 4.3c Every bench spot must have a stated job
 

@@ -192,6 +192,11 @@ empty slot twice.
 - [x] **Move DET DEF into the empty DEF slot** — done, verified 09-26
 - [ ] Re-run `scripts/fantasy_report.py` — "Cannot play" should read 0
 
+- [ ] **Optional: swap DET DEF → SEA DEF** (instant add, no priority). DET faces
+      NYJ, i.e. Breece Hall (STRATEGY §4.4b collision rule). SEA plays @ WAS, whose QB Daniels is benched. Sleeper projection by league
+      scoring: SEA 9.3 vs DET 8.4. KC DEF (9.3, @ MIA) is the equal alternative.
+      Small edge; DEF projections are only ~60% accurate at start-sit.
+
 ### Actions — this week
 
 - [x] **+Ladd McConkey / −Mike Evans** — done 09-26 as an instant `free_agent`
