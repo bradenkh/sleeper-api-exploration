@@ -197,6 +197,13 @@ empty slot twice.
       scoring: SEA 9.3 vs DET 8.4. KC DEF (9.3, @ MIA) is the equal alternative.
       Small edge; DEF projections are only ~60% accurate at start-sit.
 
+**Head-to-head (09-26, Sleeper projections in league scoring, London's 28.4 actual
+included):** me ~166 vs stalbot8 ~140. Favored by ~26, so play it safe (STRATEGY
+§4.4c). SEA DEF now in the lineup. Only open call: **Bowers (13.4 proj) over
+Warren (10.3) if Bowers is confirmed active** before Sunday kickoff. stalbot8
+has three Bengals starting in one game (Chase Brown, Chase, Higgins vs PIT) —
+his upside, and why a 26-point lead isn't safe.
+
 ### Actions — this week
 
 - [x] **+Ladd McConkey / −Mike Evans** — done 09-26 as an instant `free_agent`
