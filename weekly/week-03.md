@@ -135,7 +135,7 @@ claims. Order: ajolson77, sworthy92, stalbot8, TuR7L3z, HntrRundas, me.
 
 - **Drake Maye (QB-NE, rank 11) is still a free agent.** Less relevant now that
   Mahomes is the backup — two healthy QBs is enough while Daniels is out.
-- **Keep Daniels — do not drop or trade (decided 09-26).** News (not API): he
+- **Keep Daniels — do not drop or trade (recommended 09-26).** News (not API): he
   dislocated his *left* (non-throwing) elbow on 09-20 vs DAL. There was no
   fracture, and the coach expects him back this season. He had the same injury
   in 2025 and missed 4 games. Dropping him would give away the best long-term
