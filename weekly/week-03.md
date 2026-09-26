@@ -135,6 +135,12 @@ claims. Order: ajolson77, sworthy92, stalbot8, TuR7L3z, HntrRundas, me.
 
 - **Drake Maye (QB-NE, rank 11) is still a free agent.** Less relevant now that
   Mahomes is the backup — two healthy QBs is enough while Daniels is out.
+- **Keep Daniels — do not drop or trade (decided 09-26).** News (not API): he
+  dislocated his *left* (non-throwing) elbow on 09-20 vs DAL. There was no
+  fracture, and the coach expects him back this season. He had the same injury
+  in 2025 and missed 4 games. Dropping him would give away the best long-term
+  QB on the roster (and a keeper candidate) to save one bench spot. Trading him
+  now sells low and needs a counterparty who is paying attention.
 - **Roster crowding (judgment):** 2 QBs, 2 TEs, 5 RBs, 3 WRs, 1 K, 1 DEF. Once
   Daniels's timeline is known, one QB is likely surplus. Same for TE once Bowers
   is healthy — Bowers (23) outranks Warren (47) and should start when active.
