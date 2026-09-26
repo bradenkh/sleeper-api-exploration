@@ -115,9 +115,12 @@ The single highest-value check is **starters who cannot play** — the script's
   (`waiver_type: 0`; the `waiver_budget: 100` is an unused default; each roster
   carries a `waiver_position`). Contested claims are decided by waiver *order*,
   and winning a claim drops that team to the back. Never advise "outbidding".
-- **Treat every unrostered player, defense, and team as a WAIVER CLAIM** — assume
-  there are no instantly-addable free agents. Frame every pickup/stream as a
-  claim and factor in Braden's current waiver position (he loses contested
+- **Instant add vs. claim** (verified 2026-09-26, see `docs/api-notes.md`): an
+  unrostered player is a **waiver claim** if he was dropped in the last 47 hours
+  *or* his NFL game has kicked off since the Wednesday ~3 a.m. ET run.
+  Otherwise he is an instant free-agent add. Tue → Wed run, everyone is a claim;
+  Wednesday morning, almost everyone is free. Report §7 labels each player.
+  When a claim is needed, factor in Braden's waiver position (he loses contested
   claims when low in the order).
 
 ## Additional tooling on this branch

@@ -1,6 +1,6 @@
 # Week 3 report — auto-generated
 
-Generated 2026-09-26 14:35 · NFL state: season 2026, week 3, regular · players.json freshly fetched
+Generated 2026-09-26 17:24 · NFL state: season 2026, week 3, regular · players.json cached, 2.8h old
 
 > Report only. Flags are observable facts from the API, not advice. `OUT`/`BYE` mean the player cannot or likely will not play; `QUES` and `DEPTH` are context, not verdicts. Judgment stays out of this file.
 
@@ -49,11 +49,11 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Chase McLaughlin | K | TB | ok |
 | SF DEF | DEF | SF | ok |
 
-### brdnhnsn (me) — 2 cannot play, 1 questionable (of 10 starters)
+### brdnhnsn (me) — 0 cannot play, 0 questionable (of 10 starters)
 
 | Starter | Pos | Team | Flags |
 |---|---|---|---|
-| Jayden Daniels | QB | WAS | **OUT** injury_status=Out (Elbow); **DEPTH** depth_chart_order=2 |
+| Patrick Mahomes | QB | KC | ok |
 | Jonathan Taylor | RB | IND | ok |
 | Derrick Henry | RB | BAL | ok |
 | Jaxon Smith-Njigba | WR | SEA | ok |
@@ -62,7 +62,7 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Jeremiyah Love | RB | ARI | ok |
 | Breece Hall | RB | NYJ | ok |
 | Cam Little | K | JAX | ok |
-| — empty slot — |  |  | **EMPTY** no player set |
+| DET DEF | DEF | DET | ok |
 
 ### ajolson77 — 1 cannot play, 2 questionable (of 10 starters)
 
@@ -94,11 +94,11 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 | Chris Boswell | K | PIT | ok |
 | DEN DEF | DEF | DEN | ok |
 
-### stalbot8 — 0 cannot play, 2 questionable (of 10 starters)
+### stalbot8 — 0 cannot play, 1 questionable (of 10 starters)
 
 | Starter | Pos | Team | Flags |
 |---|---|---|---|
-| Caleb Williams | QB | CHI | **QUES** injury_status=Doubtful (Hamstring); **DEPTH** depth_chart_order=3 |
+| Brock Purdy | QB | SF | ok |
 | Ashton Jeanty | RB | LV | ok |
 | Chase Brown | RB | CIN | ok |
 | Ja'Marr Chase | WR | CIN | ok |
@@ -113,18 +113,18 @@ Every manager's starting lineup, cross-referenced against injury status, bye wee
 
 | Manager | Cannot play | Questionable | Who cannot play |
 |---|---|---|---|
-| brdnhnsn (me) | 2 | 1 | Jayden Daniels (injury_status=Out (Elbow)); empty slot |
 | HntrRundas | 1 | 2 | empty slot |
 | ajolson77 | 1 | 2 | A.J. Brown (injury_status=IR (Ankle)) |
-| stalbot8 | 0 | 2 | — |
 | TuR7L3z | 0 | 1 | — |
+| stalbot8 | 0 | 1 | — |
+| brdnhnsn (me) | 0 | 0 | — |
 | sworthy92 | 0 | 0 | — |
 
 ## 3. Matchups — week 3
 
 | Matchup | Cannot play | Questionable | Points |
 |---|---|---|---|
-| brdnhnsn (me) vs stalbot8 | 2 — 0 | 1 — 2 | 28.40 — 0.00 |
+| brdnhnsn (me) vs stalbot8 | 0 — 0 | 0 — 1 | 28.40 — 0.00 |
 | TuR7L3z vs sworthy92 | 0 — 0 | 1 — 0 | 22.60 — 35.30 |
 | HntrRundas vs ajolson77 | 1 — 1 | 2 — 2 | 0.00 — 0.00 |
 
@@ -136,12 +136,12 @@ Who is actually managing their team. This is the core edge in this league — it
 |---|---|---|---|
 | HntrRundas | 5 | 2 | active |
 | TuR7L3z | 9 | 3 | active |
-| brdnhnsn (me) | 8 | 2 | active |
+| brdnhnsn (me) | 9 | 3 | active |
 | ajolson77 | 0 | — | DORMANT — no moves all season |
 | sworthy92 | 0 | — | DORMANT — no moves all season |
-| stalbot8 | 0 | — | DORMANT — no moves all season |
+| stalbot8 | 1 | 3 | active |
 
-**Dormant opponents: 3 of 5** (ajolson77, sworthy92, stalbot8)
+**Dormant opponents: 2 of 5** (ajolson77, sworthy92)
 
 **Trades league-wide: 0**
 
@@ -162,6 +162,12 @@ Who is actually managing their team. This is the core edge in this league — it
 - **wk2** 2026-09-23 · HntrRundas · `waiver`
   - **+** MIN DEF
   - **−** SEA DEF
+- **wk3** 2026-09-26 · brdnhnsn (me) · `free_agent`
+  - **+** Ladd McConkey
+  - **−** Mike Evans
+- **wk3** 2026-09-26 · stalbot8 · `free_agent`
+  - **+** Brock Purdy
+  - **−** Rico Dowdle
 - **wk3** 2026-09-23 · TuR7L3z · `free_agent`
   - **+** Travis Kelce
   - **−** Ka'imi Fairbairn
@@ -180,7 +186,7 @@ Players on each roster whose NFL team is on bye, by upcoming week. Shows when ea
 |---|---|---|---|---|---|
 | HntrRundas | · | · | · | 3 | 1 |
 | TuR7L3z | · | · | 2 | 2 | 4 |
-| brdnhnsn (me) | · | · | 1 | 1 | 2 |
+| brdnhnsn (me) | · | · | 1 | 1 | 3 |
 | ajolson77 | · | · | · | 1 | 2 |
 | sworthy92 | · | · | 2 | 3 | 1 |
 | stalbot8 | · | · | 1 | 3 | 2 |
@@ -189,7 +195,7 @@ Players on each roster whose NFL team is on bye, by upcoming week. Shows when ea
 
 Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags real-world news and is listed as raw data, not a ranking endorsement — see docs/api-notes.md.
 
-**How to get them** differs and the API does not say which is which: a player nobody has rostered is an instant add, but one another manager recently *dropped* sits in the waiver period and needs a waiver claim (which costs waiver position, not money, in this league). The `WAIVER` tag marks players dropped since the last weekly waiver run, so they clear at the next one — they cannot be grabbed on the spot.
+**How to get them** is reconstructed, not reported by the API. A player is on `WAIVER` (claim needed, costs waiver position) if he was dropped in the last ~47 hours, or if his NFL game has kicked off since the last Wednesday run. Otherwise he is a `free agent` — an instant add, but only until his game kicks off. See docs/api-notes.md.
 
 **QB**
 
@@ -199,16 +205,16 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 | 33 | Justin Herbert | LAC | 7 | — | free agent |
 | 41 | Trevor Lawrence | JAX | 7 | — | free agent |
 | 45 | Bo Nix | DEN | 10 | — | free agent |
-| 55 | Brock Purdy | SF | 8 | — | free agent |
 | 62 | Jared Goff | DET | 6 | — | free agent |
-| 68 | Jordan Love | GB | 11 | — | free agent |
+| 68 | Jordan Love | GB | 11 | — | **WAIVER** (game started; clears Wed run) |
 | 75 | Baker Mayfield | TB | 10 | — | free agent |
+| 87 | Kyler Murray | MIN | 6 | — | free agent |
 
 **RB**
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 20 | Josh Jacobs | GB | 11 | NA | free agent |
+| 20 | Josh Jacobs | GB | 11 | NA | **WAIVER** (game started; clears Wed run) |
 | 52 | Jaylen Warren | PIT | 9 | Questionable | free agent |
 | 58 | Rhamondre Stevenson | NE | 11 | — | free agent |
 | 61 | Kyle Monangai | CHI | 10 | — | free agent |
@@ -221,7 +227,7 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 35 | Ladd McConkey | LAC | 7 | — | **WAIVER** (clears next run) |
+| 60 | Mike Evans | SF | 8 | Questionable | **WAIVER** (dropped; game-locked until Wed run) |
 | 61 | Carnell Tate | TEN | 9 | — | free agent |
 | 72 | Courtland Sutton | DEN | 10 | — | free agent |
 | 73 | Marvin Harrison | ARI | 14 | — | free agent |
@@ -234,12 +240,12 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 64 | Tucker Kraft | GB | 11 | — | free agent |
-| 68 | Kyle Pitts | ATL | 11 | — | free agent |
+| 64 | Tucker Kraft | GB | 11 | — | **WAIVER** (game started; clears Wed run) |
+| 68 | Kyle Pitts | ATL | 11 | — | **WAIVER** (game started; clears Wed run) |
 | 80 | George Kittle | SF | 8 | — | free agent |
-| 83 | Oronde Gadsden | LAC | 7 | — | **WAIVER** (clears next run) |
+| 83 | Oronde Gadsden | LAC | 7 | — | free agent |
 | 92 | Hunter Henry | NE | 11 | — | free agent |
-| 94 | Dallas Goedert | PHI | 10 | Doubtful | **WAIVER** (clears next run) |
+| 94 | Dallas Goedert | PHI | 10 | Doubtful | free agent |
 | 96 | Mark Andrews | BAL | 13 | — | free agent |
 | 98 | Dalton Schultz | HOU | 8 | — | free agent |
 
@@ -247,8 +253,8 @@ Everything not on a roster, by Sleeper `search_rank` (lower = better). Rank lags
 
 | Rank | Player | Team | Bye | Injury | How to get |
 |---|---|---|---|---|---|
-| 124 | Jason Myers | SEA | 11 | — | **WAIVER** (clears next run) |
-| 127 | Ka'imi Fairbairn | HOU | 8 | — | **WAIVER** (clears next run) |
+| 124 | Jason Myers | SEA | 11 | — | free agent |
+| 127 | Ka'imi Fairbairn | HOU | 8 | — | free agent |
 | 150 | Tyler Loop | BAL | 13 | — | free agent |
 | 154 | Harrison Mevis | LAR | 11 | — | free agent |
 | 155 | Harrison Butker | KC | 5 | — | free agent |

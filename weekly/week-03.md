@@ -92,11 +92,15 @@ None this week or next — no byes until Week 5 (1 player), Week 6 (1), Week 7 (
 
 **Dormant count unchanged: 3 of 5.** Nobody new woke up.
 
+**Update 09-26 (fact): stalbot8 woke up** — added Brock Purdy (QB-SF), dropped
+Rico Dowdle. First move all season, and he is my Week 3 opponent; likely a fix
+for his Doubtful starting QB. Dormant count is now **2 of 5**.
+
 **Opponents leaking points (fact):** HntrRundas has an empty DEF slot this week
 (same mistake as mine — MIN DEF is not in the lineup). ajolson77 is still
 starting A.J. Brown, who is on IR, for the third straight week. My opponent
-stalbot8 is starting Caleb Williams at QB — Doubtful (hamstring), 3rd on the
-depth chart.
+stalbot8 *was* starting Caleb Williams (Doubtful, 3rd on the depth chart); as of
+09-26 he has swapped in Brock Purdy, so that hole is closed.
 
 **Trades league-wide: 0.**
 
@@ -193,10 +197,10 @@ empty slot twice.
 - [x] **+Ladd McConkey / −Mike Evans** — done 09-26 as an instant `free_agent`
       add, not a waiver claim. Waiver position unchanged (6th).
 
-      **Report bug:** `week-03-report.md` §7 tagged McConkey `WAIVER (clears next
-      run)`. Wrong: TuR7L3z dropped him *inside* the 09-23 waiver run, and a
-      player dropped by a processed waiver claim seems to go straight to free
-      agency. The script's WAIVER tag needs to exclude drops that are part of a
-      waiver-type transaction. (One example so far; treat as likely, not proven.)
+      **Report bug (fixed 09-26):** the report tagged McConkey `WAIVER`. It
+      used the wrong model — Sleeper holds a drop for 47 hours, not until the
+      next weekly run, and McConkey's timer had expired. The script now models
+      the 47-hour drop timer and the game-kickoff lock; see
+      `docs/api-notes.md`.
 - [ ] Watch Daniels's elbow news; decide QB surplus once his timeline is known
 - [ ] When Bowers is cleared, start him over Warren

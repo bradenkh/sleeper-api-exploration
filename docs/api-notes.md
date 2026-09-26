@@ -97,75 +97,64 @@ The highest-value weekly check is: for every starter, look at `injury_status`
 `player_id` is the team abbreviation (`"HOU"`), `position` is `DEF`, and
 `search_rank` is usually absent. Filter them separately when ranking.
 
-### "Unowned" splits into two very different states
+### When a player is an instant add vs. a waiver claim
 
-An unrostered player is either an **instant-add free agent** or a **waiver
-claim**, and the API does not label which. The difference is whether anyone has
-recently dropped them.
+**Revised 2026-09-26.** The earlier model here ("a drop stays on waivers until
+the next weekly run", plus an unexplained "waiver window") was wrong in one
+case and incomplete in the other. The API still does not label waiver status,
+but two documented Sleeper rules explain every transaction in the log.
 
-| State | How it arises | How to get them |
+**Rule 1 — drop timer.** A dropped player is on waivers for
+`waiver_clear_days` (this league: 2 → Sleeper holds him **47 hours**). Pending
+claims process when the timer expires, not at the weekly run.
+
+**Rule 2 — game lock.** When a player's NFL game kicks off, every unrostered
+player on that team locks onto waivers **until the weekly run**, even if
+nobody ever rostered him. The weekly run is Wednesday ~07:11 UTC (≈ 12:10 a.m.
+PT / 3:10 a.m. ET). After it, everyone unclaimed becomes a free agent.
+
+A player is a **free agent (instant add)** only if neither rule applies: not
+dropped in the last 47 h, **and** his team has not kicked off since the last
+Wednesday run.
+
+| Evidence | What happened | Rule |
 |---|---|---|
-| Free agent | never rostered, **or** dropped before the last waiver run | instant add |
-| On waivers | dropped **since** the last waiver run | claim, resolves at the next run |
+| Cam Little | dropped Mon 09-07 01:01 UTC, claimed Wed 09-09 **00:11** — 47h10m later, 7 h *before* any weekly-run slot | 1 |
+| Oronde Gadsden | never rostered, instant add Tue 09-08 (no games played yet) | neither |
+| Tyler Warren | dropped Sun 09-13 04:13; IND played that day → held until Wed 09-16 07:12 run | 1 then 2 |
+| Everything, Tue 09-15 | every unowned player showed as a claim — all 32 teams had played | 2 |
+| Kelce, McLaughlin, P. Washington | instant adds Wed 09-23 ~10:10 UTC, 3 h after the run | cleared by run |
+| Ladd McConkey | dropped at the 09-23 07:11 run; instant add Sat 09-26 (79 h later, LAC not yet played) | 1 expired |
 
-**Waivers clear on the league's weekly run day, not N days after the drop.**
-`waiver_clear_days: 2` reads like a rolling 2-day timer. It is not one. A player
-dropped at any point after a run stays on waivers until the *next* run, whether
-that is six days later or six hours.
+The last row disproves the old model, which predicted McConkey would stay on
+waivers until 09-30.
 
-Verified twice: the Cam Little claim was submitted Tue 09-08 and processed
-**Wed 09-09**; Tyler Warren, dropped Sun 09-13, showed in-app as waivers through
-**Wed 09-16**. A rolling-2-day model predicted Warren would clear on 09-15 and
-was wrong.
+Sources: Sleeper support — [Waivers for Regular Season & Playoffs](https://support.sleeper.com/en/articles/3978868-waivers-for-regular-season-playoffs)
+("once their game starts, they lock and move to waivers"; "2 Days … 47 hours")
+and [After Game Waivers](https://support.sleeper.com/en/articles/3242468-after-game-waivers-custom-daily-waivers).
 
-`waiver_day_of_week` is 0=Monday..6=Sunday; this league stores `2` and runs
-early Wednesday UTC. `_last_waiver_run_ms()` in `scripts/fantasy_report.py`
-implements this — anyone dropped after that timestamp is still on waivers.
+**Weekly rhythm this produces:**
 
-Confirmed empirically on 2026-09-08:
-
-- **Oronde Gadsden** — never rostered — posted as `free_agent` / `complete`
-  immediately, no waiver period, no bid.
-- **Cam Little** and **Drake Maye** — both dropped by TuR7L3z on 2026-09-07 —
-  are waiver claims, not instant adds, despite showing up as "unowned".
-
-**How to tell them apart:** scan `/transactions/{week}` for the player in
-`drops`. A recent drop means they're in the waiver period. There is no field on
-the player object for this.
-
-`fantasy_report.py` §7 now labels each unowned player `free agent` or
-**`WAIVER`**, reconstructing the waiver state from recent `drops` in the
-transaction log. Kickers are included there too, since a bye-week swap at K is a
-common cheap upgrade.
-
-### …but during the waiver window, everything is a claim
-
-The free-agent / waiver split above describes *who has been dropped recently*. It
-is not the whole rule. Observed 2026-09-15 (a Tuesday): **Drake Maye, who had
-cleared the 09-09 run and should have been an instant add by that logic, showed
-in-app as a waiver claim.** So did every other unowned player.
-
-Working model, stated as the observation rather than a mechanism (Sleeper's exact
-trigger is not visible in the API):
-
-| When | The wire behaves as |
+| When | Instant adds available |
 |---|---|
-| Between runs (e.g. Wed after processing → Mon) | free agency — instant adds |
-| During the waiver window (~Tue → Wed run) | everything is a claim |
+| Wed ~3 a.m. ET run → Thursday kickoff | **everyone** (except 47-h drops) |
+| Thu night → Sunday | only players whose team has **not** played yet |
+| Sunday games → Mon night | only Monday-night teams, until they kick off |
+| Tue → Wed run | **nobody** — every unowned player is a claim |
 
-Supporting data point: Oronde Gadsden was added as `free_agent` / `complete`
-instantly at 09-08 01:30 UTC (Monday evening ET), while on Tuesday 09-15 nothing
-could be added instantly.
+Practical consequences:
 
-**Practical rule:** during the waiver window, assume every add is a claim. For an
-instant add, act after the run processes. `fantasy_report.py` §7's `WAIVER` tag
-identifies recently-dropped players specifically — it does **not** model this
-window, so treat "free agent" there as "not recently dropped", not as a promise
-that the player can be grabbed this second.
+- The best time to add anyone is **Wednesday morning** after the run.
+- A Sunday-morning injury fix works for any player on a Sunday/Monday team who
+  was not dropped in the last 47 hours.
+- Dropping a player whose game has not started puts him on a 47-hour timer;
+  if his game kicks off inside it, he is locked until Wednesday.
+- Sleeper's 24-hour rule: a free-agent add cannot be dropped for 24 hours.
 
-Practical consequence: a Sunday-morning injury fix works only outside the waiver
-window, and only for never-rostered players. Insurance behind a Questionable
-starter is still worth a bench spot.
+`fantasy_report.py` §7 implements both rules in `waiver_status()`. Kickoff
+*times* are not in the schedule endpoint, only dates and `status`, so "started"
+means `status != pre_game` — correct once a game is under way, but a label on
+game day morning should be read as "free agent until kickoff".
 
 ### Pending waiver claims are not exposed by the API
 

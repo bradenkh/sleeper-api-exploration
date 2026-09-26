@@ -136,24 +136,93 @@ def audit_starter(players, byes, pid, week):
 
 def _last_waiver_run_ms(lsettings, now=None):
     """
-    Epoch ms of the most recent weekly waiver run. Anyone dropped after this is
-    still on waivers; anyone dropped before it has cleared to free agency.
+    Epoch ms of the most recent weekly waiver run.
 
-    Sleeper's `waiver_day_of_week` is 0=Monday..6=Sunday. This league stores 2,
-    and runs observed in the transaction log land early Wednesday UTC, so the
-    value maps to Wednesday and is used directly as a Python weekday().
+    Sleeper's `waiver_day_of_week` is 0=Monday..6=Sunday. This league stores 2
+    and its weekly runs land Wednesday ~07:11 UTC (00:11 PT) in the transaction
+    log (09-16, 09-23), matching Sleeper's documented "Tue After Day" setting,
+    which processes at ~12:05 a.m. PT Wednesday.
     """
-    now = now or dt.datetime.now()
+    now = now or dt.datetime.now(dt.timezone.utc)
     run_dow = lsettings.get("waiver_day_of_week")
     if run_dow is None:
         run_dow = 2
     days_since = (now.weekday() - run_dow) % 7
-    run_day = (now - dt.timedelta(days=days_since)).replace(
-        hour=0, minute=0, second=0, microsecond=0
+    run = (now - dt.timedelta(days=days_since)).replace(
+        hour=7, minute=0, second=0, microsecond=0
     )
-    if run_day > now:  # run day is later today; use last week's
-        run_day -= dt.timedelta(days=7)
-    return run_day.timestamp() * 1000
+    if run > now:  # run is later today; use last week's
+        run -= dt.timedelta(days=7)
+    return run.timestamp() * 1000
+
+
+def waiver_status(lsettings, week, rostered, now=None):
+    """
+    Unrostered player_id -> reason string, for every player who currently needs
+    a waiver claim. Anyone not in the result is an instant free-agent add.
+
+    Two independent triggers put a player on waivers (docs/api-notes.md):
+
+    1. DROP TIMER. A dropped player sits on waivers for `waiver_clear_days`
+       (Sleeper: 2 days = 47 hours), and pending claims process when it expires.
+       Cam Little, dropped 09-07 01:01 UTC, was claimed 09-09 00:11 -- 47h later,
+       not at a weekly run. Ladd McConkey, dropped 09-23 07:11, was an instant
+       add on 09-26.
+    2. GAME LOCK. Once a player's NFL game kicks off, he locks onto waivers
+       until the next weekly run -- even if nobody ever rostered him. This is
+       why every unowned player was a claim on Tue 09-15, and why Tyler Warren
+       (dropped 09-13, IND played that day) stayed on waivers until 09-16.
+    """
+    now = now or dt.datetime.now(dt.timezone.utc)
+    now_ms = now.timestamp() * 1000
+    last_run_ms = _last_waiver_run_ms(lsettings, now)
+    last_run_date = dt.datetime.fromtimestamp(last_run_ms / 1000, dt.timezone.utc).date()
+    hold_ms = (lsettings.get("waiver_clear_days") or 2) * 24 * 3600 * 1000 - 3600 * 1000
+
+    out = {}
+
+    # Game lock: a team whose game has started since the last weekly run. The
+    # schedule gives dates and a status, not kickoff times, so "started" means
+    # status is no longer pre_game. Check this week and last week in case the
+    # NFL week has rolled over before the Wednesday run.
+    locked = set()
+    game_date = {}  # team -> date of this week's game, for drops that will lock
+    try:
+        sched = get(f"/schedule/nfl/regular/{SEASON}")
+    except Exception:
+        sched = []
+    for g in sched:
+        if g.get("week") not in (week, week - 1):
+            continue
+        try:
+            gdate = dt.date.fromisoformat(g.get("date", ""))
+        except ValueError:
+            continue
+        if g.get("week") == week:
+            game_date[g["home"]] = game_date[g["away"]] = gdate
+        if g.get("status") == "pre_game":
+            continue
+        if gdate >= last_run_date:
+            locked.update((g["home"], g["away"]))
+
+    # Drop timer, reconstructed from the transaction log.
+    for wk in range(max(0, week - 1), week + 2):
+        try:
+            txs = get(f"/v1/league/{LEAGUE_ID}/transactions/{wk}")
+        except Exception:
+            continue
+        for t in txs:
+            if t.get("status") != "complete":
+                continue
+            when = t.get("status_updated", 0)
+            if now_ms - when >= hold_ms:
+                continue
+            clears = dt.datetime.fromtimestamp((when + hold_ms) / 1000, dt.timezone.utc)
+            for pid in (t.get("drops") or {}):
+                if pid not in rostered:
+                    out[pid] = clears
+
+    return out, locked, game_date
 
 
 # A starter who is on bye, ruled out, or missing entirely cannot score. That is
@@ -418,43 +487,20 @@ def main():
       "Rank lags real-world news and is listed as raw data, not a ranking "
       "endorsement — see docs/api-notes.md.")
     w("")
-    w("**How to get them** differs and the API does not say which is which: a "
-      "player nobody has rostered is an instant add, but one another manager "
-      "recently *dropped* sits in the waiver period and needs a waiver claim "
-      "(which costs waiver position, not money, in this league). The "
-      "`WAIVER` tag marks players dropped since the last weekly waiver run, "
-      "so they clear at the next one — they cannot be grabbed on the spot.")
+    w("**How to get them** is reconstructed, not reported by the API. A player "
+      "is on `WAIVER` (claim needed, costs waiver position) if he was dropped "
+      "in the last ~47 hours, or if his NFL game has kicked off since the last "
+      "Wednesday run. Otherwise he is a `free agent` — an instant add, but only "
+      "until his game kicks off. See docs/api-notes.md.")
     w("")
 
     rostered = set()
     for r in rosters:
         rostered.update(r.get("players") or [])
 
-    # Recently-dropped players are on waivers, not instantly addable. There is no
-    # field for this, so reconstruct it from the transaction log.
-    #
-    # NOT a rolling `waiver_clear_days` window from the drop -- that model was
-    # wrong and mispredicted Tyler Warren. Sleeper clears waivers on the league's
-    # weekly RUN DAY: a player dropped any time after one run stays on waivers
-    # until the next one, whether that is six days later or six hours.
-    # Verified: the Cam Little claim was submitted Tue 09-08 and processed
-    # Wed 09-09; Warren, dropped Sun 09-13, showed as waivers until Wed 09-16.
-    cutoff_ms = _last_waiver_run_ms(lsettings)
-    on_waivers = {}
-    for wk in range(0, week + 1):
-        try:
-            txs = get(f"/v1/league/{LEAGUE_ID}/transactions/{wk}")
-        except Exception:
-            continue
-        for t in txs:
-            if t.get("status") != "complete":
-                continue
-            when = t.get("status_updated", 0)
-            if when < cutoff_ms:
-                continue
-            for pid in (t.get("drops") or {}):
-                if pid not in rostered:
-                    on_waivers[pid] = when
+    # Waiver state is not a field on the player; reconstruct it. See
+    # waiver_status() for the two triggers (drop timer, game lock).
+    on_waivers, locked_teams, game_date = waiver_status(lsettings, week, rostered)
 
     avail = defaultdict(list)
     for pid, p in players.items():
@@ -482,7 +528,19 @@ def main():
         w("|---|---|---|---|---|---|")
         for rank, pid, p in top:
             t = p.get("team")
-            how = "**WAIVER** (clears next run)" if pid in on_waivers else "free agent"
+            if pid in on_waivers:
+                clears = on_waivers[pid]
+                gd = game_date.get(t)
+                if t in locked_teams or (gd and gd <= clears.date()):
+                    # His game kicks off before the drop timer runs out, so the
+                    # game lock takes over and holds him until the Wed run.
+                    how = "**WAIVER** (dropped; game-locked until Wed run)"
+                else:
+                    how = f"**WAIVER** (dropped; clears ~{clears:%a %m-%d %H:%M} UTC)"
+            elif t in locked_teams:
+                how = "**WAIVER** (game started; clears Wed run)"
+            else:
+                how = "free agent"
             w(f"| {rank} | {pname(players, pid)} | {t} | {byes.get(t) or '—'} "
               f"| {p.get('injury_status') or '—'} | {how} |")
         w("")
