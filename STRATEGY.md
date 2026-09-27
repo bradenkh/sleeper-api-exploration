@@ -1,16 +1,47 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-26 (2-0; streaming timing
-revised after waiver research, §4.3 rules 2 and 5)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-27 (objective set:
+this season only, §0; keeper section retired, §6)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
 
 ---
 
+## 0. Objective — win THIS season. Next year does not exist.
+
+**Decided 2026-09-27.** Next season will be a brand-new league with everything
+reset, so the keeper setting in this league is irrelevant. Every decision is
+judged on one question: **does it raise my chance of winning the 2026
+championship?**
+
+What that means in practice:
+
+- **Zero weight on future value.** Age, "upside", and keeper potential are not
+  tiebreakers. A 33-year-old producing now beats a 24-year-old who might
+  produce later.
+- **Win games, not points.** Record sets seeding; points only break ties. The
+  regular-season target is a **top-2 seed** (first-round bye = two playoff wins
+  to the title instead of three). See `docs/league-reference.md`.
+- **The playoffs are Weeks 15–17 and single elimination.** Any trade or pickup
+  late in the season should be judged mainly on Weeks 16–17 (15 too if I lose
+  the bye). No NFL byes then, so it is purely about health and matchups.
+- **Spend everything by the end.** Bench depth, trade chips, and waiver
+  position have no value after Week 17. Once a top-2 seed is locked or lost,
+  trade future depth for playoff-week starters without hesitation (deadline
+  Week 11).
+- **Injured players are judged on return date vs. Week 15**, not on
+  long-term talent. Someone back by Week 15 has playoff value; someone out
+  through Week 17 is only worth his regular-season games.
+
+Recommendations made before this date that leaned on keeper or age reasoning
+are flagged where they appear (see §6).
+
+---
+
 ## 1. The situation in one paragraph
 
-This is a 6-team keeper league that **autodrafted** — all 90 picks went in
+This is a 6-team league (keeper setting irrelevant — see §0) that **autodrafted** — all 90 picks went in
 2 minutes 51 seconds on a 10-second timer, so nobody actually chose their team.
 The bot happened to hand me a coherent, running-back-heavy roster while handing
 other managers genuinely broken ones. Three of my five opponents still have not
@@ -343,12 +374,15 @@ tilt my way on bye math.
 
 ---
 
-## 6. Keeper consideration (end of season)
+## 6. Keeper consideration — RETIRED 2026-09-27
 
-One keeper allowed, costing draft capital next year (`draft_rounds: 3`). Not
-urgent, but worth tracking: if a late-round pick or waiver claim breaks out,
-that's the keeper — high production at a cheap draft cost. Note candidates in
-the weekly logs as they emerge rather than trying to decide in December.
+Not applicable: next season is a new league (§0). Two earlier calls used keeper
+or age reasoning and are re-checked on this-season grounds only:
+
+| Call | Keeper reasoning used | This-season verdict |
+|---|---|---|
+| Hold Jayden Daniels (dislocated elbow) | "keeper candidate", age 25 | **Still hold.** Likely back ~Week 7 (same injury cost 4 games in 2025), well before the playoffs, and he outranks Mahomes (20 vs 39). Revisit if his timeline slips toward Week 15. |
+| Drop Mike Evans over Rome Odunze (09-26) | Odunze 24 vs Evans 33 | **Weaker than stated.** Evans had outscored Odunze 25.3 to 14.5. On this-season grounds it was close to a coin flip. Done; not worth reversing (Evans is game-locked on waivers until the Wed run, and both are WR5-level). |
 
 ---
 
