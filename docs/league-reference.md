@@ -16,12 +16,14 @@ Everything here was derived from the Sleeper API on 2026-09-08 (pre-Week 1).
 | **IR / reserve slots** | **0** — injured players occupy real roster spots |
 | Taxi slots | 0 |
 | Waiver type | **Rolling priority (`waiver_type: 0`) — NOT FAAB.** `waiver_budget: 100` appears in settings but is inert; no bids are used. Winning a claim drops you to last. |
-| Waiver processing | `waiver_day_of_week: 2`, 2-day clear. Check the claim screen for the exact run time. |
+| Waiver processing | Weekly run Wed ~07:10 UTC; drops held 47 h; unowned players lock at their game's kickoff. See `docs/api-notes.md`. |
 | Waiver order | Rolling. Snapshot 09-08: ajolson77 1, brdnhnsn 2, sworthy92 3, HntrRundas 4, stalbot8 5, TuR7L3z 6. After brdnhnsn won the Cam Little claim on 09-09 he fell to 6th. |
 | **Trade deadline** | **Week 11** |
 | Trade review | 2 days |
 | **Playoffs start** | **Week 15** |
 | Playoff teams | **6 of 6 — everyone qualifies; standings set seeding only** |
+| Playoff bracket | From `/winners_bracket`: single elimination, one week per round. **Wk 15:** 3v6, 4v5. **Wk 16:** 1 and 2 (first-round byes) vs the winners. **Wk 17:** championship. |
+| Seeding | By W-L record; points-for breaks ties (`playoff_seed_type: 0`, Sleeper default). No bonus win vs. league median (`league_average_match: 0`). Top-2 seed = bye. |
 | Keepers | 1 max, costs 3 draft rounds next season |
 | Draft | 15-round snake, completed 2026-09-06 |
 
