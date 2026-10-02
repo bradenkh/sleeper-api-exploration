@@ -101,17 +101,35 @@ dormant manager can't fix that, which helps my seeding odds.
 
 ## 4. Waiver wire / roster spots
 
-No add is needed for Week 4. The Etienne spot question (judgment):
+**Braden's decision (10-02): drop Etienne.** He's on IR through Week 8 and
+there's no IR slot. That overrides my "keep" lean, which is fine: it was a
+judgment call about Week 13 depth, and a fill-in can be added then.
 
-- **Keep Etienne for now.** Under the season-only objective (STRATEGY §0) he's
-  back by Week 9, which is in time for the Week 13 crunch (Taylor, Henry, Hall,
-  Warren and Bowers are all on bye) and for the playoffs. Rank 34 when healthy
-  beats anything on the wire.
-- **If a spot is needed, Rome Odunze goes first.** He projects 8.2. His job was
-  Week 11 WR depth, and a fill-in can be added in Week 10.
-- **Week 5 is when a spot may be needed:** Mahomes is on bye (KC, Week 5). If
-  Daniels isn't cleared by Wednesday, add a QB as a free agent Wednesday morning
-  (Drake Maye, rank 10, still unowned) and drop Odunze.
+**Recommended replacement: Drake Maye (QB-NE), instant free-agent add.**
+Sleeper projections, league scoring:
+
+| Week | Maye | Mahomes | J. Daniels |
+|---|---|---|---|
+| 4 | 18.6 | **21.2** | out |
+| 5 | **20.3** | bye | ~15–17 (if back) |
+| 6 | **23.9** | 18.0 | ~14–16 |
+| 7 | **21.4** | 16.3 | bye |
+| 8 | **24.9** | 17.2 | ~14 |
+
+- Covers Week 5 (Mahomes on bye, Daniels not yet cleared) without waiting
+  until Wednesday.
+- Projects 4–8 points a week above either QB I have. Gaps that size are the
+  kind the backtest says to trust; search_rank agrees (Maye 10, Daniels 20,
+  Mahomes 39).
+- Must add before NE @ BUF kicks off Sunday, or he game-locks until the
+  Wednesday run.
+- **Start Mahomes in Week 4** (21.2 vs 18.6). From Week 5, Maye is the starter.
+
+Runner-up if he prefers a RB: Rhamondre Stevenson (NE), a steady ~13/week,
+bye 11. Jaylen Warren projects better but is game-locked (PIT played Thursday).
+
+**Follow-up:** three QBs is one too many once Daniels returns. Around Week 5–6,
+trade Daniels or Mahomes for RB help (deadline Week 11), or drop one for a RB.
 
 ---
 
@@ -136,10 +154,11 @@ Hall's.
 ### Actions — before Sunday 10-04
 
 - [ ] **Move Brock Bowers into the FLEX slot, bench Breece Hall** (Out)
+- [ ] **Drop Travis Etienne, add Drake Maye** (before Sunday kickoff); keep Mahomes starting this week
 - [ ] Re-run `scripts/fantasy_report.py` — "Cannot play" should read 0
 - [ ] Sunday morning: if McConkey is ruled out, nothing changes (he's on the bench)
 
 ### Actions — Wednesday 10-07 (after the waiver run)
 
-- [ ] Daniels cleared? → start him in Week 5. Not cleared? → add Drake Maye (free agent), drop Odunze
+- [ ] Week 5 QB: Maye (if added). Decide which of Daniels/Mahomes to shop.
 - [ ] Hall status for Week 5; Bowers stays in FLEX if Hall is out
