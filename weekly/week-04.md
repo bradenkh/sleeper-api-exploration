@@ -128,7 +128,20 @@ Sleeper projections, league scoring:
 Runner-up if he prefers a RB: Rhamondre Stevenson (NE), a steady ~13/week,
 bye 11. Jaylen Warren projects better but is game-locked (PIT played Thursday).
 
-**Follow-up:** three QBs is one too many once Daniels returns. Around Week 5–6,
+**Revised 10-03 — drop Daniels, not Etienne, for Maye (Braden raised it; I
+agree).** Daniels projects *below* Maye every week (Wk 5: 16.6 vs 20.3) and is
+returning in a brace with an "adjustment period". His only remaining value is
+as a trade chip, and the one plausible buyer (HntrRundas, starting Tyler
+Shough) hasn't made a move since Week 2. Under the season-only objective,
+Etienne has more left to give: back Week 9, and he covers the Week 13 RB hole.
+Braden still prefers to cut Etienne too; if so, add Rhamondre Stevenson (RB).
+
+**Week 5 opponent: sworthy92 (3-0)**, the other unbeaten team, so this decides
+the top seed. As currently set he projects ~113 and starts Achane (IR) and
+Walker (KC bye). Jefferson is listed Out but projected 17, so ~96 if he sits.
+I project ~158 with Maye at QB.
+
+**Superseded:** three QBs is one too many once Daniels returns. Around Week 5–6,
 trade Daniels or Mahomes for RB help (deadline Week 11), or drop one for a RB.
 
 ---
