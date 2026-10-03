@@ -359,12 +359,17 @@ swap (his bye is Week 7, Mevis's was Week 11).
 Also the **trade deadline week**. A bad Week 11 score is a schedule artifact —
 do not let it panic a lopsided deadline trade.
 
-### Week 13 — 3 RBs out, and the hardest matchup
+### Week 13 — 5 starters out, vs stalbot8
 
-Taylor, Henry, and Hall all out, against stalbot8 — one of the league's two best
-rosters. Both required RB slots hit at once; Etienne and Love are the survivors,
-so a third startable RB is worth having by Week 12. Gadsden does cover TE that
-week. Still the likeliest loss on the schedule.
+Updated 2026-10-03. On bye: **Taylor, Henry, Hall (RB), Bowers and Warren (both
+TEs)**. Gadsden and Etienne, the old cover, are both gone. Survivors: Love at
+RB, nobody at TE. stalbot8 loses only Jeanty and BAL DEF that week.
+
+Needs by the **Week 12 waiver run** (a free-agent pickup on Wed of Week 13 also
+works, per §4.3 rule 2): **one TE and two RBs** to start alongside Love, or a
+trade before the Week 11 deadline that brings a RB with a non-13 bye. Don't
+pre-stock now (§4.3 rule 3). Still the likeliest loss on the schedule, but
+seeding matters more than any one game (§0).
 
 ### Where the schedule helps
 
