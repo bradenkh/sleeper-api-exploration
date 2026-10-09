@@ -94,7 +94,11 @@ timer, then game-locked until Wednesday, and Maye covers QB anyway.
 ### Actions — before Sunday 10-11
 
 - [x] Drop Etienne → add Maye; start Maye at QB — **done, verified 10-09**
-- [x] Drop Daniels → add Braelon Allen — **done**; ⚠️ Allen is on the bench and
-      Love (Questionable) is still starting. Swap them for +2.6 projected.
+- [x] Drop Daniels → add Braelon Allen — **done**; Allen starting at RB.
+      A mid-swap briefly left a FLEX slot **empty** (caught by re-pulling).
+      Final (10-09, from Braden's screenshot): **Warren in the second FLEX, Love
+      benched.** It's the safer pick: Warren locks at 1:00 PM, before Love's
+      4:25 PM inactive news, and the projection gap is only 1.7. Lineup
+      projects 153.8.
 - [x] Drop SEA DEF → add HOU DEF; start HOU — **done**
 - [ ] Re-run the report; "Cannot play" should read 0
