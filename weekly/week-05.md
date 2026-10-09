@@ -93,7 +93,8 @@ timer, then game-locked until Wednesday, and Maye covers QB anyway.
 
 ### Actions — before Sunday 10-11
 
-- [ ] Drop Etienne → add Maye; start Maye at QB
-- [ ] Drop Daniels → add Braelon Allen; start Allen in FLEX, bench Love
-- [ ] Drop SEA DEF → add HOU DEF; start HOU
+- [x] Drop Etienne → add Maye; start Maye at QB — **done, verified 10-09**
+- [x] Drop Daniels → add Braelon Allen — **done**; ⚠️ Allen is on the bench and
+      Love (Questionable) is still starting. Swap them for +2.6 projected.
+- [x] Drop SEA DEF → add HOU DEF; start HOU — **done**
 - [ ] Re-run the report; "Cannot play" should read 0
