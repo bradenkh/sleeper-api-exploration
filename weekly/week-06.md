@@ -43,3 +43,35 @@ League: TuR7L3z beat HntrRundas 169.10–150.64; stalbot8 beat ajolson77 94.46�
 
 Today is Tuesday: every unowned player is a waiver claim until the Wednesday
 ~3 a.m. ET run. **Make adds Wednesday morning as free agents.**
+
+---
+
+## 3. Saturday 10-17 — final moves
+
+**Status (API + news):** JSN already scored **25.4** Thursday (ankle fine).
+Breece Hall ruled Out again (third straight week; maybe Week 7). Love ruled Out
+(ankle; "no discussion of IR", hoped back Week 7). **Warren Questionable
+(groin)**: added Friday, limited, possibly a recurrence of an August injury.
+Allen leads the Jets backfield again.
+
+Projected as set: **155.8 vs TuR7L3z 142.9.**
+
+### Recommended (judgment) — all instant free-agent adds, Sunday teams
+
+| # | Drop | Add | Start | Gain |
+|---|---|---|---|---|
+| 1 | HOU DEF | **KC DEF** (vs LAC) | KC at DEF | +2.7, and removes the HOU-vs-Cam-Little collision |
+| 2 | Patrick Mahomes | **Tucker Kraft** (TE-GB, vs DAL) | Kraft in FLEX, Warren to bench | +1.8, and removes the Warren groin risk |
+
+Why Mahomes is the drop: he's a backup QB whose only scheduled job is Maye's
+Week 11 bye, and the free-agent QB pool is deep enough to stream that week.
+Kraft also has a job beyond this week: **his bye is Week 11, not 13, so he's a
+TE for the Week 13 crunch** (Bowers and Warren both out). Love and Hall stay:
+both are expected back around Week 7, and both are better than anything on the
+wire.
+
+After both moves: **~160 projected.**
+
+If he skips move 2: check Warren at ~11:30 a.m. ET Sunday (inactives come out
+90 min before the 1:00 kickoff). If he's out, put Odunze (9.8, also a 1:00 game)
+in the FLEX.
