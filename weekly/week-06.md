@@ -75,3 +75,8 @@ After both moves: **~160 projected.**
 If he skips move 2: check Warren at ~11:30 a.m. ET Sunday (inactives come out
 90 min before the 1:00 kickoff). If he's out, put Odunze (9.8, also a 1:00 game)
 in the FLEX.
+
+**Sunday 10:56 a.m. ET update:** none of the Saturday moves were made. HOU @ JAX
+(London game) is already under way, so **HOU DEF and Cam Little are locked**.
+Move 1 is dead. Move 2 (Mahomes → Kraft, Kraft in for Warren) is still possible
+until Warren's 1:00 kickoff; Kraft is still unowned and healthy.
