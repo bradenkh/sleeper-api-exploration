@@ -80,3 +80,5 @@ in the FLEX.
 (London game) is already under way, so **HOU DEF and Cam Little are locked**.
 Move 1 is dead. Move 2 (Mahomes → Kraft, Kraft in for Warren) is still possible
 until Warren's 1:00 kickoff; Kraft is still unowned and healthy.
+
+**Done ~11 a.m. ET:** Mahomes dropped → Tucker Kraft added and started in FLEX, Warren benched (confirmed by Braden; API lagging).
