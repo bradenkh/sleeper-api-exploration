@@ -82,3 +82,25 @@ Move 1 is dead. Move 2 (Mahomes → Kraft, Kraft in for Warren) is still possibl
 until Warren's 1:00 kickoff; Kraft is still unowned and healthy.
 
 **Done ~11 a.m. ET:** Mahomes dropped → Tucker Kraft added and started in FLEX, Warren benched (confirmed by Braden; API lagging).
+
+---
+
+## 4. Result — Week 6 (final): Win, a close one
+
+| | Score |
+|---|---|
+| Me | **130.60** |
+| TuR7L3z | 123.70 |
+
+Margin 6.9, my closest game of the season.
+
+- **The Kraft swap decided it.** Warren scored **0.0** on the bench (did not
+  play); Kraft scored 8.7 in his place. Without the swap, I lose 121.9–123.7.
+- **The missed DEF swap cost points.** HOU scored 1.0. KC DEF wasn't checked,
+  but it projected 9.0.
+- Weak spots: Henry 5.0, HOU 1.0. Good: JSN 25.4, Maye 23.8, Taylor 21.1.
+
+**Lesson:** do the week's moves the day they're recommended. The London game
+(9:30 a.m. ET) locks early.
+
+**Standings:** 6-0 · sworthy92 4-2 · HntrRundas 3-3 · stalbot8 3-3 · TuR7L3z 1-5 · ajolson77 1-5.
