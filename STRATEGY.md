@@ -1,7 +1,6 @@
 # 2026 Season Strategy — "The Boys"
 
-**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-09-27 (objective set:
-this season only, §0; keeper section retired, §6)
+**Manager:** brdnhnsn (roster 3) · **Last updated:** 2026-10-23 (mid-season review, §0.5)
 
 This is the living game plan. It gets revised when the situation actually
 changes, not every week. Week-by-week observations live in `weekly/`.
@@ -36,6 +35,54 @@ What that means in practice:
 
 Recommendations made before this date that leaned on keeper or age reasoning
 are flagged where they appear (see §6).
+
+---
+
+## 0.5 Mid-season review — 2026-10-23 (Week 7, 6-0)
+
+**Where it stands (fact):** 6-0, 959.66 PF (most in the league). sworthy92 4-2;
+HntrRundas and stalbot8 3-3. Eight regular-season games left (Weeks 7–14).
+
+**Seeding is close to settled (judgment).** To catch me for a top-2 seed, a 3-3
+team needs to gain three games in eight weeks *and* pass sworthy92. Going 4-4
+from here finishes 10-4, and they'd need 7-1 to tie. So **shift the target
+from "win every regular-season week" to "be strongest in Weeks 16–17"** (the
+two playoff games after the bye). A loss in the Week 11 or Week 13 bye
+crunch is now affordable; a weaker playoff lineup is not.
+
+**What's working:** weekly lineup audits (they caught Hall, Warren, two empty
+slots), free-agent streaming (Maye, Allen, HOU DEF, Kraft were all instant
+adds), and dropping dead roster spots fast. **What isn't:** moves done late.
+Week 6 lost the DEF swap to an early-locking London game. Rule: **make moves
+by Friday night.**
+
+**Bye crunches, re-checked with the current roster:**
+
+| Week | Out | Fill from roster | Gap |
+|---|---|---|---|
+| 11 | Maye, JSN, London, Kraft | WR: McConkey, Odunze. FLEX: Hall/Warren/Love | **QB only.** Stream a free agent that Wednesday. |
+| 13 | Taylor, Henry, Hall, Allen, Bowers, Warren | RB: Love. TE: Kraft. FLEX: McConkey, Odunze | **One RB.** Free agent that Wednesday. |
+
+Both are smaller than feared. Kraft (bye 11) closed the Week 13 TE hole.
+
+**Playoff lineup (Weeks 15–17, no byes):** QB Maye · RB Taylor, Henry · WR
+JSN, London · TE Bowers · FLEX two of Hall / Kraft / Warren / Love (~11–14 each)
+· K · DEF. **The weakest starters are the two FLEX slots.** That's the only
+place a trade adds real playoff points.
+
+**Trade idea (optional; deadline Week 11; no trades have happened in this league):**
+TuR7L3z (1-5, active) is WR-rich and RB-poor (Barkley hurt, Stevenson ~9/wk).
+**Offer Breece Hall for Parker Washington (WR-JAX, ~16.5/wk, bye already
+passed)** *after Hall is back and producing*, not while he's listed
+Questionable. That's +3/wk in a FLEX, and it removes a Week 13 bye. Fallback
+partner: HntrRundas (six WRs, weak TE Ferguson ~8.7): Warren for George
+Pickens is a smaller version.
+
+**Roster churn rules for the rest of the season:**
+- Braelon Allen goes once Hall plays a full game. Same bye (13), lower
+  ceiling.
+- Every bench spot must cover a named week (11, 13) or the playoff FLEX.
+- QB backup: none needed except Week 11. Stream it.
 
 ---
 
