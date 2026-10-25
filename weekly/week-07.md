@@ -42,3 +42,8 @@ Projected **~148 vs HntrRundas ~137** as set, with K at 0.
    he's out, leave Allen.
 
 After the K fix: **~156 projected.**
+
+**Sunday 10:37 a.m. ET update:** the K move wasn't made Friday. Still fixable:
+Reichard's IND @ MIN game is 1:00, still pre-game, and he's still a free agent.
+Hall is reported "unlikely" to play (Rapoport), so Allen stays at RB. Warren
+and Love are now listed Out; both are on the bench, so no impact.
