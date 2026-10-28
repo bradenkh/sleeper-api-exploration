@@ -47,3 +47,23 @@ After the K fix: **~156 projected.**
 Reichard's IND @ MIN game is 1:00, still pre-game, and he's still a free agent.
 Hall is reported "unlikely" to play (Rapoport), so Allen stays at RB. Warren
 and Love are now listed Out; both are on the bench, so no impact.
+
+---
+
+## 2. Result — Week 7 (final): Win
+
+| | Score |
+|---|---|
+| Me | **166.74** |
+| HntrRundas | 143.12 |
+
+- **Reichard swap made in time:** 12.0, against the guaranteed 0 from Cam Little (bye).
+  Without it: 154.74, still a win.
+- JSN 31.3, Maye 28.44, London 19.6, **Allen 19.4** (Hall sat, as reported), Taylor 19.0.
+- Weak: Henry 5.9 (second straight bad week: 5.0, 5.9), HOU DEF 3.0.
+
+**Standings:** 7-0 · sworthy92 4-3 · stalbot8 4-3 · HntrRundas 3-4 · TuR7L3z 2-5 · ajolson77 1-6.
+**Three games clear with seven to play.**
+
+**Week 8: vs stalbot8.** Known: **HOU DEF is on bye**, so stream a DEF. Re-check
+Hall, Love, Warren, McConkey (all on the bench, all hurt in Week 7).
