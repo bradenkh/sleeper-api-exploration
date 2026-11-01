@@ -36,7 +36,7 @@ to play; he was ruled out at the last minute in Week 7).
      a split Jets backfield. Not Hall himself: he's limited and returning from
      a five-week absence.
 
-Projected after the DEF fix: **~150**.
+Projected after the DEF fix: **~156**.
 
 ### Opponent
 
