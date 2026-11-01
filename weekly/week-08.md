@@ -44,3 +44,10 @@ stalbot8 is starting **four players on bye** (Purdy, Kittle, Woody Marks, Nico
 Collins), which projects 86.5. But he's active (seven moves this week) and has
 Lawrence, McBride, Higgins and Jaylen Warren on his bench. **If he fixes it,
 he projects ~156**, so this is not a guaranteed win. Do the moves.
+
+**Sportsmanship note (10-31):** Braden chose to tip off stalbot8 about his four
+bye-week starters. stalbot8's best lineup from his own bench, with no pickups:
+QB Lawrence · RB Jeanty, Chase Brown · WR Chase, Higgins · TE McBride · FLEX
+Jacobs (23.2, already played), Jaylen Warren · K Gay · DEF CIN = **~164
+projected**, vs my ~156. This makes him the projected favorite. Logged so the
+result can be read in context.
