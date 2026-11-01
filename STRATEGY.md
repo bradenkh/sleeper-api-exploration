@@ -70,6 +70,12 @@ JSN, London · TE Bowers · FLEX two of Hall / Kraft / Warren / Love (~11–14 e
 · K · DEF. **The weakest starters are the two FLEX slots.** That's the only
 place a trade adds real playoff points.
 
+**Playoff-week strength check (2026-10-31, Sleeper projections for Wks 15–17,
+each roster's best possible lineup):** TuR7L3z ~161 · me ~153 · stalbot8
+~155 · sworthy92 ~154 · HntrRundas ~146 · ajolson77 ~146. **I'm not the
+strongest playoff roster on paper; I'm mid-pack.** Projections that far out are
+rough, but this is the case for using the trade deadline to upgrade the FLEX.
+
 **Trade idea (optional; deadline Week 11; no trades have happened in this league):**
 TuR7L3z (1-5, active) is WR-rich and RB-poor (Barkley hurt, Stevenson ~9/wk).
 **Offer Breece Hall for Parker Washington (WR-JAX, ~16.5/wk, bye already
