@@ -39,3 +39,31 @@ Out in Week 11: **Maye, JSN, London, Kraft, LAR DEF.** Needs: **a QB and a DEF**
 (free agents, the Wednesday of Week 11). WR: Odunze + McConkey. FLEX: Hall/Warren.
 
 **Trade deadline is Week 11.** Last chance to upgrade the playoff FLEX.
+
+## Friday 11-13 check
+
+Lineup verified: **Hall at RB, Warren in FLEX**, all 10 starters active. Week 10 needs nothing more.
+
+### Trade proposal (judgment): send this weekend
+
+Target **HntrRundas**. Active, and **TE-desperate**: Ferguson is Out, and he just
+added Darren Waller (~8/wk). He has three RBs projecting ~16.7–16.9 for Weeks
+15–17 (Swift, Javonte Williams, James Cook).
+
+**Offer: Tyler Warren (TE) + Braelon Allen (RB) for James Cook (RB-BUF).**
+
+- Cook projects ~16.7 per playoff week, vs my current FLEX options at ~12–13
+  (McConkey 13.2, Kraft 12.4, Warren 11.6). About +4/week in the playoffs.
+- Cook's bye (Week 7) is already past. That also eases the Week 13 RB hole.
+- I keep Bowers + Kraft at TE. Allen is surplus now that Hall is back.
+- Fallback asks, in order: Javonte Williams (bye 14), D'Andre Swift (bye 10, past).
+- Cost: it strengthens a 5-4 team chasing the #2 seed. Acceptable at 8-1.
+
+**Timing:** trades have a **2-day review period** (`trade_review_days: 2`) and the
+deadline is Week 11, so send it now. Exactly when the Week 11 deadline closes
+is not confirmed in the API; check the app's league settings.
+
+### Wednesday 11-18 (after the waiver run)
+
+Week 11 byes: Maye, JSN, London, Kraft, LAR DEF. Add a free-agent QB and DEF,
+start Odunze + McConkey at WR.
