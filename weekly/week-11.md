@@ -106,3 +106,10 @@ move to FLEX/bench behind Cook.
   confirmed; stream K/DEF; set lineup **by Friday**.
 - **Wed 12-02:** Week 13: Taylor, Henry, Hall, Bowers, Warren on bye. Two
   free-agent RBs needed (fewer if a trade lands Cook/Swift).
+
+**Sequencing (11-20):** Sleeper has no way to rank pending offers; whichever is
+accepted first goes into review. So control priority by **timing**: Wave 1 now
+(#1 Cook, #3 Lawrence: no shared players), Wave 2 Sunday morning if nothing
+hit (#2, #4, #5, #6), Wave 3 Monday (#7, #8). Cancel lower offers by hand once
+one is accepted. Not verified: whether an accepted-but-in-review trade blocks
+other offers that use the same players.
