@@ -129,3 +129,17 @@ Sleeper makes them drop someone to accept. HntrRundas and stalbot8 have full IR
 slots, so they'd have to cut a player. That's friction that lowers the odds. **Make
 offers 2-for-2:** ask for their worst bench piece back too (a K/DEF or a scrub), so
 their roster count doesn't change. I'll have room once Maye/Love are on IR.
+
+**Title odds by trade outcome (11-20 sim, 200k runs, ±25/team/week; both rosters
+updated, so each trade also changes the partner's strength):**
+
+| Scenario | My playoff avg | Me title | TuR7L3z title | Reach final |
+|---|---|---|---|---|
+| No trades (Mahomes + Rice only) | 154.5 | 27% | 42% | 57% |
+| #1 Cook + #5 Burrow | 162.7 | 37% | 39% | 66% |
+| #1 Cook + #4 Higgins | 162.0 | 37% | 39% | 66% |
+| **#3 Lawrence + #6 Watson** | **162.7** | **40%** | **35%** | **67%** |
+
+Best combo = **#3 + #6**: it upgrades me *and* takes Watson from the favorite.
+They share no players, so both can land. **Wave 1 revised to #3 and #6**; #1 Cook
+moves to Wave 2.
