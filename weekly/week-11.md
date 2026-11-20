@@ -154,3 +154,11 @@ moves to Wave 2.
   that Kincaid is Questionable (thumb) and Evans Questionable (Achilles): two of
   his players are injured, and he gets two healthy players for one. Acceptable counter:
   Matthew Golden or Parker Washington instead of Watson.
+
+**Incoming offer (11-20, from HntrRundas): Cook for Jaxon Smith-Njigba.**
+Sim: title odds **28% → 22%**, playoff avg 154.5 → 148.8. JSN (23.9/wk) is my best
+player. **Recommend: COUNTER, don't accept.** Counter: **Kraft + Hall → Cook +
+Blake Corum**. Kraft instead of Warren keeps offer #6 (Warren + Odunze → Watson)
+alive, so Cook + Watson can both land. He's the only manager who has engaged at all, which
+is worth a fair offer. Status check: Mahomes added and Maye on IR ✅. Rice not yet
+added; Love not yet on IR.
