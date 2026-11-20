@@ -143,3 +143,14 @@ updated, so each trade also changes the partner's strength):**
 Best combo = **#3 + #6**: it upgrades me *and* takes Watson from the favorite.
 They share no players, so both can land. **Wave 1 revised to #3 and #6**; #1 Cook
 moves to Wave 2.
+
+**Wave 1 final terms (11-20):**
+- **#3 to stalbot8:** Hall + McConkey → **Trevor Lawrence + Woody Marks**. Filler
+  changed from Fairbairn: stalbot8's other kicker, Matt Gay, is Questionable (hip),
+  so taking Fairbairn would hurt him. Marks is Out (concussion); I can IR or drop him.
+  Acceptable counter: **Purdy** instead of Lawrence (21.8 vs 23.4).
+- **#6 to TuR7L3z:** Warren + Odunze → **Christian Watson + JAX DEF**. Honest
+  read: Warren (11.9) is barely above Fannin (11.3) on paper. The real pitch is
+  that Kincaid is Questionable (thumb) and Evans Questionable (Achilles): two of
+  his players are injured, and he gets two healthy players for one. Acceptable counter:
+  Matthew Golden or Parker Washington instead of Watson.
