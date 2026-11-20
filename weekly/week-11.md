@@ -59,3 +59,50 @@ Mahomes and Rice, and a per-team weekly spread of 22–28 points. Results:
 **TuR7L3z ~42% · me ~27% · stalbot8 ~16% · ajolson77 ~7% · HntrRundas ~5% ·
 sworthy92 ~2%.** I reach the final ~57% of the time. TuR7L3z (~162/wk) is
 the strongest playoff roster on paper; I'm ~155. Seeds 2–6 aren't final yet.
+
+---
+
+## Correction (11-20): the trade deadline has NOT passed
+
+Earlier today I said it had. Wrong. Sleeper closes trading **when the last game of
+the deadline week ends**, which is **Monday 11-23 (CIN @ WAS)**. Trades accepted
+before then still process through the 2-day review. Source: Sleeper support,
+"When is my trade deadline?"
+
+## Trade blitz (judgment): send all of these today
+
+Values are Sleeper's playoff-week (15–17) average projections. My give-pile is
+depth that won't start in the playoffs: Warren (11.9), Kraft (12.3), Hall (12.0),
+McConkey (11.7), Odunze (11.4). Every offer is 2-for-1, which frees a roster spot.
+
+| # | To | I give | I get | Their reason to say yes |
+|---|---|---|---|---|
+| 1 | HntrRundas | Warren + Hall | **James Cook** (RB, 18.1) | TE Ferguson Out, Waller ~8.8; RB depth |
+| 2 | HntrRundas | Kraft + Odunze | **D'Andre Swift** (RB, 16.7) | same TE need |
+| 3 | stalbot8 | Hall + McConkey | **Trevor Lawrence** (QB, 23.4) | he has 3 starting QBs (Lawrence, Purdy, Caleb Williams) |
+| 4 | stalbot8 | Odunze + McConkey | **Tee Higgins** (WR, 16.4) | depth while Jacobs/Adams are out |
+| 5 | TuR7L3z | Kraft + McConkey | **Joe Burrow** (QB, 22.9) | he starts Josh Allen; his TEs are 10–11/wk |
+| 6 | TuR7L3z | Warren + Odunze | **Christian Watson** (WR, 17.5) | TE upgrade |
+| 7 | sworthy92 (dormant) | Hall + Odunze | Bucky Irving (RB, 17.8) | long shot, never logs in |
+| 8 | ajolson77 (dormant) | Warren + McConkey | Zay Flowers (WR, 17.3) | long shot, never logs in |
+
+Players overlap across offers on purpose. Once one trade goes through, any other
+offer that includes the same player can no longer go through. (Expected: Sleeper
+cancels those. Not verified; if one lingers, cancel it.)
+Risk noted: #5–6 give a TE to TuR7L3z, the playoff favorite. Small upgrade for him.
+
+What the hits are worth: Cook/Swift/Higgins/Watson replace a ~12-pt FLEX (+4–6
+per playoff game). Lawrence/Burrow beat Mahomes by ~3. Henry (14.8) could also
+move to FLEX/bench behind Cook.
+
+## This week's checklist
+
+- **Fri 11-20 (today):** drop Allen → add Mahomes. Drop Love → add Rashee Rice.
+  Start both. Send offers 1–8.
+- **Sun 11-22:** nothing (Week 11 conceded).
+- **Mon 11-23 night:** trading closes after CIN @ WAS. Check responses; bring any
+  counteroffer to me before accepting.
+- **Wed 11-25:** Week 12 vs HntrRundas. Re-pull; drop Maye if the fracture is
+  confirmed; stream K/DEF; set lineup **by Friday**.
+- **Wed 12-02:** Week 13: Taylor, Henry, Hall, Bowers, Warren on bye. Two
+  free-agent RBs needed (fewer if a trade lands Cook/Swift).
