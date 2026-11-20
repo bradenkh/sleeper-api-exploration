@@ -104,7 +104,9 @@ The single highest-value check is **starters who cannot play** — the script's
 ## Standing facts worth not re-deriving
 
 - Lineup is **10 starters**: QB, RB, RB, WR, WR, TE, FLEX, FLEX, K, DEF + 5 bench = 15 total.
-- **No IR slot** (`reserve_slots: 0`), so injured players occupy real roster spots.
+- **3 IR slots** (`reserve_slots: 3`, changed mid-season from 0; noticed 2026-11-20). Players
+  listed Out, Doubtful, IR, NA or Suspended can be moved there, freeing a bench spot. Re-check
+  `settings.reserve_slots` rather than trusting this line.
 - Trade deadline: **Week 11**. Playoffs start **Week 15**. All 6 teams make playoffs.
 - **No byes in Weeks 1–4, 12, or 15–18** — the playoffs are bye-free.
 - The draft was a **full autodraft** (90 picks in 2m51s, 10-second pick timer).

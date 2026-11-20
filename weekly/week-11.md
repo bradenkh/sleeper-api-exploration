@@ -113,3 +113,19 @@ accepted first goes into review. So control priority by **timing**: Wave 1 now
 hit (#2, #4, #5, #6), Wave 3 Monday (#7, #8). Cancel lower offers by hand once
 one is accepted. Not verified: whether an accepted-but-in-review trade blocks
 other offers that use the same players.
+
+## Big find (11-20): the league now has 3 IR slots
+
+`reserve_slots` is **3** (it was 0 at the draft; the commissioner changed it).
+HntrRundas and stalbot8 each have 3 players on IR, TuR7L3z 1, ajolson77 1. **I've
+had 0 all along.** IR accepts Out/Doubtful/IR/NA/Suspended players.
+
+**Revised Friday moves:** move **Maye (Out)** and **Love (IR)** to IR slots. That
+opens two bench spots, so add **Mahomes and Rice without dropping anyone**. Allen
+stays as extra trade filler.
+
+**Trades and roster limits:** a 2-for-1 puts the other team at 16 active, so
+Sleeper makes them drop someone to accept. HntrRundas and stalbot8 have full IR
+slots, so they'd have to cut a player. That's friction that lowers the odds. **Make
+offers 2-for-2:** ask for their worst bench piece back too (a K/DEF or a scrub), so
+their roster count doesn't change. I'll have room once Maye/Love are on IR.
