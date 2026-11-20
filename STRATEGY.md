@@ -76,6 +76,13 @@ each roster's best possible lineup):** TuR7L3z ~161 · me ~153 · stalbot8
 strongest playoff roster on paper; I'm mid-pack.** Projections that far out are
 rough, but this is the case for using the trade deadline to upgrade the FLEX.
 
+**Playoff plan, revised 2026-11-20 (Maye likely out for the season; trade
+deadline passed, no trade made):** QB **Mahomes** (re-added as a free agent).
+RB Taylor, Henry. WR JSN, London. TE Bowers. FLEX **Rashee Rice** (free agent,
+~15/wk) + best of Hall / Kraft / McConkey. Stream K and DEF weekly. Week 13
+still needs RB fill-ins (Taylor, Henry, Hall all on bye): add two free-agent
+RBs that Wednesday.
+
 **Trade idea (optional; deadline Week 11; no trades have happened in this league):**
 TuR7L3z (1-5, active) is WR-rich and RB-poor (Barkley hurt, Stevenson ~9/wk).
 **Offer Breece Hall for Parker Washington (WR-JAX, ~16.5/wk, bye already

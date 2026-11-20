@@ -45,3 +45,9 @@ add a free-agent TE (Kelce, Kittle) before that player's kickoff.
 **After the moves: ~117 projected (incl. the 9.9 already scored) vs TuR7L3z
 ~144.** Probably a loss. At 9-1, four games clear with four to play, the
 top-2 seed is effectively secure, so this week doesn't decide anything.
+
+**Decision (Braden, 11-20):** don't chase Week 11; focus on the playoffs. Agreed,
+with one exception logged: the two adds that matter for the playoffs (Mahomes,
+Rice) should still be made now, while they're free agents. They cost nothing,
+and starting them this week is free. Everything else for Week 11 (DEF, Diggs,
+the Kelce stack) is skipped.
