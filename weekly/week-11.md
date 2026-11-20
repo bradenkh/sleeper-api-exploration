@@ -162,3 +162,19 @@ Blake Corum**. Kraft instead of Warren keeps offer #6 (Warren + Odunze → Watso
 alive, so Cook + Watson can both land. He's the only manager who has engaged at all, which
 is worth a fair offer. Status check: Mahomes added and Maye on IR ✅. Rice not yet
 added; Love not yet on IR.
+
+**Lawrence vs Cook (11-20 sim):** both originally used Hall, so they couldn't both land.
+
+| Outcome | Playoff avg | Title odds |
+|---|---|---|
+| Neither (Mahomes + Rice only) | 154.5 | 28% |
+| Lawrence (stalbot8, #3) | 157.4 | 33% |
+| Cook (counter Kraft + Hall) | 159.9 | 35% |
+| Lawrence + Watson | 162.7 | 42% |
+| **Lawrence + Cook via Kraft + Henry** | 160.5 | 37% |
+| **Lawrence + Cook via Kraft + Henry + Watson** | **166.0** | **46%** |
+
+Decision: let the stalbot8 trade go through. **Change the HntrRundas counter to
+Kraft + Derrick Henry → Cook + Corum.** No overlap with #3 (Hall, McConkey) or #6
+(Warren, Odunze), so all three can land. Henry is slumping (5.0, 5.9, 5.6 in
+recent weeks) but carries name value.
