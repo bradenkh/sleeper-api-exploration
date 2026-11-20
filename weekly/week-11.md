@@ -51,3 +51,11 @@ with one exception logged: the two adds that matter for the playoffs (Mahomes,
 Rice) should still be made now, while they're free agents. They cost nothing,
 and starting them this week is free. Everything else for Week 11 (DEF, Diggs,
 the Kelce stack) is skipped.
+
+**Championship odds (11-20, judgment, rough):** I simulated the current bracket
+200k times. Inputs: each team's best lineup averaged over Sleeper's Weeks 15–17
+projections (dormant teams use their current starters), my roster *with*
+Mahomes and Rice, and a per-team weekly spread of 22–28 points. Results:
+**TuR7L3z ~42% · me ~27% · stalbot8 ~16% · ajolson77 ~7% · HntrRundas ~5% ·
+sworthy92 ~2%.** I reach the final ~57% of the time. TuR7L3z (~162/wk) is
+the strongest playoff roster on paper; I'm ~155. Seeds 2–6 aren't final yet.
